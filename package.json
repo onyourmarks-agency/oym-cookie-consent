@@ -1,0 +1,15 @@
+{
+  "name": "tde-cookie-consent",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name":  "John van Hulsen",
+    "email": "john@tde.nl",
+    "url":   "https://www.tde.nl/"
+  },
+  "license": "MIT"
+}

@@ -2,14 +2,25 @@
   "name": "tde-cookie-consent",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-    "name":  "John van Hulsen",
+    "name": "John van Hulsen",
     "email": "john@tde.nl",
-    "url":   "https://www.tde.nl/"
+    "url": "https://www.tde.nl/"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "main": "dist/index.js",
+  "style": "style.scss",
+  "dependencies": {
+    "postscribe": "^2.0.8"
+  },
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "@babel/core": "^7.10.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2"
+  }
 }

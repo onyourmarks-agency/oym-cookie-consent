@@ -1,0 +1,26 @@
+$tdecc-breakpoint-sm: 480px;
+$tdecc-breakpoint-md: 640px;
+
+:root {
+  --tdecc-wrapper-bg: white;
+  --tdecc-base-font-size: 16px;
+  --tdecc-border-radius: 4px;
+  --tdecc-text-color: #333;
+  --tdecc-heading-color: #82B0A2;
+  --tdecc-button-background-color: #82B0A2;
+  --tdecc-button-text-color: white;
+  --tdecc-explanation-color: inherit;
+}
+
+// Overlay
+@import 'src/scss/body';
+@import 'src/scss/wrapper';
+@import 'src/scss/content';
+@import 'src/scss/buttons';
+@import 'src/scss/start';
+@import 'src/scss/manage';
+@import 'src/scss/manage-options';
+@import 'src/scss/explanation';
+
+// Notification
+@import 'src/scss/notification';

@@ -1,0 +1,27 @@
+.tdecc__start {
+  width: 100%;
+  max-width: var(--tdecc-content-max-width);
+  margin: auto;
+}
+
+.tdecc__start__title {
+  color: var(--tdecc-heading-color);
+  margin-bottom: 4px;
+  font-size: 1.5em;
+
+  @media screen and (min-width: $tdecc-breakpoint-md) {
+    font-size: 2em;
+  }
+}
+
+.tdecc__start__desc {
+  margin-bottom: 16px;
+}
+
+.tdecc__start__choices {
+  margin-bottom: 32px;
+
+  button {
+    margin-right: 8px;
+  }
+}

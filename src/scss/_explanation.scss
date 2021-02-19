@@ -1,0 +1,24 @@
+.tdecc__links {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: var(--tdecc-content-max-width);
+  color: var(--tdecc-explanation-color);
+  list-style: none;
+}
+
+.tdecc__links a {
+  color: var(--tdecc-explanation-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.tdecc__links svg {
+  margin-right: 8px;
+}

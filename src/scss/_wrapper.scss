@@ -1,0 +1,29 @@
+.tdecc {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(black, .5);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  .show-tdecc-overlay & {
+    display: flex;
+  }
+}
+
+.show-tdecc-overlay--bar .tdecc {
+  background: transparent;
+  top: auto;
+  max-height: 100vh;
+
+  @supports (background: -webkit-named-image(i)) {
+    max-height: -webkit-fill-available;
+  }
+}

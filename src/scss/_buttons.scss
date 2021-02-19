@@ -1,0 +1,50 @@
+.tdecc__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background-color: var(--tdecc-button-background-color);
+  color: var(--tdecc-button-text-color);
+  line-height: 1;
+  font-size: 1em;
+  cursor: pointer;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  border: 2px solid transparent;
+  transition: opacity .2s ease;
+  user-select: none;
+  box-sizing: border-box;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    opacity: .8;
+    background-color: var(--tdecc-button-background-color);
+    color: var(--tdecc-button-text-color);
+  }
+
+  svg {
+    fill: var(--tdecc-button-text-color);
+
+    &:first-child {
+      margin-right: 8px;
+    }
+
+    &:last-child {
+      margin-left: 8px;
+    }
+
+    &:first-child:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.tdecc__button--ghost {
+  &,
+  &:hover {
+    border: 2px solid var(--tdecc-button-background-color);
+    background: var(--tdecc-wrapper-bg);
+    color: var(--tdecc-button-background-color);
+  }
+}

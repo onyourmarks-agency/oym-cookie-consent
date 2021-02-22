@@ -134,7 +134,7 @@ Consent is one. You need to be modify your code to handle the consent and load s
 We listen to this tag on your code.
 ```es6
 const options = {
-    renderSelector: `'[data-tdecc-render]'`
+    renderSelector: '[data-tdecc-render]'
 };
 ```
 

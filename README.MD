@@ -1,8 +1,15 @@
+*Current version: 0.1.0*
+
 ## Install
-Todo
+You can install this module from the private GitHub repo. Add to your package.json the folling line:
+```html
+"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#0.1.0",
+```
+
+The `#0.1.0` is the release you select.
 
 ## Import
-You can import as a module:
+You can import the TDE Cookie Consent script as a module in your code.
 
 ```es6
 import tdeCookieConsent from 'tde-cookie-consent';
@@ -10,7 +17,7 @@ import tdeCookieConsent from 'tde-cookie-consent';
 
 ## Call
 
-You need to start with the init:
+Start with init:
 
 ```es6
 tdeCookieConsent.init(options);
@@ -55,7 +62,19 @@ const options = {
 };
 ```
 
+All possible options:
+* [consentOptions](#consentOptions)
+* [cookieName](#cookieName)
+* [exceptionUrls](#exceptionUrls)
+* [language](#language)
+* [manageable](#manageable)
+* [renderSelector](#renderSelector)
+* [style](#style)
+* [version](#version)
+
 ### consentOptions
+*Required when `manage: true`*
+
 You need to set some consentOptions. This is an array with objects for each item.
 Each item needs to have a `key`, a `title` and a `desc`.
 ```es6
@@ -78,9 +97,13 @@ Each option can be accept or declined by the visitor
 
 
 ### cookieName
+*Optional*
+
 The name of the cookie we set with preferences. By default: `'tdecc'`.
 
 ### exceptionUrls
+*Optional*
+
 When there is no consent given. The overlay will be showed. This array gives you the possibility to give some exceptionUrl's
 ```es6
 const options = {
@@ -93,6 +116,8 @@ const options = {
 ```
 
 ### explanationAnchors
+*Optional*
+
 You can give more information for the use of cookies and data of each visiter in this object.
 Be sure these pages are given in the exceptionUrls above.
 ```es6
@@ -111,18 +136,22 @@ const options = {
 ```
 
 ### language
+*Optional*
+
 ```es6
 const options = {
-    language: 'nl',
+    language: 'nl', // Default: nl
 ],
 ```
 
 See [Translations](#Translations)
 
 ### manageable
+*Optional*
+
 ```es6
 const options = {
-    manageable: true // Default true
+    manageable: true // Default: true
 };
 ```
 When you didn't have consentOptions. You can use this package to tell yourvisiters that cookies are being used.
@@ -130,6 +159,8 @@ The manage button are not rendered. No chooses can be made expect 'accept'.
 
 
 ### renderSelector
+*Optional*
+
 Consent is one. You need to be modify your code to handle the consent and load scripts only when consent is given.
 We listen to this tag on your code.
 ```es6
@@ -139,6 +170,8 @@ const options = {
 ```
 
 ### style
+*Optional*
+
 We have two different styles: `'popup'` and `'bar'`. By default bar will be setted
 ```es6
 const options = {
@@ -147,6 +180,8 @@ const options = {
 ```
 
 ### version
+*Optional*
+
 You can provice a versionnumber. When you change this number, a visitor with given consents will revisit the page. The cookie will be resetted, the overlay will be showed and the user needs to set new consent. 
 ```es6
 const options = {

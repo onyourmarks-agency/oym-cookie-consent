@@ -29,9 +29,6 @@ module.exports = {
             options: {
               babelrc: false,
               presets: babelPresets,
-              plugins: [
-                '@babel/plugin-syntax-dynamic-import'
-              ]
             },
           },
         ],
@@ -43,7 +40,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: 'index-build.js',
+    filename: 'index.js',
     library: 'tdecc',
     libraryTarget: 'umd',
   },

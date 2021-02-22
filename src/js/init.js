@@ -3,6 +3,7 @@ import { handleClickListnersPopup, handleClickListenersContent } from './service
 import { checkPermission, getCurrentPermissions } from './services/PermissionService';
 import { mergeConfig, mergeContent } from './services/ConfigService';
 import { getCookie } from './services/CookieService';
+import { dispatchChanged } from './services/EventService';
 import {
   renderTemplate, renderGivenPermissions, overlayShow, overlayHide, showManagerSection,
 } from './services/TemplateService';
@@ -52,6 +53,14 @@ const consent = () => ({
   },
 
   /**
+   * Things to do on update
+   */
+  update() {
+    handleClickListenersContent();
+    dispatchChanged();
+  },
+
+  /**
    * Start here
    * @param givenConfig
    */
@@ -98,9 +107,7 @@ const consent = () => ({
     window.tdecc.checkPermission = this.checkPermission;
     window.tdecc.show = this.show;
     window.tdecc.hide = this.hide;
-    window.tdecc.update = (() => {
-      handleClickListenersContent();
-    });
+    window.tdecc.update = this.update;
   },
 });
 

@@ -7,9 +7,7 @@ import notificationTemplate from '../templates/notification';
  * Give an unique ID
  * @returns {string}
  */
-const renderUniqueID = () => {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
-};
+const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
 
 /**
  * Append the notification after given element
@@ -59,7 +57,6 @@ const removeNotification = (item) => {
  */
 const renderSiteContent = (config) => {
   domQuerySelectorsWebsite(config).elements.forEach((item) => {
-
     if (!item.dataset.tdeccPermissions) {
       return;
     }
@@ -69,7 +66,6 @@ const renderSiteContent = (config) => {
     permissions = permissions.replace(/\s+/g, '');
 
     if (!checkPermission(permissions.split(','))) {
-
       // Render notification
       if (item.hasAttribute('data-tdecc-show-notification')) {
         appendNotification(item);

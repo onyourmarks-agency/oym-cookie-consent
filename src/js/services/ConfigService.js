@@ -59,8 +59,8 @@ const mergeContent = () => {
 };
 
 /**
- *
- * @returns {*|{renderSelector: string, explanationAnchors: [], exceptionUrls: [], language: string, style: string, version: string, cookieName: string, manageable: boolean}}
+ * Get the current config stored in window.tdecc.config or defaults if not valid
+ * @returns config
  */
 const getCurrentConfig = () => {
   try {

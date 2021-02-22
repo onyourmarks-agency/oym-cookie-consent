@@ -1,4 +1,5 @@
 import postscribe from 'postscribe';
+import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsWebsite } from './DOMService';
 import { checkPermission } from './PermissionService';
 import notificationTemplate from '../templates/notification';
@@ -53,9 +54,10 @@ const removeNotification = (item) => {
 
 /**
  * Render content on website when permission is given
- * @param config
  */
-const renderSiteContent = (config) => {
+const renderSiteContent = () => {
+  const config = getCurrentConfig();
+
   domQuerySelectorsWebsite(config).elements.forEach((item) => {
     if (!item.dataset.tdeccPermissions) {
       return;

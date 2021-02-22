@@ -188,7 +188,7 @@ htmlEntities('<script>alert("OK");</script>');
 Results:
 ```
 <script type="x-template" data-tdecc-render data-tdecc-permissions="personalisation">
-	{{ '<script>&lt;script&gt;alert(&quot;OK&quot;);&lt;/script&gt;</script>'|escape('html') }}
+	&lt;script&gt;alert(&quot;OK&quot;);&lt;/script&gt;
 </script>
 ````
 

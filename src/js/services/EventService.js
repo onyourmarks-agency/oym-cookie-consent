@@ -29,6 +29,29 @@ const acceptAllOptions = () => {
 };
 
 /**
+ * Store the cookies
+ * @param accepted
+ * @param info
+ */
+const storeCookie = (accepted, info) => {
+  if (!accepted || !info) {
+    return;
+  }
+
+  // Store cookies
+  setCookie(getCurrentConfig().cookieName, JSON.stringify({
+    accepted,
+    info,
+  }), 365);
+
+  // Store into window object
+  window.tdecc.cookies = {
+    accepted,
+    info,
+  };
+};
+
+/**
  * Get all information and store into cookie
  */
 const save = () => {
@@ -53,17 +76,8 @@ const save = () => {
     }
   });
 
-  // Set cookie
-  setCookie(window.tdecc.config.cookieName, JSON.stringify({
-    accepted,
-    info,
-  }), 365);
-
-  // Store into window object
-  window.tdecc.cookies = {
-    accepted,
-    info,
-  };
+  // Store cookie and update window object
+  storeCookie(accepted, info);
 
   // Send event
   dispatchChanged();
@@ -76,4 +90,5 @@ export {
   acceptAllOptions,
   dispatchChanged,
   save,
+  storeCookie,
 };

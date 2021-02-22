@@ -1,6 +1,6 @@
 import { getCurrentCookie } from './PermissionService';
 import { removeCookie } from './CookieService';
-import { dispatchChanged } from './EventService';
+import { dispatchChanged, storeCookie } from './EventService';
 import { getCurrentConfig } from './ConfigService';
 
 /**
@@ -18,9 +18,10 @@ const reset = () => {
  */
 const validate = () => {
   const cookie = getCurrentCookie();
+  const config = getCurrentConfig();
   let validated = true;
 
-  if (!cookie.info || !cookie.info.v || cookie.info.v !== getCurrentConfig().version) {
+  if (!cookie.info || !cookie.info.v || cookie.info.v !== config.version) {
     validated = false;
   }
 
@@ -28,13 +29,14 @@ const validate = () => {
     validated = false;
   }
 
-  if (getCurrentConfig().exceptionUrls.indexOf(window.location.pathname) > -1) {
+  if (config.exceptionUrls.indexOf(window.location.pathname) > -1) {
     validated = true;
   }
 
   if (validated) {
     window.tdecc.cookies = cookie;
     dispatchChanged();
+    storeCookie(cookie.accepted, cookie.info);
   } else {
     reset();
   }

@@ -78,7 +78,7 @@ const consent = () => ({
 
     // Add eventlistener for changed cookieprefs
     document.addEventListener('tdecc-changed', () => {
-      renderSiteContent(config);
+      renderSiteContent();
     });
 
     // Render template

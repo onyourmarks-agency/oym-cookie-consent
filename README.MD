@@ -239,16 +239,95 @@ Like this:
 ```
 
 ## Styling
-Todo
+You can use our default styling by include the scss file like this:
+
+```sass
+@import 'node_modules/tde-cookie-consent/style';
+```
+
+To update colors and some small styling, you can change these css vars:
+
+```sass
+:root {
+    --tdecc-wrapper-bg: white;
+    --tdecc-base-font-size: 16px;
+    --tdecc-border-radius: 4px;
+    --tdecc-text-color: #{$color-dark};
+    --tdecc-heading-color: #{$color-secondary};
+    --tdecc-button-background-color: #{$color-secondary};
+    --tdecc-button-text-color: white;
+    --tdecc-explanation-color: #{$color-dark};
+}
+```
+
+When there are more styling changes needed. Please check the classname and overwrite the styles in your own website.
 
 ## Translations
 By default NL and EN are included. You can overwrite or add new languages with a window object:
 ```es6
 window.tdeCookieConsentContent = {};
 ```
+You can check out the default translation folder in `src/translations/`. To add new languages, use all keys inside nl.js and modify the content.
 
-## Methods
-Todo
+## API
+There are some methods you can use in your own project.
+These methods are functions after you can use on tdeCookieConsent after `import tdeCookieConsent from 'tde-cookie-consent';`
+or you can use them from `window.tdecc`.
+
+* [checkPermission](#checkPermission)
+* [getAllPermission](#getAllPermission)
+* [hide](#hide)
+* [show](#show)
+* [update](#update)
+
+### checkPermission()
+`tdeCookieConsent.checkPermission();` or `window.tdecc.checkPermission()`
+
+When you needs to check if a permission is given. Use this method.
+
+Available options:
+```es6
+// Seperate short string
+checkPermission('essential');
+
+// Long name
+checkPermission('cookie-accept-essential');
+
+// Array with multiple elements
+checkPermission(['essential', 'social'])
+```
+
+Returns: boolean
+
+
+### getAllPermission
+`tdeCookieConsent.getAllPermissions();` or `window.tdecc.getAllPermissions();`
+
+Gives all given permissions. They will be stored and showed with `cookie-accept-` as prefix.
+
+Returns: Array
+
+### hide
+`tdeCookieConsent.hide();` or `window.tdecc.hide();`
+
+Hide the overlay.
+
+### show
+`tdeCookieConsent.show();` or `window.tdecc.show();`
+
+Shows the overlay.
+
+### update
+`tdeCookieConsent.update();` or `window.tdecc.update()`
+
+When add dynamic new content after initialize the consentscript. Run update to match all new content.
+
 
 ## Browser Support
-Todo
+This project is build with Babel. All modern codes is converted to readable code for all browsers.
+
+For old browsers, there are some polyfills needed:
+- Array.prototype.forEach
+- Element.prototype.after
+
+You can build your own polyfills with https://polyfill.io/v3/url-builder/

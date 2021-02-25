@@ -248,13 +248,13 @@ You can check out the default translation folder in `src/translations/`. To add 
 # Styling
 You can use our default styling by include the scss file like this:
 
-```sass
+```scss
 @import 'node_modules/tde-cookie-consent/style';
 ```
 
 To update colors and some small styling, you can change these css vars:
 
-```sass
+```scss
 :root {
     --tdecc-wrapper-bg: white;
     --tdecc-base-font-size: 16px;
@@ -275,12 +275,12 @@ These methods are functions after you can use on tdeCookieConsent after `import 
 or you can use them from `window.tdecc`.
 
 * [checkPermission](#checkPermission)
-* [getAllPermission](#getAllPermission)
+* [getAllPermissions](#getAllPermissions)
 * [hide](#hide)
 * [show](#show)
 * [update](#update)
 
-### checkPermission()
+### checkPermission
 `tdeCookieConsent.checkPermission();` or `window.tdecc.checkPermission()`
 
 When you needs to check if a permission is given. Use this method.
@@ -300,7 +300,7 @@ checkPermission(['essential', 'social'])
 Returns: boolean
 
 
-### getAllPermission
+### getAllPermissions
 `tdeCookieConsent.getAllPermissions();` or `window.tdecc.getAllPermissions();`
 
 Gives all given permissions. They will be stored and showed with `cookie-accept-` as prefix.

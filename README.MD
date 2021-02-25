@@ -1,6 +1,6 @@
 *Current version: 0.1.0*
 
-## Install
+# Install
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
 ```html
 "tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#0.1.0",
@@ -8,14 +8,14 @@ You can install this module from the private GitHub repo. Add to your package.js
 
 The `#0.1.0` is the release you select.
 
-## Import
+# Import
 You can import the TDE Cookie Consent script as a module in your code.
 
 ```es6
 import tdeCookieConsent from 'tde-cookie-consent';
 ```
 
-## Call
+# Call
 
 Start with init:
 
@@ -23,7 +23,7 @@ Start with init:
 tdeCookieConsent.init(options);
 ```
 
-## Options
+# Options
 ```es6
 const options = {
     consentOptions: [
@@ -189,7 +189,7 @@ const options = {
 }
 ```
 
-## Load scripts
+# Load scripts
 The scripts that are needs to be loaded on consent needs to be setted in the DOM inside a script tag.
 On this way we prevent the browsers to render and load some scripts.
 
@@ -227,7 +227,7 @@ Results:
 </script>
 ````
 
-### Show warning to user
+## Show warning to user
 Sometimes you will show a warning to the visitors when not all consent that is needed are given.
 You can do this by adding the follow attribute:
 
@@ -238,7 +238,14 @@ Like this:
 <script type="x-template" data-tdecc-render data-tdecc-permissions="social" data-tdecc-show-notification>
 ```
 
-## Styling
+# Translations
+By default NL and EN are included. You can overwrite or add new languages with a window object:
+```es6
+window.tdeCookieConsentContent = {};
+```
+You can check out the default translation folder in `src/translations/`. To add new languages, use all keys inside nl.js and modify the content.
+
+# Styling
 You can use our default styling by include the scss file like this:
 
 ```sass
@@ -262,14 +269,7 @@ To update colors and some small styling, you can change these css vars:
 
 When there are more styling changes needed. Please check the classname and overwrite the styles in your own website.
 
-## Translations
-By default NL and EN are included. You can overwrite or add new languages with a window object:
-```es6
-window.tdeCookieConsentContent = {};
-```
-You can check out the default translation folder in `src/translations/`. To add new languages, use all keys inside nl.js and modify the content.
-
-## API
+# API
 There are some methods you can use in your own project.
 These methods are functions after you can use on tdeCookieConsent after `import tdeCookieConsent from 'tde-cookie-consent';`
 or you can use them from `window.tdecc`.
@@ -323,7 +323,7 @@ Shows the overlay.
 When add dynamic new content after initialize the consentscript. Run update to match all new content.
 
 
-## Browser Support
+# Browser Support
 This project is build with Babel. All modern codes is converted to readable code for all browsers.
 
 For old browsers, there are some polyfills needed:

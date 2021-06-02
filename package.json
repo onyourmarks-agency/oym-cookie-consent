@@ -1,9 +1,9 @@
 {
   "name": "tde-cookie-consent",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js --mode production",
     "eslint": "eslint src --ext .js --ignore-path .gitignore; exit 0",
     "eslint-fix": "eslint src --fix --ext .js --ignore-path .gitignore; exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -39,6 +39,10 @@ const templateOptions = (options, content) => {
  * @returns {void}
  */
 const templateManage = (content, config) => {
+  if (!config?.manageable) {
+    return '';
+  }
+
   if (typeof content !== 'object' || !Object.keys(content)) {
     return throwError('Content not found');
   }

@@ -1,4 +1,4 @@
-*Current version: 0.1.0*
+*Current version: 0.2.0*
 
 # Install
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
@@ -227,6 +227,8 @@ Results:
 </script>
 ````
 
+More examples: [#examples](#examples)
+
 ## Show warning to user
 Sometimes you will show a warning to the visitors when not all consent that is needed are given.
 You can do this by adding the follow attribute:
@@ -322,6 +324,47 @@ Shows the overlay.
 
 When add dynamic new content after initialize the consentscript. Run update to match all new content.
 
+# Events
+There is one main event that will be fired after each change; `tdecc-changed`. You can use this in your code like:
+```javascript
+document.addEventListener('tdecc-changed', () => {
+  // Logic or check here
+});
+```
+
+# Examples
+### New Gtag tags (in Twig)
+```
+{% set GAEmbed %}
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-12345678"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-12345678');
+	</script>
+{% endset %}
+
+<script type="x-template" data-tdecc-render data-tdecc-permissions="essential">
+	{{ GAEmbed|escape('html') }}
+</script>
+```
+
+### Tagmanager code (in Twig)
+```
+{% set GAEmbed %}
+	<script>
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','G-254245304');
+	</script>
+{% endset %}
+<script type="x-template" data-tdecc-render data-tdecc-permissions="essential">
+	{{ GAEmbed|escape('html') }}
+</script>
+```
 
 # Browser Support
 This project is build with Babel. All modern codes is converted to readable code for all browsers.
@@ -331,3 +374,5 @@ For old browsers, there are some polyfills needed:
 - Element.prototype.after
 
 You can build your own polyfills with https://polyfill.io/v3/url-builder/
+
+And note; styling will be use CSS Variables.

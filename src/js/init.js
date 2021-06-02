@@ -76,6 +76,13 @@ const consent = () => ({
     window.tdecc.config = config;
     window.tdecc.content = content[config.language];
 
+    // Make functions available
+    window.tdecc.getAllPermissions = this.getAllPermissions;
+    window.tdecc.checkPermission = this.checkPermission;
+    window.tdecc.show = this.show;
+    window.tdecc.hide = this.hide;
+    window.tdecc.update = this.update;
+
     // Add eventlistener for changed cookieprefs
     document.addEventListener('tdecc-changed', () => {
       renderSiteContent();
@@ -101,13 +108,6 @@ const consent = () => ({
 
     // Don't run these twice
     window.tdecc.initialized = true;
-
-    // Make functions available
-    window.tdecc.getAllPermissions = this.getAllPermissions;
-    window.tdecc.checkPermission = this.checkPermission;
-    window.tdecc.show = this.show;
-    window.tdecc.hide = this.hide;
-    window.tdecc.update = this.update;
   },
 });
 

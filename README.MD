@@ -201,12 +201,12 @@ The script setup is like this:
 
 
 ```html
-<script type="x-template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 ```
 
 When you use Twig; you can set this:
 ```twig
-<script type="x-template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 	{{ '<script>alert("OK");</script>'|escape('html') }}
 </script>
 ````
@@ -222,7 +222,7 @@ htmlEntities('<script>alert("OK");</script>');
 
 Results:
 ```
-<script type="x-template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 	&lt;script&gt;alert(&quot;OK&quot;);&lt;/script&gt;
 </script>
 ````
@@ -237,7 +237,7 @@ You can do this by adding the follow attribute:
 
 Like this:
 ```
-<script type="x-template" data-tdecc-render data-tdecc-permissions="social" data-tdecc-show-notification>
+<script type="template" data-tdecc-render data-tdecc-permissions="social" data-tdecc-show-notification>
 ```
 
 # Translations
@@ -345,7 +345,7 @@ document.addEventListener('tdecc-changed', () => {
 	</script>
 {% endset %}
 
-<script type="x-template" data-tdecc-render data-tdecc-permissions="essential">
+<script type="text/template" data-tdecc-render data-tdecc-permissions="essential">
 	{{ GAEmbed|escape('html') }}
 </script>
 ```
@@ -361,7 +361,7 @@ document.addEventListener('tdecc-changed', () => {
         })(window,document,'script','dataLayer','G-254245304');
 	</script>
 {% endset %}
-<script type="x-template" data-tdecc-render data-tdecc-permissions="essential">
+<script type="text/template" data-tdecc-render data-tdecc-permissions="essential">
 	{{ GAEmbed|escape('html') }}
 </script>
 ```

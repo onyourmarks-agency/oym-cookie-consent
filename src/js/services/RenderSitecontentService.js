@@ -82,15 +82,11 @@ const renderSiteContent = () => {
     // Valid? Remove posible notification
     removeNotification(item);
 
-    const output = document.createElement('div');
     const textarea = document.createElement('textarea');
     textarea.innerHTML = item.innerHTML;
 
-    // Append div after given script
-    item.after(output);
-
     // Postscribe. Fill and run JS
-    postscribe(output, textarea.value);
+    postscribe(item.parentElement, textarea.value);
 
     // eslint-disable-next-line no-param-reassign
     item.dataset.tdeccRendered = '1';

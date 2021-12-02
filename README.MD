@@ -1,12 +1,12 @@
-*Current version: 0.3.0*
+*Current version: 0.4.0*
 
 # Install
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
 ```html
-"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#0.3.0",
+"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#0.4.0",
 ```
 
-The `#0.3.0` is the release you select.
+The `#0.4.0` is the release you select.
 
 # Import
 You can import the TDE Cookie Consent script as a module in your code.

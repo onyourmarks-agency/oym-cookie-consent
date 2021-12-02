@@ -17,16 +17,15 @@
   "main": "lib/index.js",
   "style": "style.scss",
   "dependencies": {
-    "postscribe": "^2.0.8"
+    "postscribe": "2.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.16.3",
     "babel-loader": "^8.2.2",
     "eslint": "^7.7.0",
     "eslint-config-airbnb": "^18.2.0",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-compat": "^3.8.0",
     "eslint-plugin-import": "^2.22.0",
     "webpack": "^4.46.0",

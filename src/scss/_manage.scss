@@ -16,7 +16,7 @@
 }
 
 .tdecc__manage__error {
-  border: 2px solid var(--tdecc-button-background-color);
+  border: var(--tdecc-manage-error-border);
   padding: 16px;
   margin: 12px 0;
   display: none;

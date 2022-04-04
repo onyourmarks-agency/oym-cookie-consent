@@ -1,12 +1,12 @@
-*Current version: 1.0.0*
+*Current version: 1.0.1*
 
 # Install
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
 ```html
-"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#1.0.0",
+"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#1.0.1",
 ```
 
-The `#1.0.0` is the release you select.
+The `#1.0.1` is the release you select.
 
 # Import
 You can import the TDE Cookie Consent script as a module in your code.
@@ -302,12 +302,13 @@ In most cases; the base-variants are enough.
 
   /* Content */
   --tdecc-content-background: var(--tdecc-base-background);
-  --tdecc-content-max-width: 1100px;
+  --tdecc-content-maxwidth: 1100px;
   --tdecc-content-width: 95%;
   --tdecc-content-border: var(--tdecc-base-color-primary);
   --tdecc-content-padding: 24px;
   --tdecc-content-anchor-color: var(--tdecc-base-color-primary);
   --tdecc-content-anchor-textdecoration: underline;
+  --tdecc-content-borderradius: 4px;
 
   /* Manage */
   --tdecc-manage-option-title-color: var(--tdecc-base-text-color);
@@ -319,11 +320,17 @@ In most cases; the base-variants are enough.
   --tdecc-manage-button-active-border: 1px solid var(--tdecc-base-color-primary);
   --tdecc-manage-button-active-color: var(--tdecc-base-background);
   --tdecc-manage-button-active-background: var(--tdecc-base-color-primary);
+  --tdecc-manage-error-border: 2px solid #fff;
 
   /* Pop-up */
   --tdecc-popup-maxwidth: 640px;
   --tdecc-popup-close-size: 24px;
   --tdecc-popup-close-padding: 8px 16px;
+
+  /* Overrides */
+  @media screen and (min-width: $tdecc-breakpoint-md) {
+    --tdecc-heading-fontsize: 2em;
+  }
 }
 ```
 

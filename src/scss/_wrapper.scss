@@ -6,12 +6,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(black, .5);
-  backdrop-filter: blur(8px);
+  background-color: var(--tdecc-backdrop-color);
+  backdrop-filter: var(--tdecc-backdrop-filter);
   justify-content: center;
   align-items: center;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  box-shadow: var(--tdecc-backdrop-boxshadow);
 
   .show-tdecc-overlay & {
     display: flex;

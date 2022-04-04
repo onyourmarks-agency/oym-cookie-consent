@@ -2,15 +2,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  background-color: var(--tdecc-button-background-color);
-  color: var(--tdecc-button-text-color);
-  line-height: 1;
-  font-size: 1em;
+  padding: var(--tdecc-button-padding);
+  background: var(--tdecc-button-background);
+  color: var(--tdecc-button-color);
+  line-height: var(--tdecc-button-lineheight);
+  font-size: var(--tdecc-button-fontsize);
   cursor: pointer;
   appearance: none;
   -webkit-font-smoothing: antialiased;
-  border: 2px solid transparent;
+  border: var(--tdecc-button-border);
   transition: opacity .2s ease;
   user-select: none;
   box-sizing: border-box;
@@ -18,13 +18,13 @@
 
   &:hover,
   &:focus {
-    opacity: .8;
-    background-color: var(--tdecc-button-background-color);
-    color: var(--tdecc-button-text-color);
+    opacity: var(--tdecc-button-hover-opacity);
+    background: var(--tdecc-button-hover-background);
+    color: var(--tdecc-button-hover-color);
   }
 
   svg {
-    fill: var(--tdecc-button-text-color);
+    fill: var(--tdecc-button-color);
 
     &:first-child {
       margin-right: 8px;
@@ -41,10 +41,13 @@
 }
 
 .tdecc__button--ghost {
-  &,
+  border: var(--tdecc-button-ghost-border);
+  background: var(--tdecc-button-ghost-background);
+  color: var(--tdecc-button-ghost-color);
+
   &:hover {
-    border: 2px solid var(--tdecc-button-background-color);
-    background: var(--tdecc-wrapper-bg);
-    color: var(--tdecc-button-background-color);
+    border: var(--tdecc-button-ghost-hover-border);
+    background: var(--tdecc-button-ghost-hover-background);
+    color: var(--tdecc-button-ghost-hover-color);
   }
 }

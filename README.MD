@@ -1,12 +1,12 @@
-*Current version: 0.4.0*
+*Current version: 1.0.0*
 
 # Install
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
 ```html
-"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#0.4.0",
+"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#1.0.0",
 ```
 
-The `#0.4.0` is the release you select.
+The `#1.0.0` is the release you select.
 
 # Import
 You can import the TDE Cookie Consent script as a module in your code.
@@ -254,18 +254,76 @@ You can use our default styling by include the scss file like this:
 @import 'node_modules/tde-cookie-consent/style';
 ```
 
-To update colors and some small styling, you can change these css vars:
+To update colors and other styling, you can change a lot of css vars.
+In most cases; the base-variants are enough.
 
 ```scss
 :root {
-    --tdecc-wrapper-bg: white;
-    --tdecc-base-font-size: 16px;
-    --tdecc-border-radius: 4px;
-    --tdecc-text-color: #{$color-dark};
-    --tdecc-heading-color: #{$color-secondary};
-    --tdecc-button-background-color: #{$color-secondary};
-    --tdecc-button-text-color: white;
-    --tdecc-explanation-color: #{$color-dark};
+  /* Base */
+  --tdecc-base-background: white;
+  --tdecc-base-fontsize: 16px;
+  --tdecc-base-color-primary: #82b0a2;
+  --tdecc-base-text-color: #333;
+
+  /* Backdrop */
+  --tdecc-backdrop-color: rgba(0,0,0,.5);
+  --tdecc-backdrop-filter: blur(8px);
+  --tdecc-backdrop-boxshadow: none;
+
+  /* Headings */
+  --tdecc-heading-color: var(--tdecc-base-color-primary);
+  --tdecc-heading-fontsize: 1.5em;
+
+  /* All buttons */
+  --tdecc-button-padding: 12px;
+  --tdecc-button-lineheight: 1;
+  --tdecc-button-fontsize: 1em;
+  --tdecc-button-background: var(--tdecc-base-color-primary);
+  --tdecc-button-border: 2px solid transparent;
+  --tdecc-button-color: white;
+
+  --tdecc-button-hover-opacity: .8;
+  --tdecc-button-hover-background: var(--tdecc-base-color-primary);
+  --tdecc-button-hover-color: var(--tdecc-button-color);
+
+  --tdecc-button-ghost-border: 2px solid var(--tdecc-base-color-primary);
+  --tdecc-button-ghost-background: transparent;
+  --tdecc-button-ghost-color: var(--tdecc-base-color-primary);
+  --tdecc-button-ghost-hover-border: var(--tdecc-button-ghost-border);
+  --tdecc-button-ghost-hover-background: var(--tdecc-button-ghost-background);
+  --tdecc-button-ghost-hover-color: var(--tdecc-button-ghost-color);
+
+  /* Explantion > Arrows in footer */
+  --tdecc-explanation-color: inherit;
+  --tdecc-explanation-item-margin: 0 0 8px 0;
+  --tdecc-explanation-text-decoration: none;
+  --tdecc-explanation-arrow-margin: 8px 8px 0 0;
+  --tdecc-explanation-arrow-minwidth: 20px;
+
+  /* Content */
+  --tdecc-content-background: var(--tdecc-base-background);
+  --tdecc-content-max-width: 1100px;
+  --tdecc-content-width: 95%;
+  --tdecc-content-border: var(--tdecc-base-color-primary);
+  --tdecc-content-padding: 24px;
+  --tdecc-content-anchor-color: var(--tdecc-base-color-primary);
+  --tdecc-content-anchor-textdecoration: underline;
+
+  /* Manage */
+  --tdecc-manage-option-title-color: var(--tdecc-base-text-color);
+  --tdecc-manage-option-title-fontsize: 1.25em;
+  --tdecc-manage-desc-title-fontsize: .875em;
+  --tdecc-manage-button-inactive-border: 1px solid var(--tdecc-base-color-primary);
+  --tdecc-manage-button-inactive-color: var(--tdecc-base-text-color);
+  --tdecc-manage-button-inactive-background: var(--tdecc-base-background);
+  --tdecc-manage-button-active-border: 1px solid var(--tdecc-base-color-primary);
+  --tdecc-manage-button-active-color: var(--tdecc-base-background);
+  --tdecc-manage-button-active-background: var(--tdecc-base-color-primary);
+
+  /* Pop-up */
+  --tdecc-popup-maxwidth: 640px;
+  --tdecc-popup-close-size: 24px;
+  --tdecc-popup-close-padding: 8px 16px;
 }
 ```
 

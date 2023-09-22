@@ -6,9 +6,9 @@ const babelPresets = [
     {
       targets: {
         browsers: [
-          "last 1 version",
-          "> 1%",
-          "not dead",
+          'last 1 version',
+          '> 1%',
+          'not dead',
         ],
       },
       debug: true,
@@ -17,11 +17,11 @@ const babelPresets = [
 ];
 
 module.exports = {
-  entry: './index.js',
+  entry: './index.ts',
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /(\.(t|j)s?$)/,
         exclude: /(node_modules|bower_components)/,
         use: [
           {
@@ -33,10 +33,10 @@ module.exports = {
           },
         ],
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ['*', '.js'],
+    extensions: ['*', '.js', '.ts'],
   },
   output: {
     path: path.resolve(__dirname, 'lib'),

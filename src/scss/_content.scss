@@ -1,13 +1,13 @@
 .tdecc-content {
-  margin: auto;
-  font-size: var(--tdecc-base-fontsize);
-  background: var(--tdecc-content-background);
-  color: var(--tdecc-base-text-color);
   width: var(--tdecc-content-width);
+  margin: auto;
+  padding: var(--tdecc-content-padding);
   border: var(--tdecc-content-border);
   border-radius: var(--tdecc-content-borderradius);
-  padding: var(--tdecc-content-padding);
+  background: var(--tdecc-content-background);
   box-shadow: var(--tdecc-content-boxshadow);
+  color: var(--tdecc-base-text-color);
+  font-size: var(--tdecc-base-fontsize);
 }
 
 .show-tdecc-overlay--popup .tdecc-content {
@@ -16,21 +16,21 @@
 
 .show-tdecc-overlay--bar .tdecc-content {
   width: 100%;
-  border-radius: 0;
-  border-left: none;
   border-right: none;
   border-bottom: none;
+  border-left: none;
+  border-radius: 0;
 }
 
 .tdecc-content__close {
-  position: relative;
-  z-index: 10;
   display: none;
-  float: right;
-  margin-left: 8px;
+  z-index: 10;
+  position: relative;
   width: var(--tdecc-popup-close-size);
   height: var(--tdecc-popup-close-size);
+  margin-left: 8px;
   padding: var(--tdecc-popup-close-padding);
+  float: right;
 
   .show-tdecc-overlay--closeable & {
     display: flex;

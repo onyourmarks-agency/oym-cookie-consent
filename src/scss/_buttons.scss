@@ -1,26 +1,26 @@
 .tdecc__button {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
   display: inline-flex;
+  appearance: none;
   align-items: center;
   justify-content: center;
   padding: var(--tdecc-button-padding);
+  border: var(--tdecc-button-border);
   background: var(--tdecc-button-background);
   color: var(--tdecc-button-color);
-  line-height: var(--tdecc-button-lineheight);
   font-size: var(--tdecc-button-fontsize);
-  cursor: pointer;
-  appearance: none;
-  -webkit-font-smoothing: antialiased;
-  border: var(--tdecc-button-border);
-  transition: opacity .2s ease;
-  user-select: none;
-  box-sizing: border-box;
+  line-height: var(--tdecc-button-lineheight);
   text-align: center;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  user-select: none;
 
   &:hover,
   &:focus {
-    opacity: var(--tdecc-button-hover-opacity);
     background: var(--tdecc-button-hover-background);
     color: var(--tdecc-button-hover-color);
+    opacity: var(--tdecc-button-hover-opacity);
   }
 
   svg {

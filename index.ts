@@ -1,1 +1,1 @@
-export default './src/js/init';
+export default '@js/init';

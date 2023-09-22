@@ -9,7 +9,7 @@ $tdecc-breakpoint-md: 640px;
   --tdecc-base-text-color: #333;
 
   /* Backdrop */
-  --tdecc-backdrop-color: rgba(0,0,0,.5);
+  --tdecc-backdrop-color: rgba(0, 0, 0, 0.5);
   --tdecc-backdrop-filter: blur(8px);
   --tdecc-backdrop-boxshadow: none;
 
@@ -25,7 +25,7 @@ $tdecc-breakpoint-md: 640px;
   --tdecc-button-border: 2px solid transparent;
   --tdecc-button-color: white;
 
-  --tdecc-button-hover-opacity: .8;
+  --tdecc-button-hover-opacity: 0.8;
   --tdecc-button-hover-background: var(--tdecc-base-color-primary);
   --tdecc-button-hover-color: var(--tdecc-button-color);
 
@@ -56,7 +56,7 @@ $tdecc-breakpoint-md: 640px;
   /* Manage */
   --tdecc-manage-option-title-color: var(--tdecc-base-text-color);
   --tdecc-manage-option-title-fontsize: 1.25em;
-  --tdecc-manage-desc-title-fontsize: .875em;
+  --tdecc-manage-desc-title-fontsize: 0.875em;
   --tdecc-manage-button-inactive-border: 1px solid var(--tdecc-base-color-primary);
   --tdecc-manage-button-inactive-color: var(--tdecc-base-text-color);
   --tdecc-manage-button-inactive-background: var(--tdecc-base-background);

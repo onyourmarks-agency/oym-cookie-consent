@@ -1,0 +1,7 @@
+# Ignore artifacts:
+webpack
+*.json
+*.lock
+*.yaml
+*.yml
+*.md

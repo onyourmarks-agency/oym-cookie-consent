@@ -1,0 +1,26 @@
+{
+    "###": "NOTE! THIS FILE IS AUTO GENERATED",
+    "##_": "==== Edit tconfig.js instead ====",
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "include": [
+        "src/js/**/*",
+        ".eslintrc.js"
+    ],
+    "exclude": [
+        "node_modules",
+        "babel.config.js"
+    ],
+    "compilerOptions": {
+        "target": "es6",
+        "module": "esnext",
+        "resolveJsonModule": true,
+        "paths": {
+            "@js/*": [
+                "./src/js/*"
+            ],
+            "@scss/*": [
+                "./src/scss/*"
+            ]
+        }
+    }
+}

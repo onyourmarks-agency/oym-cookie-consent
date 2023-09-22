@@ -7,8 +7,8 @@
 
 .tdecc__manage__title {
   margin-bottom: 8px;
-  font-size: var(--tdecc-heading-fontsize);
   color: var(--tdecc-heading-color);
+  font-size: var(--tdecc-heading-fontsize);
 }
 
 .tdecc__manage__desc {
@@ -16,15 +16,15 @@
 }
 
 .tdecc__manage__error {
-  border: var(--tdecc-manage-error-border);
-  padding: 16px;
-  margin: 12px 0;
   display: none;
+  margin: 12px 0;
+  padding: 16px;
+  border: var(--tdecc-manage-error-border);
 }
 
 .tdecc__manage__footer {
-  font-size: .875em;
   margin: 8px 0 24px;
+  font-size: 0.875em;
 }
 
 .tdecc__manage__buttons {

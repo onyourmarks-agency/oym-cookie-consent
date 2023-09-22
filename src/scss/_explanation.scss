@@ -1,8 +1,8 @@
 .tdecc__links {
-  margin: 0 auto;
-  padding: 0;
   width: 100%;
   max-width: var(--tdecc-content-maxwidth);
+  margin: 0 auto;
+  padding: 0;
   color: var(--tdecc-explanation-color);
   list-style: none;
 }
@@ -12,10 +12,10 @@
 }
 
 .tdecc__links a {
-  color: var(--tdecc-explanation-color);
-  text-decoration: var(--tdecc-explanation-text-decoration);
   display: flex;
   align-items: center;
+  color: var(--tdecc-explanation-color);
+  text-decoration: var(--tdecc-explanation-text-decoration);
 
   &:hover,
   &:focus {
@@ -24,7 +24,7 @@
 }
 
 .tdecc__links svg {
-  margin: var(--tdecc-explanation-arrow-margin);
-  min-width: var(--tdecc-explanation-arrow-minwidth);
   align-self: flex-start;
+  min-width: var(--tdecc-explanation-arrow-minwidth);
+  margin: var(--tdecc-explanation-arrow-margin);
 }

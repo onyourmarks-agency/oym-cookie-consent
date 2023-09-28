@@ -3,7 +3,7 @@ import { domQuerySelectorsConsent, domQuerySelectorsWebsite } from './DOMService
 import { acceptAllOptions, save } from './EventService';
 import { showManagerSection, overlayHide, overlayShow } from './TemplateService';
 
-export const handleClickListnersPopup = (): void => {
+export const handleClickListenersPopup = (): void => {
   const domElements: DomSelectorsContentType = domQuerySelectorsConsent();
 
   if (domElements.save) {

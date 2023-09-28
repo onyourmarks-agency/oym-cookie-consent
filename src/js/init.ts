@@ -4,7 +4,7 @@ import { mergeConfig, mergeContent } from '@js/services/ConfigService';
 import { getCookie } from '@js/services/CookieService';
 import { dispatchChanged } from '@js/services/EventService';
 import {
-  handleClickListnersPopup,
+  handleClickListenersPopup,
   handleClickListenersContent,
 } from '@js/services/ListenerService';
 import { checkPermission, getCurrentPermissions } from '@js/services/PermissionService';
@@ -86,7 +86,7 @@ const consent = () => ({
       overlayShow();
     }
 
-    handleClickListnersPopup();
+    handleClickListenersPopup();
     handleClickListenersContent();
 
     // Don't run these twice

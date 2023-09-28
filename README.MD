@@ -1,14 +1,17 @@
-*Current version: 1.0.1*
+*Current version: 2.0.0*
 
 # Install
+
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
+
 ```html
-"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#1.0.1",
+"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#2.0.0",
 ```
 
-The `#1.0.1` is the release you select.
+The `#2.0.0` is the release you select.
 
 # Import
+
 You can import the TDE Cookie Consent script as a module in your code.
 
 ```es6
@@ -24,6 +27,7 @@ tdeCookieConsent.init(options);
 ```
 
 # Options
+
 ```es6
 const options = {
     consentOptions: [
@@ -63,6 +67,7 @@ const options = {
 ```
 
 All possible options:
+
 * [consentOptions](#consentOptions)
 * [cookieName](#cookieName)
 * [exceptionUrls](#exceptionUrls)
@@ -73,10 +78,12 @@ All possible options:
 * [version](#version)
 
 ### consentOptions
+
 *Required when `manage: true`*
 
 You need to set some consentOptions. This is an array with objects for each item.
 Each item needs to have a `key`, a `title` and a `desc`.
+
 ```es6
 const options = {
     consentOptions: [
@@ -93,18 +100,21 @@ const options = {
     ],
 };
 ```
+
 Each option can be accept or declined by the visitor
 
-
 ### cookieName
+
 *Optional*
 
 The name of the cookie we set with preferences. By default: `'tdecc'`.
 
 ### exceptionUrls
+
 *Optional*
 
 When there is no consent given. The overlay will be showed. This array gives you the possibility to give some exceptionUrl's
+
 ```es6
 const options = {
     exceptionUrls: [
@@ -116,10 +126,12 @@ const options = {
 ```
 
 ### explanationAnchors
+
 *Optional*
 
 You can give more information for the use of cookies and data of each visiter in this object.
 Be sure these pages are given in the exceptionUrls above.
+
 ```es6
 const options = {
     explanationAnchors: [
@@ -136,6 +148,7 @@ const options = {
 ```
 
 ### language
+
 *Optional*
 
 ```es6
@@ -147,6 +160,7 @@ const options = {
 See [Translations](#Translations)
 
 ### manageable
+
 *Optional*
 
 ```es6
@@ -154,15 +168,17 @@ const options = {
     manageable: true // Default: true
 };
 ```
+
 When you didn't have consentOptions. You can use this package to tell yourvisiters that cookies are being used.
 The manage button are not rendered. No chooses can be made expect 'accept'.
 
-
 ### renderSelector
+
 *Optional*
 
 Consent is one. You need to be modify your code to handle the consent and load scripts only when consent is given.
 We listen to this tag on your code.
+
 ```es6
 const options = {
     renderSelector: '[data-tdecc-render]'
@@ -170,9 +186,11 @@ const options = {
 ```
 
 ### style
+
 *Optional*
 
 We have two different styles: `'popup'` and `'bar'`. By default bar will be setted
+
 ```es6
 const options = {
     style: 'popup',
@@ -180,9 +198,12 @@ const options = {
 ```
 
 ### version
+
 *Optional*
 
-You can provice a versionnumber. When you change this number, a visitor with given consents will revisit the page. The cookie will be resetted, the overlay will be showed and the user needs to set new consent. 
+You can provice a versionnumber. When you change this number, a visitor with given consents will revisit the page. The cookie will be resetted, the overlay will be showed and the
+user needs to set new consent.
+
 ```es6
 const options = {
     version: '1.0',
@@ -190,21 +211,24 @@ const options = {
 ```
 
 # Load scripts
+
 The scripts that are needs to be loaded on consent needs to be setted in the DOM inside a script tag.
 On this way we prevent the browsers to render and load some scripts.
 
 You need to set the string in HTML escaped content.
 
 The script setup is like this:
+
 * `data-tdecc-render` = given in config above;
 * `data-tdecc-permissions` = the key of the permission you need at least;
 
-
 ```html
+
 <script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 ```
 
 When you use Twig; you can set this:
+
 ```twig
 <script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 	{{ '<script>alert("OK");</script>'|escape('html') }}
@@ -212,15 +236,17 @@ When you use Twig; you can set this:
 ````
 
 No Twig? Try this:
+
 ```javascript
 function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 htmlEntities('<script>alert("OK");</script>');
 ```
 
 Results:
+
 ```
 <script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
 	&lt;script&gt;alert(&quot;OK&quot;);&lt;/script&gt;
@@ -230,24 +256,30 @@ Results:
 More examples: [#examples](#examples)
 
 ## Show warning to user
+
 Sometimes you will show a warning to the visitors when not all consent that is needed are given.
 You can do this by adding the follow attribute:
 
 * `data-tdecc-show-notification`
 
 Like this:
+
 ```
 <script type="template" data-tdecc-render data-tdecc-permissions="social" data-tdecc-show-notification>
 ```
 
 # Translations
+
 By default NL and EN are included. You can overwrite or add new languages with a window object:
+
 ```es6
 window.tdeCookieConsentContent = {};
 ```
+
 You can check out the default translation folder in `src/translations/`. To add new languages, use all keys inside nl.js and modify the content.
 
 # Styling
+
 You can use our default styling by include the scss file like this:
 
 ```scss
@@ -266,7 +298,7 @@ In most cases; the base-variants are enough.
   --tdecc-base-text-color: #333;
 
   /* Backdrop */
-  --tdecc-backdrop-color: rgba(0,0,0,.5);
+  --tdecc-backdrop-color: rgba(0, 0, 0, .5);
   --tdecc-backdrop-filter: blur(8px);
   --tdecc-backdrop-boxshadow: none;
 
@@ -337,6 +369,7 @@ In most cases; the base-variants are enough.
 When there are more styling changes needed. Please check the classname and overwrite the styles in your own website.
 
 # API
+
 There are some methods you can use in your own project.
 These methods are functions after you can use on tdeCookieConsent after `import tdeCookieConsent from 'tde-cookie-consent';`
 or you can use them from `window.tdecc`.
@@ -348,11 +381,13 @@ or you can use them from `window.tdecc`.
 * [update](#update)
 
 ### checkPermission
+
 `tdeCookieConsent.checkPermission();` or `window.tdecc.checkPermission()`
 
 When you needs to check if a permission is given. Use this method.
 
 Available options:
+
 ```es6
 // Seperate short string
 checkPermission('essential');
@@ -366,8 +401,8 @@ checkPermission(['essential', 'social'])
 
 Returns: boolean
 
-
 ### getAllPermissions
+
 `tdeCookieConsent.getAllPermissions();` or `window.tdecc.getAllPermissions();`
 
 Gives all given permissions. They will be stored and showed with `cookie-accept-` as prefix.
@@ -375,22 +410,27 @@ Gives all given permissions. They will be stored and showed with `cookie-accept-
 Returns: Array
 
 ### hide
+
 `tdeCookieConsent.hide();` or `window.tdecc.hide();`
 
 Hide the overlay.
 
 ### show
+
 `tdeCookieConsent.show();` or `window.tdecc.show();`
 
 Shows the overlay.
 
 ### update
+
 `tdeCookieConsent.update();` or `window.tdecc.update()`
 
 When add dynamic new content after initialize the consentscript. Run update to match all new content.
 
 # Events
+
 There is one main event that will be fired after each change; `tdecc-changed`. You can use this in your code like:
+
 ```javascript
 document.addEventListener('tdecc-changed', () => {
   // Logic or check here
@@ -398,7 +438,9 @@ document.addEventListener('tdecc-changed', () => {
 ```
 
 # Examples
+
 ### New Gtag tags (in Twig)
+
 ```
 {% set GAEmbed %}
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-12345678"></script>
@@ -416,6 +458,7 @@ document.addEventListener('tdecc-changed', () => {
 ```
 
 ### Tagmanager code (in Twig)
+
 ```
 {% set GAEmbed %}
 	<script>
@@ -432,9 +475,11 @@ document.addEventListener('tdecc-changed', () => {
 ```
 
 # Browser Support
+
 This project is build with Babel. All modern codes is converted to readable code for all browsers.
 
 For old browsers, there are some polyfills needed:
+
 - Array.prototype.forEach
 - Element.prototype.after
 

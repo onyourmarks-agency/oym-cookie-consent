@@ -6,3 +6,4 @@ const copyTypeScriptConfiguration = require('./pre-script/copy-type-script-confi
   await copyTypeScriptConfiguration();
   process.exit(0);
 })();
+

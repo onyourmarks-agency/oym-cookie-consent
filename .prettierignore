@@ -5,3 +5,5 @@ webpack
 *.yaml
 *.yml
 *.md
+dist/*
+esbuild/*

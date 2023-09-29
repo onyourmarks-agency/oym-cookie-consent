@@ -8,14 +8,7 @@ module.exports = () => {
   if (preferredNodeVersionMinimal > currentNodeVersionMinimal) {
     console.error('');
     console.error('==================');
-    console.error(
-      '\x1b[31m%s\x1b[0m',
-      '  ERROR: You are not using the configured node version. You have version ' +
-        currentNodeVersionMinimal +
-        ', version ' +
-        currentNodeVersionFull +
-        ' is expected'
-    );
+    console.error('\x1b[31m%s\x1b[0m', '  ERROR: You are not using the configured node version. You have version ' + currentNodeVersionMinimal + ', version ' + currentNodeVersionFull + ' is expected');
     console.error('\x1b[36m%s\x1b[0m', '  $ nvm install ' + preferredNodeVersionMinimal);
     console.error('\x1b[36m%s\x1b[0m', '  $ nvm use ' + preferredNodeVersionMinimal);
     console.error('==================');
@@ -26,18 +19,8 @@ module.exports = () => {
   if (currentNodeVersionMinimal > preferredNodeVersionMinimal) {
     console.warn('');
     console.warn('==================');
-    console.warn(
-      '\x1b[33m%s\x1b[0m',
-      '  WARN: NodeJS version ' +
-        currentNodeVersionMinimal +
-        ' is configured while version ' +
-        preferredNodeVersionMinimal +
-        ' is used.'
-    );
-    console.warn(
-      '\x1b[33m%s\x1b[0m',
-      '  WARN: It is adviced to use the configured version. The CI/CD server WILL use this version when building your assets!'
-    );
+    console.warn('\x1b[33m%s\x1b[0m', '  WARN: NodeJS version ' + currentNodeVersionMinimal + ' is configured while version ' + preferredNodeVersionMinimal + ' is used.');
+    console.warn('\x1b[33m%s\x1b[0m', '  WARN: It is adviced to use the configured version. The CI/CD server WILL use this version when building your assets!');
     console.warn('\x1b[36m%s\x1b[0m', '  $ nvm install ' + preferredNodeVersionMinimal);
     console.warn('\x1b[36m%s\x1b[0m', '  $ nvm use ' + preferredNodeVersionMinimal);
     console.warn('==================');
@@ -56,4 +39,4 @@ module.exports = () => {
     console.warn('');
     process.exit(1);
   }
-};
+}

@@ -8,10 +8,10 @@ async function outputConfigJson(file) {
   const parsedConfig = Object.assign(
     {},
     {
-      '###': 'NOTE! THIS FILE IS AUTO GENERATED',
-      '##_': '==== Edit tconfig.js instead ====',
+      "###": "NOTE! THIS FILE IS AUTO GENERATED",
+      "##_": "==== Edit tconfig.js instead ====",
     },
-    config.default || config
+    config.default || config,
   );
 
   const fileContents = JSON.stringify(parsedConfig, null, 4);
@@ -20,4 +20,4 @@ async function outputConfigJson(file) {
 
 module.exports = async () => {
   await outputConfigJson('tsconfig.js');
-};
+}

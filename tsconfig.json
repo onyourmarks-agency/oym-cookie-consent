@@ -1,26 +1,33 @@
 {
-    "###": "NOTE! THIS FILE IS AUTO GENERATED",
-    "##_": "==== Edit tconfig.js instead ====",
-    "extends": "@tsconfig/svelte/tsconfig.json",
-    "include": [
-        "src/js/**/*",
-        ".eslintrc.js"
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "checkJs": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "ES6",
+      "DOM"
     ],
-    "exclude": [
-        "node_modules",
-        "babel.config.js"
-    ],
-    "compilerOptions": {
-        "target": "es6",
-        "module": "esnext",
-        "resolveJsonModule": true,
-        "paths": {
-            "@js/*": [
-                "./src/js/*"
-            ],
-            "@scss/*": [
-                "./src/scss/*"
-            ]
-        }
+    "target": "es2016",
+    "module": "commonjs",
+    "sourceMap": true,
+    "paths": {
+      "@js/*": [
+        "./src/js/*"
+      ],
+      "@scss/*": [
+        "./src/scss/*"
+      ],
+      "*": [
+        "./src/js/@types/*"
+      ]
     }
+  },
+  "include": [
+    "./src/js/**/*"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

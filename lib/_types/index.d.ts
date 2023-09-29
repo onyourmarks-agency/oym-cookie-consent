@@ -112,8 +112,8 @@ declare module 'tde-cookie-consent/index' {
 }
 declare module 'tde-cookie-consent/services/ConfigService' {
   import type { ConfigType } from '@tdecc/_types/config';
-  export const mergeConfig: (config: ConfigType | undefined) => Record<string, any>;
-  export const mergeContent: () => Record<string, any>;
+  export const mergeConfig: (config: ConfigType | undefined) => any;
+  export const mergeContent: () => any;
   export const getCurrentConfig: () => ConfigType;
 
 }

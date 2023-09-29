@@ -24,7 +24,7 @@ export const overlayHide = (): void => {
 export const overlayShow = (canBeClosed: boolean | undefined = undefined): void => {
   if (
     canBeClosed ||
-    getCurrentConfig().exceptionUrls.find(
+    !getCurrentConfig().exceptionUrls.find(
       (item: string): boolean => item === window.location.pathname
     )
   ) {

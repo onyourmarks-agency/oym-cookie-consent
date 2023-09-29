@@ -1,6 +1,7 @@
 import type { ConfigType } from '@tdecc/_types/config';
 
 export default {
+  consentOptions: [],
   cookieName: 'tdecc',
   exceptionUrls: [],
   explanationAnchors: [],

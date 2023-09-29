@@ -53,7 +53,8 @@
     "stylelint": "^13.13.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
-    "tde-stylelint-config": "github:tdeNL/tde-stylelint-config"
+    "tde-stylelint-config": "github:tdeNL/tde-stylelint-config",
+    "typescript": "^5.2.2"
   },
   "browserslist": {
     "production": [

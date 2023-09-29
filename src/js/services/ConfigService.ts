@@ -2,34 +2,35 @@ import type { ConfigType } from '@tdecc/_types/config';
 import configDefaults from '@tdecc/config/defaults';
 import contentDefaults from '@tdecc/translations';
 
-function mergeDeep(
-  target: Record<string, any>,
-  ...sources: Record<string, any>[]
-): Record<string, any> {
-  if (target === null || typeof target !== 'object') {
+function mergeDeep(target: any, ...sources: any[]): any {
+  if (target === null) {
     throw new TypeError('Cannot convert undefined or null to object');
   }
 
-  sources.forEach((source): void => {
-    if (source === null || typeof source === 'object') {
-      return;
-    }
+  const to: any = Object(target);
 
-    Object.keys(source).forEach((nextKey): void => {
-      if (
-        typeof target[nextKey] === 'object' &&
-        target[nextKey] !== null &&
-        typeof source[nextKey] === 'object' &&
-        source[nextKey] !== null
-      ) {
-        target[nextKey] = mergeDeep(target[nextKey], source[nextKey]);
-      } else {
-        target[nextKey] = source[nextKey];
+  for (let index = 0; index < sources.length; index += 1) {
+    const nextSource: any = sources[index];
+
+    if (nextSource !== null && typeof nextSource === 'object') {
+      for (const nextKey in nextSource) {
+        if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+          if (
+            typeof to[nextKey] === 'object' &&
+            to[nextKey] &&
+            typeof nextSource[nextKey] === 'object' &&
+            nextSource[nextKey]
+          ) {
+            to[nextKey] = mergeDeep(to[nextKey], nextSource[nextKey]);
+          } else {
+            to[nextKey] = nextSource[nextKey];
+          }
+        }
       }
-    });
-  });
+    }
+  }
 
-  return target;
+  return to;
 }
 
 export const mergeConfig = (config: ConfigType | undefined) => {

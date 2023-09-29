@@ -1,5 +1,5 @@
 import postscribe from 'postscribe';
-import { renderTemplateNotification } from '@js/templates/notification';
+import { renderTemplateNotification } from '@tdecc/templates/notification';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsWebsite } from './DOMService';
 import { checkPermission } from './PermissionService';

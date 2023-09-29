@@ -1,6 +1,6 @@
-import type { ConfigConsentOptionsType, ConfigType } from '@js/_types/config';
-import type { ContentManageType } from '@js/_types/content';
-import { throwError } from '@js/services/ErrorService';
+import type { ConfigConsentOptionsType, ConfigType } from '@tdecc/_types/config';
+import type { ContentManageType } from '@tdecc/_types/content';
+import { throwError } from '@tdecc/services/ErrorService';
 
 const renderTemplateOptions = (
   options: ConfigConsentOptionsType[],

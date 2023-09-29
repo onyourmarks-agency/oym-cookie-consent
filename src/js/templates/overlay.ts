@@ -1,8 +1,8 @@
-import { throwError } from '@js/services/ErrorService';
-import { renderIconClose } from '@js/templates/icons/close';
-import { renderTemplateExplanation } from '@js/templates/overlay-sections/explanation';
-import { renderTemplateManage } from '@js/templates/overlay-sections/manage';
-import { renderTemplateSplash } from '@js/templates/overlay-sections/splash';
+import { throwError } from '@tdecc/services/ErrorService';
+import { renderIconClose } from '@tdecc/templates/icons/close';
+import { renderTemplateExplanation } from '@tdecc/templates/overlay-sections/explanation';
+import { renderTemplateManage } from '@tdecc/templates/overlay-sections/manage';
+import { renderTemplateSplash } from '@tdecc/templates/overlay-sections/splash';
 
 const template = (): string => {
   const { content } = window.tdecc;

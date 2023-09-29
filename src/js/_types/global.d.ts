@@ -1,4 +1,4 @@
-import type { ConfigType } from '@js/_types/config';
+import type { ConfigType } from '@tdecc/_types/config';
 
 export type TdeccType = {
   accepted: [];

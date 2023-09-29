@@ -1,4 +1,4 @@
-import type { ContentType } from '@js/_types/content';
+import type { ContentType } from '@tdecc/_types/content';
 
 export default {
   splash: {

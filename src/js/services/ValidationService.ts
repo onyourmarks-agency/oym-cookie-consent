@@ -1,4 +1,4 @@
-import type { CookieType } from '@js/_types/cookie';
+import type { CookieType } from '@tdecc/_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { removeCookie } from './CookieService';
 import { dispatchChanged, storeCookie } from './EventService';

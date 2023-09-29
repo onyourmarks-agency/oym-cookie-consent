@@ -1,4 +1,4 @@
-import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@js/_types/dom';
+import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@tdecc/_types/dom';
 import { domQuerySelectorsConsent, domQuerySelectorsWebsite } from './DOMService';
 import { acceptAllOptions, save } from './EventService';
 import { showManagerSection, overlayHide, overlayShow } from './TemplateService';

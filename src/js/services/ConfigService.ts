@@ -1,6 +1,6 @@
-import type { ConfigType } from '@js/_types/config';
-import configDefaults from '@js/config/defaults';
-import contentDefaults from '@js/translations';
+import type { ConfigType } from '@tdecc/_types/config';
+import configDefaults from '@tdecc/config/defaults';
+import contentDefaults from '@tdecc/translations';
 
 function mergeDeep(
   target: Record<string, any>,

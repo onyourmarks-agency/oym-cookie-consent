@@ -2,17 +2,16 @@
   "name": "tde-cookie-consent",
   "version": "2.0.0",
   "files": [
-    "dist/*"
+    "lib/*"
   ],
-  "module": "dist/index.esm.js",
-  "main": "dist/index.js",
-  "types": "dist/_types/index.d.ts",
+  "module": "lib/index.esm.js",
+  "main": "lib/index.js",
+  "types": "lib/_types/index.d.ts",
   "license": "MIT",
   "config": {
     "node": "18"
   },
   "scripts": {
-    "prebuild": "rm -rf ./lib",
     "build": "rm -rf ./lib && NODE_ENV=prod node --experimental-modules ./esbuild/build.mjs",
     "watch": "node --experimental-modules ./esbuild/build.mjs --watch",
     "frontend-cs": "pnpm format && pnpm eslint && pnpm stylelint",

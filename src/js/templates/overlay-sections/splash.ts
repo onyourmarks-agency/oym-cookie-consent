@@ -1,6 +1,6 @@
-import type { ConfigType } from '@js/_types/config';
-import type { ContentSplashType } from '@js/_types/content';
-import { throwError } from '@js/services/ErrorService';
+import type { ConfigType } from '@tdecc/_types/config';
+import type { ContentSplashType } from '@tdecc/_types/content';
+import { throwError } from '@tdecc/services/ErrorService';
 
 export const renderTemplateSplash = (content: ContentSplashType, config: ConfigType): string => {
   if (typeof content !== 'object' || !Object.keys(content)) {

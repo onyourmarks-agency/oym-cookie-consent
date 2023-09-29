@@ -1,4 +1,4 @@
-import { throwError } from '@js/services/ErrorService';
+import { throwError } from '@tdecc/services/ErrorService';
 
 export const renderTemplateNotification = (): string => {
   const { content } = window.tdecc;

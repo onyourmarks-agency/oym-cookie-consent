@@ -1,5 +1,5 @@
-import type { ConfigType } from '@js/_types/config';
-import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@js/_types/dom';
+import type { ConfigType } from '@tdecc/_types/config';
+import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@tdecc/_types/dom';
 
 export const domQuerySelectorsConsent = (): DomSelectorsContentType => ({
   wrapper: document.querySelector('[data-tdeccoverlay]'),

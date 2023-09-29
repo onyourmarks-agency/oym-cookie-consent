@@ -90,15 +90,15 @@ declare module 'tde-cookie-consent/_types/dom' {
 
 }
 declare module 'tde-cookie-consent/config/defaults' {
-  import type { ConfigType } from '@js/_types/config';
+  import type { ConfigType } from '@tdecc/_types/config';
   const _default: ConfigType;
   export default _default;
 
 }
 declare module 'tde-cookie-consent/index' {
   import '../scss/index.scss';
-  import type { ConfigType } from '@js/_types/config';
-  import type { CookieAcceptedType } from '@js/_types/cookie';
+  import type { ConfigType } from '@tdecc/_types/config';
+  import type { CookieAcceptedType } from '@tdecc/_types/cookie';
   const _default: {
       getAllPermissions(): CookieAcceptedType;
       checkPermission(match: any): boolean;
@@ -111,7 +111,7 @@ declare module 'tde-cookie-consent/index' {
 
 }
 declare module 'tde-cookie-consent/services/ConfigService' {
-  import type { ConfigType } from '@js/_types/config';
+  import type { ConfigType } from '@tdecc/_types/config';
   export const mergeConfig: (config: ConfigType | undefined) => Record<string, any>;
   export const mergeContent: () => Record<string, any>;
   export const getCurrentConfig: () => ConfigType;
@@ -125,8 +125,8 @@ declare module 'tde-cookie-consent/services/CookieService' {
 
 }
 declare module 'tde-cookie-consent/services/DOMService' {
-  import type { ConfigType } from '@js/_types/config';
-  import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@js/_types/dom';
+  import type { ConfigType } from '@tdecc/_types/config';
+  import type { DomSelectorsContentType, DomSelectorsWebsiteType } from '@tdecc/_types/dom';
   export const domQuerySelectorsConsent: () => DomSelectorsContentType;
   export const domQuerySelectorsWebsite: (config?: ConfigType | undefined) => DomSelectorsWebsiteType;
 
@@ -136,7 +136,7 @@ declare module 'tde-cookie-consent/services/ErrorService' {
 
 }
 declare module 'tde-cookie-consent/services/EventService' {
-  import type { CookieAcceptedType, CookieInfoType } from '@js/_types/cookie';
+  import type { CookieAcceptedType, CookieInfoType } from '@tdecc/_types/cookie';
   export const dispatchChanged: () => void;
   export const acceptAllOptions: () => void;
   export const storeCookie: (accepted: CookieAcceptedType, info: CookieInfoType) => void;
@@ -149,7 +149,7 @@ declare module 'tde-cookie-consent/services/ListenerService' {
 
 }
 declare module 'tde-cookie-consent/services/PermissionService' {
-  import type { CookieAcceptedType, CookieType } from '@js/_types/cookie';
+  import type { CookieAcceptedType, CookieType } from '@tdecc/_types/cookie';
   export const getCurrentCookie: () => CookieType | null;
   export const getCurrentPermissions: () => CookieAcceptedType;
   export const checkPermission: (arr: string[] | string) => boolean;
@@ -186,19 +186,19 @@ declare module 'tde-cookie-consent/templates/notification' {
 
 }
 declare module 'tde-cookie-consent/templates/overlay-sections/explanation' {
-  import type { ConfigExplanationAnchorType } from '@js/_types/config';
+  import type { ConfigExplanationAnchorType } from '@tdecc/_types/config';
   export const renderTemplateExplanation: (anchors: ConfigExplanationAnchorType[]) => string;
 
 }
 declare module 'tde-cookie-consent/templates/overlay-sections/manage' {
-  import type { ConfigType } from '@js/_types/config';
-  import type { ContentManageType } from '@js/_types/content';
+  import type { ConfigType } from '@tdecc/_types/config';
+  import type { ContentManageType } from '@tdecc/_types/content';
   export const renderTemplateManage: (content: ContentManageType, config: ConfigType) => string;
 
 }
 declare module 'tde-cookie-consent/templates/overlay-sections/splash' {
-  import type { ConfigType } from '@js/_types/config';
-  import type { ContentSplashType } from '@js/_types/content';
+  import type { ConfigType } from '@tdecc/_types/config';
+  import type { ContentSplashType } from '@tdecc/_types/content';
   export const renderTemplateSplash: (content: ContentSplashType, config: ConfigType) => string;
 
 }
@@ -208,13 +208,13 @@ declare module 'tde-cookie-consent/templates/overlay' {
 
 }
 declare module 'tde-cookie-consent/translations/en' {
-  import type { ContentType } from '@js/_types/content';
+  import type { ContentType } from '@tdecc/_types/content';
   const _default: ContentType;
   export default _default;
 
 }
 declare module 'tde-cookie-consent/translations/index' {
-  import type { ContentType } from '@js/_types/content';
+  import type { ContentType } from '@tdecc/_types/content';
   const translation: {
       nl: ContentType;
       en: ContentType;
@@ -223,7 +223,7 @@ declare module 'tde-cookie-consent/translations/index' {
 
 }
 declare module 'tde-cookie-consent/translations/nl' {
-  import type { ContentType } from '@js/_types/content';
+  import type { ContentType } from '@tdecc/_types/content';
   const _default: ContentType;
   export default _default;
 

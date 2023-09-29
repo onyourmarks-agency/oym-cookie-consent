@@ -1,3 +1,5 @@
+import '../scss/index.scss';
+
 import type { ConfigType } from '@js/_types/config';
 import type { CookieAcceptedType } from '@js/_types/cookie';
 import { mergeConfig, mergeContent } from '@js/services/ConfigService';

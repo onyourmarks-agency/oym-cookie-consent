@@ -13,7 +13,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./lib",
-    "build": "rm -rf ./lib && NODE_ENV=prod node --experimental-modules ./esbuild/build.mjs && tsc",
+    "build": "rm -rf ./lib && NODE_ENV=prod node --experimental-modules ./esbuild/build.mjs",
     "watch": "node --experimental-modules ./esbuild/build.mjs --watch",
     "frontend-cs": "pnpm format && pnpm eslint && pnpm stylelint",
     "lint": "pnpm prettier --check . --plugin-search-dir=. && pnpm eslint && pnpm stylelint",

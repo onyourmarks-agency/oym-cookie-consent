@@ -54,9 +54,17 @@ const consent = () => ({
     const config = mergeConfig(givenConfig);
     const content = mergeContent();
     const cookies: string | false = getCookie(config.cookieName) || false;
+
     // Make them widely available
     window.tdecc.config = config;
     window.tdecc.content = content[config.language];
+
+    window.tdecc.config.consentOptions.unshift({
+      key: 'essential',
+      title: content.permissions.essential.title,
+      desc: content.permissions.essential.description,
+      notCustomizable: true,
+    });
 
     // Make functions available
     window.tdecc.getAllPermissions = this.getAllPermissions;

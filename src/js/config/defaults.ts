@@ -1,16 +1,7 @@
 import type { ConfigType } from '../_types/config';
 
-const { content } = window.tdecc;
-
 export default {
-  consentOptions: [
-    {
-      key: 'essential',
-      title: content.permissions.essential.title,
-      desc: content.permissions.essential.description,
-      notCustomizable: true,
-    },
-  ],
+  consentOptions: [],
   cookieName: 'tdecc',
   exceptionUrls: [],
   explanationAnchors: [],

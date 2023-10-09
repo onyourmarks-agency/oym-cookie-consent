@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -79,6 +79,9 @@ devDependencies:
   tde-stylelint-config:
     specifier: github:tdeNL/tde-stylelint-config
     version: github.com/tdeNL/tde-stylelint-config/442a2866e3e483ac62dc6a62c6c48f8a6e3d3366(stylelint@13.13.1)
+  typescript:
+    specifier: ^5.2.2
+    version: 5.2.2
 
 packages:
 

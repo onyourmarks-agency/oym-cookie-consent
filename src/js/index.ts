@@ -61,8 +61,8 @@ const consent = () => ({
 
     window.tdecc.config.consentOptions.unshift({
       key: 'essential',
-      title: content.permissions.essential.title,
-      desc: content.permissions.essential.description,
+      title: window.tdecc.content.permissions.essential.title,
+      desc: window.tdecc.content.permissions.essential.description,
       notCustomizable: true,
     });
 

@@ -28,8 +28,16 @@ export type ContentSplashType = {
   };
 };
 
+export type ContentPermissionsType = {
+  title: string;
+  description: string;
+};
+
 export type ContentType = {
   splash: ContentSplashType;
   manage: ContentManageType;
+  permissions: {
+    essential: ContentPermissionsType;
+  };
   notification: ContentNotificationType;
 };

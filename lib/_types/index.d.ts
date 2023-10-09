@@ -51,9 +51,16 @@ declare module 'tde-cookie-consent/_types/content' {
           accept: string;
       };
   };
+  export type ContentPermissionsType = {
+      title: string;
+      description: string;
+  };
   export type ContentType = {
       splash: ContentSplashType;
       manage: ContentManageType;
+      permissions: {
+          essential: ContentPermissionsType;
+      };
       notification: ContentNotificationType;
   };
 

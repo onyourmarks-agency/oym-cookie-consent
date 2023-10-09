@@ -37,7 +37,7 @@ export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType):
     365
   );
 
-  window.tdecc.cookies = {
+  globalThis.tdecc.cookies = {
     accepted,
     info,
   };

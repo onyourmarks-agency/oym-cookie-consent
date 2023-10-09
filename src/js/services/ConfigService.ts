@@ -41,7 +41,7 @@ export const mergeConfig = (config: ConfigType | undefined) => {
 };
 
 export const mergeContent = () => {
-  const content = window.tdeCookieConsentContent;
+  const content = globalThis.tdeCookieConsentContent;
   const contentGiven = typeof content === 'object' && Object.keys(content).length ? content : {};
 
   return mergeDeep({}, contentDefaults, contentGiven);
@@ -49,8 +49,8 @@ export const mergeContent = () => {
 
 export const getCurrentConfig = (): ConfigType => {
   try {
-    JSON.parse(JSON.stringify(window.tdecc.config));
-    return window.tdecc.config;
+    JSON.parse(JSON.stringify(globalThis.tdecc.config));
+    return globalThis.tdecc.config;
   } catch (e) {
     return configDefaults;
   }

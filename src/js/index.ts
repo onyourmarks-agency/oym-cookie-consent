@@ -17,11 +17,11 @@ import {
 } from './services/TemplateService';
 import { reset, validate } from './services/ValidationService';
 
-window.tdecc = window.tdecc || {};
-window.tdecc.initialized = false;
-window.tdecc.accepted = [];
-window.tdecc.info = {};
-window.tdecc.content = {};
+globalThis.tdecc = globalThis.tdecc || {};
+globalThis.tdecc.initialized = false;
+globalThis.tdecc.accepted = [];
+globalThis.tdecc.info = {};
+globalThis.tdecc.content = {};
 
 const consent = () => ({
   getAllPermissions(): CookieAcceptedType {
@@ -47,7 +47,7 @@ const consent = () => ({
   },
 
   init(givenConfig: ConfigType | undefined): void {
-    if (window.tdecc.initialized) {
+    if (globalThis.tdecc.initialized) {
       return;
     }
 
@@ -56,22 +56,22 @@ const consent = () => ({
     const cookies: string | false = getCookie(config.cookieName) || false;
 
     // Make them widely available
-    window.tdecc.config = config;
-    window.tdecc.content = content[config.language];
+    globalThis.tdecc.config = config;
+    globalThis.tdecc.content = content[config.language];
 
-    window.tdecc.config.consentOptions.unshift({
+    globalThis.tdecc.config.consentOptions.unshift({
       key: 'essential',
-      title: window.tdecc.content.permissions.essential.title,
-      desc: window.tdecc.content.permissions.essential.description,
+      title: globalThis.tdecc.content.permissions.essential.title,
+      desc: globalThis.tdecc.content.permissions.essential.description,
       notCustomizable: true,
     });
 
     // Make functions available
-    window.tdecc.getAllPermissions = this.getAllPermissions;
-    window.tdecc.checkPermission = this.checkPermission;
-    window.tdecc.show = this.show;
-    window.tdecc.hide = this.hide;
-    window.tdecc.update = this.update;
+    globalThis.tdecc.getAllPermissions = this.getAllPermissions;
+    globalThis.tdecc.checkPermission = this.checkPermission;
+    globalThis.tdecc.show = this.show;
+    globalThis.tdecc.hide = this.hide;
+    globalThis.tdecc.update = this.update;
 
     // Add eventlistener for changed cookieprefs
     document.addEventListener('tdecc-changed', (): void => {
@@ -97,7 +97,7 @@ const consent = () => ({
     handleClickListenersContent();
 
     // Don't run these twice
-    window.tdecc.initialized = true;
+    globalThis.tdecc.initialized = true;
   },
 });
 

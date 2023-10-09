@@ -26,7 +26,7 @@ export const validate = (): void => {
   }
 
   if (validated) {
-    window.tdecc.cookies = cookie;
+    globalThis.tdecc.cookies = cookie;
     dispatchChanged();
     storeCookie(cookie.accepted, cookie.info);
     return;

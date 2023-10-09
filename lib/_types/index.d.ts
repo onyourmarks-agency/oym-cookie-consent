@@ -21,6 +21,18 @@ declare module 'tde-cookie-consent/_types/config' {
       style?: ConfigStyleType | undefined;
       version?: string | undefined;
   };
+  export type TdeccType = {
+      accepted: [];
+      checkPermission: {};
+      config?: ConfigType | undefined;
+      content: {};
+      getAllPermissions: {};
+      hide: {};
+      info: {};
+      initialized: boolean;
+      show: {};
+      update: {};
+  };
 
 }
 declare module 'tde-cookie-consent/_types/content' {

@@ -5,8 +5,8 @@ import { renderTemplateManage } from './overlay-sections/manage';
 import { renderTemplateSplash } from './overlay-sections/splash';
 
 const template = (): string => {
-  const { content } = window.tdecc;
-  const { config } = window.tdecc;
+  const { content } = globalThis.tdecc;
+  const { config } = globalThis.tdecc;
 
   if (!content || !content) {
     throwError('Content and config not found');

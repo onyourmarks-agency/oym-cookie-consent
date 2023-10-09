@@ -11,7 +11,22 @@ const renderTemplateOptions = (
   for (let i: number = 0; i < options.length; i += 1) {
     const index: number = i + 1;
 
-    template += `<div class="tdecc__manage__option">
+    if (!options[i]?.notCustomizable) {
+      template += `<div class="tdecc__manage__option">
+        <div class="tdecc__manage__option__content">
+          <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
+          <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
+        </div>
+        <div class="tdecc__manage__option__radios">
+          <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1">
+          
+          <div class="tdecc__manage__option__radios__labels">
+            <label for="tdecc-option-${index}-on">${content.switches.on}</label>
+          </div>
+        </div>
+      </div>`;
+    } else {
+      template += `<div class="tdecc__manage__option">
         <div class="tdecc__manage__option__content">
           <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
           <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
@@ -26,6 +41,7 @@ const renderTemplateOptions = (
           </div>
         </div>
       </div>`;
+    }
   }
 
   return `<div class="tdecc__manage__options">${template}</div>`;

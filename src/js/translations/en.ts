@@ -24,6 +24,13 @@ export default {
     },
     error: 'You have not answered all questions yet. Please indicate your preference above.',
     footer: 'Your choice can always be changed in our cookie settings.',
+    permissions: {
+      essential: {
+        title: 'Essential',
+        description:
+          'Essential cookies are necessary for basic functions such as authentication and remembering preferences, ensuring a smooth online experience.',
+      },
+    },
   },
   notification: {
     title: 'Accept (more) cookies to view this content',

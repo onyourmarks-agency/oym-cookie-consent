@@ -24,12 +24,12 @@ export default {
     },
     error: 'Je hebt nog niet op alle vragen antwoord gegeven. Geef hierboven jouw voorkeur aan.',
     footer: 'Je keuze is altijd te wijzigen via onze cookie instellingen.',
-    permissions: {
-      essential: {
-        title: 'Essentieel',
-        description:
-          'Essentiële cookies zijn noodzakelijk voor basisfuncties zoals authenticatie en het onthouden van voorkeuren, wat een soepele online ervaring waarborgt.',
-      },
+  },
+  permissions: {
+    essential: {
+      title: 'Essentieel',
+      description:
+        'Essentiële cookies zijn noodzakelijk voor basisfuncties zoals authenticatie en het onthouden van voorkeuren, wat een soepele online ervaring waarborgt.',
     },
   },
   notification: {

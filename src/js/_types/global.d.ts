@@ -1,4 +1,4 @@
-import type { ConfigType } from '@tdecc/_types/config';
+import type { ConfigType } from './config';
 
 export type TdeccType = {
   accepted: [];

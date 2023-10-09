@@ -1,4 +1,4 @@
-import type { CookieAcceptedType, CookieType } from '@tdecc/_types/cookie';
+import type { CookieAcceptedType, CookieType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { getCookie } from './CookieService';
 

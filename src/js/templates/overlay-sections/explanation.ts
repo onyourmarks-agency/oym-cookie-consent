@@ -1,5 +1,5 @@
-import type { ConfigExplanationAnchorType } from '@tdecc/_types/config';
-import { renderIconArrow } from '@tdecc/templates/icons/arrow';
+import type { ConfigExplanationAnchorType } from '../../_types/config';
+import { renderIconArrow } from '../icons/arrow';
 
 export const renderTemplateExplanation = (anchors: ConfigExplanationAnchorType[]): string => {
   if (!anchors.length) {

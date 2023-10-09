@@ -1,6 +1,6 @@
-import type { CookieAcceptedType } from '@tdecc/_types/cookie';
-import type { DomSelectorsContentType } from '@tdecc/_types/dom';
-import templateConsent from '@tdecc/templates/overlay';
+import type { CookieAcceptedType } from '../_types/cookie';
+import type { DomSelectorsContentType } from '../_types/dom';
+import templateConsent from '../templates/overlay';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsConsent } from './DOMService';
 import { getCurrentPermissions } from './PermissionService';

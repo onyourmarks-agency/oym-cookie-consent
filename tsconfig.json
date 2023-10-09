@@ -15,9 +15,6 @@
     "module": "commonjs",
     "sourceMap": true,
     "paths": {
-      "@tdecc/*": [
-        "./src/js/*"
-      ],
       "*": [
         "./src/js/@types/*"
       ]

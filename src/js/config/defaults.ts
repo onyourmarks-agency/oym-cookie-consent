@@ -1,4 +1,4 @@
-import type { ConfigType } from '@tdecc/_types/config';
+import type { ConfigType } from '../_types/config';
 
 const { content } = window.tdecc;
 

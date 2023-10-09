@@ -1,24 +1,21 @@
 import '../scss/index.scss';
 
-import type { ConfigType } from '@tdecc/_types/config';
-import type { CookieAcceptedType } from '@tdecc/_types/cookie';
-import { mergeConfig, mergeContent } from '@tdecc/services/ConfigService';
-import { getCookie } from '@tdecc/services/CookieService';
-import { dispatchChanged } from '@tdecc/services/EventService';
-import {
-  handleClickListenersPopup,
-  handleClickListenersContent,
-} from '@tdecc/services/ListenerService';
-import { checkPermission, getCurrentPermissions } from '@tdecc/services/PermissionService';
-import renderSiteContent from '@tdecc/services/RenderSitecontentService';
+import type { ConfigType } from './_types/config';
+import type { CookieAcceptedType } from './_types/cookie';
+import { mergeConfig, mergeContent } from './services/ConfigService';
+import { getCookie } from './services/CookieService';
+import { dispatchChanged } from './services/EventService';
+import { handleClickListenersPopup, handleClickListenersContent } from './services/ListenerService';
+import { checkPermission, getCurrentPermissions } from './services/PermissionService';
+import { renderSiteContent } from './services/RenderSitecontentService';
 import {
   renderTemplate,
   renderGivenPermissions,
   overlayShow,
   overlayHide,
   showManagerSection,
-} from '@tdecc/services/TemplateService';
-import { reset, validate } from '@tdecc/services/ValidationService';
+} from './services/TemplateService';
+import { reset, validate } from './services/ValidationService';
 
 window.tdecc = window.tdecc || {};
 window.tdecc.initialized = false;

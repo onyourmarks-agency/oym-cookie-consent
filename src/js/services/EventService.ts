@@ -1,4 +1,4 @@
-import type { CookieAcceptedType, CookieInfoType } from '@tdecc/_types/cookie';
+import type { CookieAcceptedType, CookieInfoType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { setCookie } from './CookieService';
 import { domQuerySelectorsConsent } from './DOMService';

@@ -13,7 +13,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
     const nextSource: any = sources[index];
 
     if (nextSource !== null && typeof nextSource === 'object') {
-      for (const nextKey in nextSource) {
+      Object.keys(nextSource).forEach((nextKey) => {
         if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
           if (
             typeof to[nextKey] === 'object' &&
@@ -26,7 +26,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
             to[nextKey] = nextSource[nextKey];
           }
         }
-      }
+      });
     }
   }
 

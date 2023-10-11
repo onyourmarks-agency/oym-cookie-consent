@@ -4,7 +4,6 @@
   "files": [
     "lib/*"
   ],
-  "module": "lib/index.esm.js",
   "main": "lib/index.js",
   "types": "lib/_types/index.d.ts",
   "license": "MIT",

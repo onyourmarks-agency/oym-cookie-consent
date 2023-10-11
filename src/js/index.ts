@@ -9,7 +9,7 @@ import { handleClickListenersPopup, handleClickListenersContent } from './servic
 import { checkPermission, getCurrentPermissions } from './services/PermissionService';
 import { renderSiteContent } from './services/RenderSitecontentService';
 import {
-  renderTemplate,
+  renderConsent,
   renderGivenPermissions,
   overlayShow,
   overlayHide,
@@ -78,8 +78,8 @@ const consent = () => ({
       renderSiteContent();
     });
 
-    // Render template
-    renderTemplate();
+    // Render
+    renderConsent();
 
     if (cookies) {
       try {

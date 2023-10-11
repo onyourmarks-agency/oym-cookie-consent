@@ -1,5 +1,5 @@
 import type { ConfigType } from '../_types/config';
-import configDefaults from '../config/defaults';
+import { TDECC_CONFIG as configDefaults } from '../config/defaults';
 import contentDefaults from '../translations';
 
 function mergeDeep(target: any, ...sources: any[]): any {

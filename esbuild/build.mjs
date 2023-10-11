@@ -1,6 +1,7 @@
-import {build, transformSync} from 'esbuild';
+import {build} from 'esbuild';
 import sveltePlugin from 'esbuild-svelte';
 import {typescript} from 'svelte-preprocess-esbuild';
+import preprocess from 'svelte-preprocess';
 
 import nodePackage from './../package.json' assert {type: 'json'};
 
@@ -34,7 +35,15 @@ const sharedConfig = {
     }),
     sveltePlugin({
       preprocess: [
-        typescript()
+        typescript({
+          target: 'es2016',
+          define: {
+            'process.browser': 'true',
+          }
+        }),
+        preprocess({
+          typescript: false,
+        }),
       ],
     }),
   ],

@@ -188,8 +188,8 @@ declare module 'tde-cookie-consent/src/js/_types/dom' {
 }
 declare module 'tde-cookie-consent/src/js/config/defaults' {
   import type { ConfigType } from 'tde-cookie-consent/src/js/_types/config';
-  const _default: ConfigType;
-  export default _default;
+  export const TDECC_CLASSNAME: string;
+  export const TDECC_CONFIG: ConfigType;
 
 }
 declare module 'tde-cookie-consent/src/js/index' {
@@ -260,7 +260,7 @@ declare module 'tde-cookie-consent/src/js/services/RenderSitecontentService' {
 declare module 'tde-cookie-consent/src/js/services/TemplateService' {
   export const overlayHide: () => void;
   export const overlayShow: (canBeClosed?: boolean | undefined) => void;
-  export const renderTemplate: () => void;
+  export const renderConsent: () => void;
   export const renderGivenPermissions: () => void;
   export const showManagerSection: () => void;
 

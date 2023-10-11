@@ -11,37 +11,21 @@ const renderTemplateOptions = (
   for (let i: number = 0; i < options.length; i += 1) {
     const index: number = i + 1;
 
-    if (options[i]?.notCustomizable) {
-      template += `<div class="tdecc__manage__option">
-        <div class="tdecc__manage__option__content">
-          <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
-          <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
+    template += `<div class="tdecc__manage__option">
+      <div class="tdecc__manage__option__content">
+        <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
+        <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
+      </div>
+      <div class="tdecc__manage__option__radios">
+        <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1"${options[i]?.notCustomizable ? ' checked disabled' : ''}>
+        <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${options[i].key}" value="0"${options[i]?.notCustomizable ? ' disabled' : ''}>
+        
+        <div class="tdecc__manage__option__radios__labels">
+          <label for="tdecc-option-${index}-on">${content.switches.on}</label>
+          <label for="tdecc-option-${index}-off">${content.switches.off}</label>
         </div>
-        <div class="tdecc__manage__option__radios">
-          <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1" checked disabled>
-          
-          <div class="tdecc__manage__option__radios__labels">
-            <label for="tdecc-option-${index}-on">${content.switches.on}</label>
-          </div>
-        </div>
-      </div>`;
-    } else {
-      template += `<div class="tdecc__manage__option">
-        <div class="tdecc__manage__option__content">
-          <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
-          <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
-        </div>
-        <div class="tdecc__manage__option__radios">
-          <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1">
-          <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${options[i].key}" value="0">
-          
-          <div class="tdecc__manage__option__radios__labels">
-            <label for="tdecc-option-${index}-on">${content.switches.on}</label>
-            <label for="tdecc-option-${index}-off">${content.switches.off}</label>
-          </div>
-        </div>
-      </div>`;
-    }
+      </div>
+    </div>`;
   }
 
   return `<div class="tdecc__manage__options">${template}</div>`;

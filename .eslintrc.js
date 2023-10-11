@@ -1,19 +1,29 @@
 const aliases = require('./.aliases');
 const aliasHelper = require('./esbuild/helpers/aliases');
+const typescript = require('typescript');
 
 module.exports = {
   extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     requireConfigFile: false,
-    project: './tsconfig.json',
+    project: 'tsconfig.json',
+    tsconfigRootDir: './',
   },
   env: {
     browser: true,
     es6: true,
   },
-  plugins: ['compat', '@typescript-eslint'],
+  plugins: ['compat', 'svelte3', '@typescript-eslint'],
+  overrides: [
+    {
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3',
+    },
+  ],
   settings: {
+    'svelte3/typescript': () => typescript,
+    'svelte3/ignore-styles': () => true,
     polyfills: ['fetch', 'Object.assign', 'Object.values', 'Promise'],
     'import/resolver': {
       alias: aliasHelper.formatEslintAliases(aliases),
@@ -32,6 +42,7 @@ module.exports = {
       {
         js: 'never',
         ts: 'never',
+        svelte: 'never',
       },
     ],
     'max-len': [
@@ -49,6 +60,7 @@ module.exports = {
     ],
     'no-new': 0,
     'no-param-reassign': [2, { props: false }],
+    'no-restricted-exports': 0,
     'prefer-promise-reject-errors': 0,
   },
 };

@@ -8,6 +8,9 @@ dependencies:
   postscribe:
     specifier: ^2.0.8
     version: 2.0.8
+  svelte:
+    specifier: ^3.55.1
+    version: 3.55.1
 
 devDependencies:
   '@tsconfig/svelte':
@@ -23,11 +26,14 @@ devDependencies:
     specifier: ^6.7.3
     version: 6.7.3(eslint@8.35.0)(typescript@5.2.2)
   esbuild:
-    specifier: 0.19.4
+    specifier: ^0.19.4
     version: 0.19.4
   esbuild-sass-plugin:
     specifier: ^2.15.0
     version: 2.15.0(esbuild@0.19.4)
+  esbuild-svelte:
+    specifier: ^0.8.0
+    version: 0.8.0(esbuild@0.19.4)(svelte@3.55.1)
   eslint:
     specifier: ^8.35.0
     version: 8.35.0
@@ -55,6 +61,9 @@ devDependencies:
   eslint-plugin-prettier:
     specifier: ^4.2.1
     version: 4.2.1(eslint-config-prettier@8.7.0)(eslint@8.35.0)(prettier@2.8.4)
+  eslint-plugin-svelte3:
+    specifier: ^4.0.0
+    version: 4.0.0(eslint@8.35.0)(svelte@3.55.1)
   eslint-webpack-plugin:
     specifier: ^3.2.0
     version: 3.2.0(eslint@8.35.0)(webpack@5.88.2)
@@ -76,6 +85,12 @@ devDependencies:
   stylelint-selector-bem-pattern:
     specifier: ^2.1.1
     version: 2.1.1
+  svelte-preprocess:
+    specifier: ^4.10.7
+    version: 4.10.7(@babel/core@7.23.0)(postcss@8.4.30)(svelte@3.55.1)(typescript@5.2.2)
+  svelte-preprocess-esbuild:
+    specifier: ^3.0.1
+    version: 3.0.1(esbuild@0.19.4)(svelte@3.55.1)
   tde-stylelint-config:
     specifier: github:tdeNL/tde-stylelint-config
     version: github.com/tdeNL/tde-stylelint-config/442a2866e3e483ac62dc6a62c6c48f8a6e3d3366(stylelint@13.13.1)
@@ -689,6 +704,17 @@ packages:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
 
+  /@types/pug@2.0.7:
+    resolution: {integrity: sha512-I469DU0UXNC1aHepwirWhu9YKg5fkxohZD95Ey/5A7lovC+Siu+MCLffva87lnfThaOrw9Vb1DUN5t55oULAAw==}
+    dev: true
+
+  /@types/sass@1.45.0:
+    resolution: {integrity: sha512-jn7qwGFmJHwUSphV8zZneO3GmtlgLsmhs/LQyVvQbIIa+fzGMUiHI4HXJZL3FT8MJmgXWbLGiVVY7ElvHq6vDA==}
+    deprecated: This is a stub types definition. sass provides its own type definitions, so you do not need this installed.
+    dependencies:
+      sass: 1.68.0
+    dev: true
+
   /@types/semver@7.5.3:
     resolution: {integrity: sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==}
     dev: true
@@ -1237,6 +1263,10 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.22.0)
     dev: true
 
+  /buffer-crc32@0.2.13:
+    resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
+    dev: true
+
   /buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
     dev: true
@@ -1488,6 +1518,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /detect-indent@6.1.0:
+    resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
+    engines: {node: '>=8'}
+    dev: true
+
   /dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
@@ -1681,6 +1716,10 @@ packages:
       is-symbol: 1.0.4
     dev: true
 
+  /es6-promise@3.3.1:
+    resolution: {integrity: sha512-SOp9Phqvqn7jtEUxPWdWfWoLmyt2VaJ6MpvP9Comy1MceMXqE6bxvaTu4iaxpYYPzhny28Lc+M87/c2cPK6lDg==}
+    dev: true
+
   /esbuild-sass-plugin@2.15.0(esbuild@0.19.4):
     resolution: {integrity: sha512-T0GCHVfeuGBBgY5k19RbExd7vVuC3lzrK8IZbXOqZftw6N9lTBnZuqKhnhdAJBcu6wek7K/fXJ2zzY6KrcNtAg==}
     peerDependencies:
@@ -1689,6 +1728,18 @@ packages:
       esbuild: 0.19.4
       resolve: 1.22.6
       sass: 1.68.0
+    dev: true
+
+  /esbuild-svelte@0.8.0(esbuild@0.19.4)(svelte@3.55.1):
+    resolution: {integrity: sha512-uKcPf1kl2UGMjrfHChv4dLxGAvCNhf9s72mHo19ZhKP+LrVOuQkOM/g8GE7MiGpoqjpk8UHqL08uLRbSKXhmhw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      esbuild: '>=0.9.6'
+      svelte: '>=3.43.0 <5'
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.19
+      esbuild: 0.19.4
+      svelte: 3.55.1
     dev: true
 
   /esbuild@0.19.4:
@@ -1912,6 +1963,16 @@ packages:
       eslint-config-prettier: 8.7.0(eslint@8.35.0)
       prettier: 2.8.4
       prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-svelte3@4.0.0(eslint@8.35.0)(svelte@3.55.1):
+    resolution: {integrity: sha512-OIx9lgaNzD02+MDFNLw0GEUbuovNcglg+wnd/UY0fbZmlQSz7GlQiQ1f+yX0XvC07XPcDOnFcichqI3xCwp71g==}
+    peerDependencies:
+      eslint: '>=8.0.0'
+      svelte: ^3.2.0
+    dependencies:
+      eslint: 8.35.0
+      svelte: 3.55.1
     dev: true
 
   /eslint-scope@5.1.1:
@@ -2908,6 +2969,12 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /magic-string@0.25.9:
+    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
+
   /map-obj@1.0.1:
     resolution: {integrity: sha512-7N/q3lyZ+LVCp7PzuxrJr4KMbBE2hW7BT7YNia330OFxIf4d3r5zVpicP2650l7CPN6RM9zOJRl3NGpqSiw3Eg==}
     engines: {node: '>=0.10.0'}
@@ -3035,6 +3102,13 @@ packages:
 
   /minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+    dev: true
+
+  /mkdirp@0.5.6:
+    resolution: {integrity: sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.8
     dev: true
 
   /mkdirp@1.0.4:
@@ -3657,6 +3731,13 @@ packages:
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
     dev: true
 
+  /rimraf@2.7.1:
+    resolution: {integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==}
+    hasBin: true
+    dependencies:
+      glob: 7.2.3
+    dev: true
+
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
     hasBin: true
@@ -3695,6 +3776,15 @@ packages:
   /safe-stable-stringify@2.4.3:
     resolution: {integrity: sha512-e2bDA2WJT0wxseVd4lsDP4+3ONX6HpMXQa1ZhFQ7SU+GjvORCmShbCMltrtIDfkYhVHrOcPtj+KhmDBdPdZD1g==}
     engines: {node: '>=10'}
+    dev: true
+
+  /sander@0.5.1:
+    resolution: {integrity: sha512-3lVqBir7WuKDHGrKRDn/1Ye3kwpXaDOMsiRP1wd6wpZW56gJhsbp5RqQpA6JG/P+pkXizygnr1dKR8vzWaVsfA==}
+    dependencies:
+      es6-promise: 3.3.1
+      graceful-fs: 4.2.11
+      mkdirp: 0.5.6
+      rimraf: 2.7.1
     dev: true
 
   /sass@1.68.0:
@@ -3817,6 +3907,16 @@ packages:
       is-fullwidth-code-point: 3.0.0
     dev: true
 
+  /sorcery@0.10.0:
+    resolution: {integrity: sha512-R5ocFmKZQFfSTstfOtHjJuAwbpGyf9qjQa1egyhvXSbM7emjrtLXtGdZsDJDABC85YBfVvrOiGWKSYXPKdvP1g==}
+    hasBin: true
+    dependencies:
+      buffer-crc32: 0.2.13
+      minimist: 1.2.8
+      sander: 0.5.1
+      sourcemap-codec: 1.4.8
+    dev: true
+
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -3832,6 +3932,11 @@ packages:
   /source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /sourcemap-codec@1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: true
 
   /spdx-correct@3.2.0:
@@ -4097,6 +4202,74 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /svelte-preprocess-esbuild@3.0.1(esbuild@0.19.4)(svelte@3.55.1):
+    resolution: {integrity: sha512-OV4P/onki7hfuzIpYOd92TT0JSm4y67PvkAAM7RigLd869VEvNh2f6J+ewrEqAgTnZzVQcOWzuaU4hPISNPFpA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      esbuild: '>=0.14.0'
+      svelte: '>=3.5.0'
+    dependencies:
+      esbuild: 0.19.4
+      svelte: 3.55.1
+    dev: true
+
+  /svelte-preprocess@4.10.7(@babel/core@7.23.0)(postcss@8.4.30)(svelte@3.55.1)(typescript@5.2.2):
+    resolution: {integrity: sha512-sNPBnqYD6FnmdBrUmBCaqS00RyCsCpj2BG58A1JBswNF7b0OKviwxqVrOL/CKyJrLSClrSeqQv5BXNg2RUbPOw==}
+    engines: {node: '>= 9.11.2'}
+    requiresBuild: true
+    peerDependencies:
+      '@babel/core': ^7.10.2
+      coffeescript: ^2.5.1
+      less: ^3.11.3 || ^4.0.0
+      node-sass: '*'
+      postcss: ^7 || ^8
+      postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
+      pug: ^3.0.0
+      sass: ^1.26.8
+      stylus: ^0.55.0
+      sugarss: ^2.0.0
+      svelte: ^3.23.0
+      typescript: ^3.9.5 || ^4.0.0
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      coffeescript:
+        optional: true
+      less:
+        optional: true
+      node-sass:
+        optional: true
+      postcss:
+        optional: true
+      postcss-load-config:
+        optional: true
+      pug:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@babel/core': 7.23.0
+      '@types/pug': 2.0.7
+      '@types/sass': 1.45.0
+      detect-indent: 6.1.0
+      magic-string: 0.25.9
+      postcss: 8.4.30
+      sorcery: 0.10.0
+      strip-indent: 3.0.0
+      svelte: 3.55.1
+      typescript: 5.2.2
+    dev: true
+
+  /svelte@3.55.1:
+    resolution: {integrity: sha512-S+87/P0Ve67HxKkEV23iCdAh/SX1xiSfjF1HOglno/YTbSTW7RniICMCofWGdJJbdjw3S+0PfFb1JtGfTXE0oQ==}
+    engines: {node: '>= 8'}
 
   /svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}

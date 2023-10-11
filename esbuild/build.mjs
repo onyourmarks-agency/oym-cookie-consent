@@ -1,4 +1,7 @@
-import {build} from 'esbuild';
+import {build, transformSync} from 'esbuild';
+import sveltePlugin from 'esbuild-svelte';
+import {typescript} from 'svelte-preprocess-esbuild';
+
 import nodePackage from './../package.json' assert {type: 'json'};
 
 import * as process from 'process';
@@ -19,6 +22,8 @@ new Generator({
 
 const sharedConfig = {
   entryPoints: [path.resolve(__dirname, '../src/js', 'index.ts')],
+  mainFields: ['svelte', 'browser', 'module', 'main'],
+  conditions: ['svelte', 'browser'],
   bundle: true,
   minify: true,
   external: Object.keys(nodePackage.dependencies),
@@ -26,7 +31,12 @@ const sharedConfig = {
     sassPlugin({
       loadPaths: [path.resolve(__dirname, '../src/scss')],
       type: 'css',
-    })
+    }),
+    sveltePlugin({
+      preprocess: [
+        typescript()
+      ],
+    }),
   ],
 };
 

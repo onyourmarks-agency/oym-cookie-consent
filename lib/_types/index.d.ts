@@ -59,7 +59,11 @@ declare module 'tde-cookie-consent/.eslintrc' {
       'no-param-reassign': (number | {
           props: boolean;
       })[];
-      'no-restricted-exports': number;
+      'no-restricted-exports': (string | {
+          restrictDefaultExports: {
+              namedFrom: boolean;
+          };
+      })[];
       'prefer-promise-reject-errors': number;
   };
 

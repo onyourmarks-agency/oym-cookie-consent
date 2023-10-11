@@ -1,6 +1,6 @@
+const typescript = require('typescript');
 const aliases = require('./.aliases');
 const aliasHelper = require('./esbuild/helpers/aliases');
-const typescript = require('typescript');
 
 module.exports = {
   extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
@@ -60,7 +60,11 @@ module.exports = {
     ],
     'no-new': 0,
     'no-param-reassign': [2, { props: false }],
-    'no-restricted-exports': 0,
+    'no-restricted-exports': ['error', {
+      restrictDefaultExports: {
+        namedFrom: false,
+      },
+    }],
     'prefer-promise-reject-errors': 0,
   },
 };

@@ -3,11 +3,11 @@ export type SameSiteType = 'Lax' | 'Strict' | 'None' | null;
 export const getCookie = (name: string): string | null => {
   const escapedCookieName: string = name.replace(/([.*+?^$(){}|[\]/\\])/g, '\\$1');
 
-  const matchedCookie: RegExpMatchArray = document.cookie.match(
+  const matchedCookie: RegExpMatchArray | null = document.cookie.match(
     RegExp(`(?:^|;\\s*)${escapedCookieName}=([^;]*)`)
   );
 
-  return matchedCookie ? matchedCookie[1] : null;
+  return matchedCookie && matchedCookie[1] ? matchedCookie[1] : null;
 };
 
 export const setCookie = (
@@ -29,7 +29,7 @@ export const setCookie = (
 
   document.cookie = Object.keys(cookieProperties)
     .map((key: string): string => {
-      const cookiePropertValue: string | number = cookieProperties[key];
+      const cookiePropertValue: string | number | null = cookieProperties[key] || null;
       if (cookiePropertValue === null) {
         return '';
       }

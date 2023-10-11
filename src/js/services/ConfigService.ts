@@ -1,6 +1,6 @@
 import type { ConfigType } from '../_types/config';
 import { TDECC_CONFIG as configDefaults } from '../config/defaults';
-import contentDefaults from '../translations';
+import contentDefaults from '../translations/index';
 
 function mergeDeep(target: any, ...sources: any[]): any {
   if (target === null) {
@@ -34,7 +34,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
 }
 
 export const mergeConfig = (config: ConfigType | undefined) => {
-  const configGiven: ConfigType | undefined =
+  const configGiven: ConfigType | {} =
     typeof config === 'object' && Object.keys(config).length ? config : {};
 
   return mergeDeep({}, configDefaults, configGiven);

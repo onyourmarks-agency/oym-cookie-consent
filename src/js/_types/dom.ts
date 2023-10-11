@@ -6,12 +6,12 @@ export type DomSelectorsContentType = {
   save: HTMLElement;
   errorMessage: HTMLElement;
   optionsAll: NodeListOf<HTMLElement>;
-  optionsChoosen: NodeListOf<HTMLElement>;
+  optionsChoosen: NodeListOf<HTMLInputElement>;
   sectionStart: HTMLElement;
   sectionManage: HTMLElement;
 };
 
 export type DomSelectorsWebsiteType = {
   elements: NodeListOf<HTMLElement>;
-  manage: NodeListOf<HTMLElement>;
+  manage: NodeListOf<HTMLButtonElement>;
 };

@@ -1,5 +1,13 @@
 {
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./lib/types",
     "strict": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -19,10 +27,5 @@
         "./src/js/@types/*"
       ]
     }
-  },
-  "include": [
-    "./src/js/**/*",
-    ".eslintrc.js"
-  ],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  }
 }

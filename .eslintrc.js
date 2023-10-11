@@ -1,7 +1,3 @@
-const typescript = require('typescript');
-const aliases = require('./.aliases');
-const aliasHelper = require('./esbuild/helpers/aliases');
-
 module.exports = {
   extends: ['airbnb-base', 'airbnb-typescript/base', 'prettier'],
   parser: '@typescript-eslint/parser',
@@ -22,11 +18,10 @@ module.exports = {
     },
   ],
   settings: {
-    'svelte3/typescript': () => typescript,
+    'svelte3/typescript': () => require('typescript'),
     'svelte3/ignore-styles': () => true,
-    polyfills: ['fetch', 'Object.assign', 'Object.values', 'Promise'],
+    polyfills: ['fetch', 'Promise', 'Object.values'],
     'import/resolver': {
-      alias: aliasHelper.formatEslintAliases(aliases),
     },
   },
   rules: {
@@ -60,11 +55,6 @@ module.exports = {
     ],
     'no-new': 0,
     'no-param-reassign': [2, { props: false }],
-    'no-restricted-exports': ['error', {
-      restrictDefaultExports: {
-        namedFrom: false,
-      },
-    }],
     'prefer-promise-reject-errors': 0,
   },
 };

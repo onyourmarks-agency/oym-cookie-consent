@@ -16,9 +16,8 @@ export const acceptAllOptions = (): void => {
     return;
   }
 
-  wrapper
-    .querySelectorAll('input[type="radio"][value="1"]')
-    .forEach((input: HTMLInputElement): void => {
+  const inputElements = wrapper.querySelectorAll('input[type="radio"][value="1"]') as NodeListOf<HTMLInputElement>;
+  inputElements.forEach((input: HTMLInputElement): void => {
       input.checked = true;
     });
 };

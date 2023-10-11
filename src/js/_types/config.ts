@@ -13,21 +13,21 @@ export type ConfigExplanationAnchorType = {
 export type ConfigStyleType = 'bar' | 'popup';
 
 export type ConfigType = {
-  consentOptions?: ConfigConsentOptionsType[] | [] | undefined;
-  cookieName?: string | undefined;
-  exceptionUrls?: string[] | [] | undefined;
-  explanationAnchors?: ConfigExplanationAnchorType[] | [] | undefined;
-  language?: string | undefined;
-  manageable?: boolean | undefined;
-  renderSelector?: string | undefined;
-  style?: ConfigStyleType | undefined;
-  version?: string | undefined;
+  consentOptions: ConfigConsentOptionsType[] | [];
+  cookieName: string;
+  exceptionUrls: string[] | [];
+  explanationAnchors: ConfigExplanationAnchorType[] | [];
+  language: string;
+  manageable: boolean;
+  renderSelector: string;
+  style: ConfigStyleType;
+  version: string;
 };
 
 export type TdeccType = {
   accepted: [];
   checkPermission: {};
-  config?: ConfigType | undefined;
+  config?: ConfigType;
   content: {};
   getAllPermissions: {};
   hide: {};
@@ -36,3 +36,8 @@ export type TdeccType = {
   show: {};
   update: {};
 };
+
+declare global {
+  var tdecc: TdeccType | any;
+  var tdeCookieConsentContent: any;
+}

@@ -1,4 +1,3 @@
-import type { CookieAcceptedType } from '../_types/cookie';
 import type { DomSelectorsContentType } from '../_types/dom';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsConsent } from './DOMService';
@@ -44,12 +43,12 @@ export const renderConsent = (): void => {
   document.body.appendChild(popup);
 
   new Consent({
-    target: document.body.querySelector(`.${TDECC_CLASSNAME}`),
+    target: document.body.querySelector(`.${TDECC_CLASSNAME}`) as Element,
   });
 };
 
 export const renderGivenPermissions = (): void => {
-  const currentPermissions: CookieAcceptedType = getCurrentPermissions();
+  const currentPermissions: string[] = getCurrentPermissions();
   const { wrapper } = domQuerySelectorsConsent();
 
   if (!wrapper) {

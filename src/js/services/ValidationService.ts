@@ -9,7 +9,12 @@ export const reset = (): void => {
 };
 
 export const validate = (): void => {
-  const cookie: CookieType = getCurrentCookie();
+  const cookie: CookieType | null = getCurrentCookie();
+  if (!cookie) {
+    return;
+  }
+
+
   const config = getCurrentConfig();
   let validated: boolean = true;
 

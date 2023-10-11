@@ -8,9 +8,8 @@ export const getCurrentCookie = (): CookieType | null => {
 };
 
 export const getCurrentPermissions = () => {
-  const cookie: CookieType = getCurrentCookie();
-
-  return cookie?.accepted || null;
+  const cookie: CookieType | null = getCurrentCookie();
+  return cookie?.accepted || [];
 };
 
 export const checkPermission = (arr: string[] | string): boolean => {
@@ -25,9 +24,11 @@ export const checkPermission = (arr: string[] | string): boolean => {
   }
 
   const items: string[] = typeof arr === 'string' ? arr.split('') : arr;
-
+  if (typeof items === undefined) {}
   for (let i: number = 0; i < items.length; i += 1) {
-    if (items[i].indexOf('cookie-accept-') === -1) {
+    const item: string = items[i] as string;
+
+    if (item.indexOf('cookie-accept-') === -1) {
       items[i] = `cookie-accept-${items[i]}`;
     }
 

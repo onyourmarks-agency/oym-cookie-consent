@@ -28,7 +28,7 @@ const consent = () => ({
     return getCurrentPermissions();
   },
 
-  checkPermission(match): boolean {
+  checkPermission(match: string[] | string): boolean {
     return checkPermission(match);
   },
 

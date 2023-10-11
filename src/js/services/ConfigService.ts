@@ -1,6 +1,6 @@
-import type { ConfigType } from '@tdecc/_types/config';
-import configDefaults from '@tdecc/config/defaults';
-import contentDefaults from '@tdecc/translations';
+import type { ConfigType } from '../_types/config';
+import { TDECC_CONFIG as configDefaults } from '../config/defaults';
+import contentDefaults from '../translations';
 
 function mergeDeep(target: any, ...sources: any[]): any {
   if (target === null) {
@@ -13,7 +13,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
     const nextSource: any = sources[index];
 
     if (nextSource !== null && typeof nextSource === 'object') {
-      for (const nextKey in nextSource) {
+      Object.keys(nextSource).forEach((nextKey) => {
         if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
           if (
             typeof to[nextKey] === 'object' &&
@@ -26,7 +26,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
             to[nextKey] = nextSource[nextKey];
           }
         }
-      }
+      });
     }
   }
 
@@ -41,7 +41,7 @@ export const mergeConfig = (config: ConfigType | undefined) => {
 };
 
 export const mergeContent = () => {
-  const content = window.tdeCookieConsentContent;
+  const content = globalThis.tdeCookieConsentContent;
   const contentGiven = typeof content === 'object' && Object.keys(content).length ? content : {};
 
   return mergeDeep({}, contentDefaults, contentGiven);
@@ -49,8 +49,8 @@ export const mergeContent = () => {
 
 export const getCurrentConfig = (): ConfigType => {
   try {
-    JSON.parse(JSON.stringify(window.tdecc.config));
-    return window.tdecc.config;
+    JSON.parse(JSON.stringify(globalThis.tdecc.config));
+    return globalThis.tdecc.config;
   } catch (e) {
     return configDefaults;
   }

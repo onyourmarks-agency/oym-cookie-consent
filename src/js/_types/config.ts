@@ -2,6 +2,7 @@ export type ConfigConsentOptionsType = {
   key: string;
   title: string;
   desc: string;
+  notCustomizable?: boolean | undefined;
 };
 
 export type ConfigExplanationAnchorType = {
@@ -21,4 +22,17 @@ export type ConfigType = {
   renderSelector?: string | undefined;
   style?: ConfigStyleType | undefined;
   version?: string | undefined;
+};
+
+export type TdeccType = {
+  accepted: [];
+  checkPermission: {};
+  config?: ConfigType | undefined;
+  content: {};
+  getAllPermissions: {};
+  hide: {};
+  info: {};
+  initialized: boolean;
+  show: {};
+  update: {};
 };

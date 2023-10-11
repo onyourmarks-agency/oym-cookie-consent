@@ -1,6 +1,6 @@
-import type { ConfigConsentOptionsType, ConfigType } from '@tdecc/_types/config';
-import type { ContentManageType } from '@tdecc/_types/content';
-import { throwError } from '@tdecc/services/ErrorService';
+import type { ConfigConsentOptionsType, ConfigType } from '../../_types/config';
+import type { ContentManageType } from '../../_types/content';
+import { throwError } from '../../services/ErrorService';
 
 const renderTemplateOptions = (
   options: ConfigConsentOptionsType[],
@@ -12,20 +12,20 @@ const renderTemplateOptions = (
     const index: number = i + 1;
 
     template += `<div class="tdecc__manage__option">
-        <div class="tdecc__manage__option__content">
-          <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
-          <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
+      <div class="tdecc__manage__option__content">
+        <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
+        <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
+      </div>
+      <div class="tdecc__manage__option__radios${options[i]?.notCustomizable ? ' tdecc__manage__option__radios--disabled' : ''}">
+        <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1"${options[i]?.notCustomizable ? ' checked disabled' : ''}>
+        <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${options[i].key}" value="0"${options[i]?.notCustomizable ? ' disabled' : ''}>
+        
+        <div class="tdecc__manage__option__radios__labels">
+          <label for="tdecc-option-${index}-on">${content.switches.on}</label>
+          <label for="tdecc-option-${index}-off">${content.switches.off}</label>
         </div>
-        <div class="tdecc__manage__option__radios">
-          <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1">
-          <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${options[i].key}" value="0">
-          
-          <div class="tdecc__manage__option__radios__labels">
-            <label for="tdecc-option-${index}-on">${content.switches.on}</label>
-            <label for="tdecc-option-${index}-off">${content.switches.off}</label>
-          </div>
-        </div>
-      </div>`;
+      </div>
+    </div>`;
   }
 
   return `<div class="tdecc__manage__options">${template}</div>`;

@@ -1,9 +1,10 @@
-import type { CookieAcceptedType } from '@tdecc/_types/cookie';
-import type { DomSelectorsContentType } from '@tdecc/_types/dom';
-import templateConsent from '@tdecc/templates/overlay';
+import type { CookieAcceptedType } from '../_types/cookie';
+import type { DomSelectorsContentType } from '../_types/dom';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsConsent } from './DOMService';
 import { getCurrentPermissions } from './PermissionService';
+import {TDECC_CLASSNAME} from '../config/defaults';
+import Consent from '../templates/Consent.svelte';
 
 const overlayStyle = (): string => {
   switch (getCurrentConfig().style) {
@@ -36,12 +37,15 @@ export const overlayShow = (canBeClosed: boolean | undefined = undefined): void 
   }
 };
 
-export const renderTemplate = (): void => {
+export const renderConsent = (): void => {
   const popup: HTMLDivElement = document.createElement('div');
-  popup.className = 'tdecc';
-  popup.innerHTML = templateConsent();
+  popup.className = TDECC_CLASSNAME;
 
   document.body.appendChild(popup);
+
+  new Consent({
+    target: document.body.querySelector(`.${TDECC_CLASSNAME}`),
+  });
 };
 
 export const renderGivenPermissions = (): void => {

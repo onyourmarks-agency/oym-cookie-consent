@@ -15,16 +15,14 @@
     "module": "commonjs",
     "sourceMap": true,
     "paths": {
-      "@tdecc/*": [
-        "./src/js/*"
-      ],
       "*": [
         "./src/js/@types/*"
       ]
     }
   },
   "include": [
-    "./src/js/**/*"
+    "./src/js/**/*",
+    ".eslintrc.js"
   ],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

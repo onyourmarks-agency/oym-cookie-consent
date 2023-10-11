@@ -1,7 +1,7 @@
-import { throwError } from '@tdecc/services/ErrorService';
+import { throwError } from '../services/ErrorService';
 
 export const renderTemplateNotification = (): string => {
-  const { content } = window.tdecc;
+  const { content } = globalThis.tdecc;
 
   if (!content) {
     throwError('Content not found');
@@ -12,7 +12,7 @@ export const renderTemplateNotification = (): string => {
     <div class="tdecc__notification">
         <h3 class="tdecc__notification__title">${content.notification.title}</h3>
         <p class="tdecc__notification__desc">${content.notification.desc}</p>
-        <button class="tdecc__notification__button" onclick="window.tdecc.show();">
+        <button class="tdecc__notification__button" onclick="globalThis.tdecc.show();">
             <span>${content.notification.button}</span>
         </button>
     </div>`;

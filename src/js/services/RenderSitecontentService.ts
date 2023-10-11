@@ -1,10 +1,11 @@
 import postscribe from 'postscribe';
-import { renderTemplateNotification } from '@tdecc/templates/notification';
+import { renderTemplateNotification } from '../templates/notification';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsWebsite } from './DOMService';
 import { checkPermission } from './PermissionService';
+import type {ConfigType} from '../_types/config';
 
-const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substr(2);
+const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 const appendNotification = (item): void => {
   if (item.dataset.tdeccIdentifier) {
@@ -46,7 +47,7 @@ const removeNotification = (item): void => {
 };
 
 export const renderSiteContent = (): void => {
-  const config = getCurrentConfig();
+  const config: ConfigType = getCurrentConfig();
 
   domQuerySelectorsWebsite(config).elements.forEach((item: HTMLElement): void => {
     if (!item.dataset.tdeccPermissions) {

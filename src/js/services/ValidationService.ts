@@ -1,4 +1,4 @@
-import type { CookieType } from '@tdecc/_types/cookie';
+import type { CookieType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { removeCookie } from './CookieService';
 import { dispatchChanged, storeCookie } from './EventService';
@@ -26,7 +26,7 @@ export const validate = (): void => {
   }
 
   if (validated) {
-    window.tdecc.cookies = cookie;
+    globalThis.tdecc.cookies = cookie;
     dispatchChanged();
     storeCookie(cookie.accepted, cookie.info);
     return;

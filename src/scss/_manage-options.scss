@@ -72,6 +72,11 @@
   }
 }
 
+.tdecc__manage__option__radios--disabled label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .cookie-prefs__options {
   margin: 24px 0;
 }

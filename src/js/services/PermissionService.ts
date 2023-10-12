@@ -24,16 +24,13 @@ export const checkPermission = (arr: string[] | string): boolean => {
   }
 
   const items: string[] = typeof arr === 'string' ? arr.split('') : arr;
-  if (typeof items === undefined) {}
-  for (let i: number = 0; i < items.length; i += 1) {
-    const item: string = items[i] as string;
 
-    if (item.indexOf('cookie-accept-') === -1) {
+  for (let i: number = 0; i < items.length; i += 1) {
+    if (items[i].indexOf('cookie-accept-') === -1) {
       items[i] = `cookie-accept-${items[i]}`;
     }
 
-    // @ts-ignore
-    if (prefs.indexOf(items[i]) === -1) {
+    if (!prefs.find((pref => pref === items[i]))) {
       return false;
     }
   }

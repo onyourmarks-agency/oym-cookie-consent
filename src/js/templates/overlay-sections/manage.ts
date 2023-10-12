@@ -16,9 +16,15 @@ const renderTemplateOptions = (
         <h4 class="tdecc__manage__option__content__title">${options[i].title}</h4>
         <p class="tdecc__manage__option__content__desc">${options[i].desc}</p>
       </div>
-      <div class="tdecc__manage__option__radios${options[i]?.notCustomizable ? ' tdecc__manage__option__radios--disabled' : ''}">
-        <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${options[i].key}" value="1"${options[i]?.notCustomizable ? ' checked disabled' : ''}>
-        <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${options[i].key}" value="0"${options[i]?.notCustomizable ? ' disabled' : ''}>
+      <div class="tdecc__manage__option__radios${
+        options[i]?.notCustomizable ? ' tdecc__manage__option__radios--disabled' : ''
+      }">
+        <input id="tdecc-option-${index}-on" type="radio" name="cookie-accept-${
+      options[i].key
+    }" value="1"${options[i]?.notCustomizable ? ' checked disabled' : ''}>
+        <input id="tdecc-option-${index}-off" type="radio" name="cookie-accept-${
+      options[i].key
+    }" value="0"${options[i]?.notCustomizable ? ' disabled' : ''}>
         
         <div class="tdecc__manage__option__radios__labels">
           <label for="tdecc-option-${index}-on">${content.switches.on}</label>

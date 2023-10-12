@@ -1,15 +1,14 @@
-import postscribe from 'postscribe';
-import {renderTemplateNotification} from '../templates/notification';
-import {getCurrentConfig} from './ConfigService';
-import {domQuerySelectorsWebsite} from './DOMService';
-import {checkPermission} from './PermissionService';
-import type {ConfigType} from '../_types/config';
+// import postscribe from 'postscribe';
+import { renderTemplateNotification } from '../templates/notification';
+import { getCurrentConfig } from './ConfigService';
+import { domQuerySelectorsWebsite } from './DOMService';
+import { checkPermission } from './PermissionService';
+import type { ConfigType } from '../_types/config';
 
 const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 const appendNotification = (item: HTMLElement): void => {
-  const {tdeccIdentifier} = item.dataset;
-  if (tdeccIdentifier) {
+  if (item.dataset.tdeccIdentifier) {
     return;
   }
 
@@ -21,16 +20,16 @@ const appendNotification = (item: HTMLElement): void => {
   }
 
   const output: HTMLDivElement = document.createElement('div');
-  output.dataset['tdeccIdentifier'] = uniqueID;
+  output.dataset.tdeccIdentifier = uniqueID;
   output.className = 'tdecc-notification';
   output.innerHTML = template;
 
   item.after(output);
-  item.dataset['tdeccIdentifier'] = uniqueID;
+  item.dataset.tdeccIdentifier = uniqueID;
 };
 
 const removeNotification = (item: HTMLElement): void => {
-  const {tdeccIdentifier} = item.dataset;
+  const { tdeccIdentifier } = item.dataset;
 
   if (!tdeccIdentifier) {
     return;
@@ -51,7 +50,7 @@ export const renderSiteContent = (): void => {
   const config: ConfigType = getCurrentConfig();
 
   domQuerySelectorsWebsite(config).elements.forEach((item: HTMLElement): void => {
-    let {tdeccPermissions} = item.dataset;
+    let { tdeccPermissions } = item.dataset;
     if (!tdeccPermissions) {
       return;
     }
@@ -61,7 +60,7 @@ export const renderSiteContent = (): void => {
     if (!checkPermission(tdeccPermissions.split(','))) {
       if (item.hasAttribute('data-tdecc-show-notification')) {
         appendNotification(item);
-        delete item.dataset['tdeccShowNotification'];
+        delete item.dataset.tdeccShowNotification;
       }
 
       return;
@@ -72,9 +71,9 @@ export const renderSiteContent = (): void => {
     const textarea: HTMLTextAreaElement = document.createElement('textarea');
     textarea.innerHTML = item.innerHTML;
 
-    postscribe(item.parentElement, textarea.value);
+    // postscribe(item.parentElement, textarea.value);
 
-    item.dataset['tdeccRendered'] = '1';
+    item.dataset.tdeccRendered = '1';
   });
 };
 

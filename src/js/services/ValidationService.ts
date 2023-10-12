@@ -14,7 +14,6 @@ export const validate = (): void => {
     return;
   }
 
-
   const config = getCurrentConfig();
   let validated: boolean = true;
 

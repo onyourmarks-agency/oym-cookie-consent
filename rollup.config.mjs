@@ -7,6 +7,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import scss from 'rollup-plugin-scss';
 import terser from '@rollup/plugin-terser';
 import {eslint} from 'rollup-plugin-eslint';
+import sveltePreprocess from 'svelte-preprocess';
 
 const options = {
   input: "src/js/index.ts",
@@ -52,6 +53,7 @@ const options = {
       outputStyle: 'compressed',
     }),
     svelte({
+      preprocess: sveltePreprocess(),
       include: 'src/**/*.svelte',
     }),
     terser(),

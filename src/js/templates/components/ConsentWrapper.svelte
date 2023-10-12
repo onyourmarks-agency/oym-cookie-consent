@@ -13,6 +13,8 @@
       throwError('Content or config not found');
       return;
     }
+    
+    console.log(globalThis.tdecc);
 
     datasetStyle = `data-tdeccoverlay-style-${config.style}`;
   });

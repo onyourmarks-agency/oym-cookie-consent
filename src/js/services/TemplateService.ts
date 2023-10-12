@@ -52,6 +52,9 @@ export const renderConsent = (): void => {
 
   new Consent({
     target: elementConsent,
+    props: {
+      tdecc: globalThis.tdecc,
+    }
   });
 };
 

@@ -1,6 +1,7 @@
-import '../scss/index.scss';
+import '../styles/index.scss';
 
 import type { ConfigType } from './_types/config';
+import type {ContentType} from './_types/content';
 import type { CookieAcceptedType } from './_types/cookie';
 import { mergeConfig, mergeContent } from './services/ConfigService';
 import { getCookie } from './services/CookieService';
@@ -23,7 +24,7 @@ globalThis.tdecc.accepted = [];
 globalThis.tdecc.info = {};
 globalThis.tdecc.content = {};
 
-const consent = () => ({
+export default {
   getAllPermissions(): CookieAcceptedType {
     return getCurrentPermissions();
   },
@@ -51,8 +52,8 @@ const consent = () => ({
       return;
     }
 
-    const config = mergeConfig(givenConfig);
-    const content = mergeContent();
+    const config: ConfigType = mergeConfig(givenConfig);
+    const content: ContentType = mergeContent();
     const cookies: string | false = getCookie(config.cookieName) || false;
 
     // Make them widely available
@@ -99,6 +100,4 @@ const consent = () => ({
     // Don't run these twice
     globalThis.tdecc.initialized = true;
   },
-});
-
-export default consent();
+};

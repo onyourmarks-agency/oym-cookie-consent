@@ -8,7 +8,9 @@ export const domQuerySelectorsConsent = (): DomSelectorsContentType => ({
   saveAll: document.querySelectorAll('[data-tdeccoverlay-save-all]') as NodeListOf<HTMLElement>,
   save: document.querySelector('[data-tdeccoverlay-save]') as HTMLElement,
   errorMessage: document.querySelector('[data-tdeccoverlay-error]') as HTMLElement,
-  optionsAll: document.querySelectorAll('[data-tdeccoverlay] input[name^="cookie-accept"]') as NodeListOf<HTMLElement>,
+  optionsAll: document.querySelectorAll(
+    '[data-tdeccoverlay] input[name^="cookie-accept"]'
+  ) as NodeListOf<HTMLElement>,
   optionsChoosen: document.querySelectorAll(
     '[data-tdeccoverlay] input[name^="cookie-accept"]:checked'
   ) as NodeListOf<HTMLInputElement>,

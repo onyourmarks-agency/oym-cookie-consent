@@ -16,10 +16,12 @@ export const acceptAllOptions = (): void => {
     return;
   }
 
-  const inputElements = wrapper.querySelectorAll('input[type="radio"][value="1"]') as NodeListOf<HTMLInputElement>;
+  const inputElements = wrapper.querySelectorAll(
+    'input[type="radio"][value="1"]'
+  ) as NodeListOf<HTMLInputElement>;
   inputElements.forEach((input: HTMLInputElement): void => {
-      input.checked = true;
-    });
+    input.checked = true;
+  });
 };
 
 export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType): void => {
@@ -44,7 +46,7 @@ export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType):
 
 export const save = (): void => {
   const domElements = domQuerySelectorsConsent();
-  const accepted = ['cookie-accept-essential'];
+  const accepted: string[] = [];
   const info: CookieInfoType = {
     v: getCurrentConfig().version,
     accepted: getCurrentCookie()?.info?.accepted || new Date().toISOString(),

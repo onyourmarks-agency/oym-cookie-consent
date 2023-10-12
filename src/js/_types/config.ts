@@ -1,3 +1,6 @@
+import {CookieAcceptedType} from './cookie';
+import {ContentType} from './content';
+
 export type ConfigConsentOptionsType = {
   key: string;
   title: string;
@@ -24,20 +27,21 @@ export type ConfigType = {
   version: string;
 };
 
+export type InfoType = {
+  v: string,
+  accepted: string;
+  updated: string;
+}
+
 export type TdeccType = {
   accepted: [];
-  checkPermission: {};
-  config?: ConfigType;
-  content: {};
-  getAllPermissions: {};
-  hide: {};
-  info: {};
+  checkPermission: (match: string[] | string) => boolean;
+  config?: ConfigType | undefined;
+  content?: ContentType | undefined;
+  getAllPermissions: () => CookieAcceptedType;
+  hide: () => void;
+  info?: InfoType | undefined;
   initialized: boolean;
-  show: {};
-  update: {};
+  show: () => void;
+  update: () => void;
 };
-
-declare global {
-  var tdecc: TdeccType | any;
-  var tdeCookieConsentContent: any;
-}

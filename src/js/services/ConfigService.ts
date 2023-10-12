@@ -9,7 +9,7 @@ function mergeDeep(target: any, ...sources: any[]): any {
 
   const to: any = Object(target);
 
-  for (let index = 0; index < sources.length; index += 1) {
+  for (let index: number = 0; index < sources.length; index += 1) {
     const nextSource: any = sources[index];
 
     if (nextSource !== null && typeof nextSource === 'object') {
@@ -33,11 +33,12 @@ function mergeDeep(target: any, ...sources: any[]): any {
   return to;
 }
 
-export const mergeConfig = (config: ConfigType | undefined) => {
-  const configGiven: ConfigType | {} =
-    typeof config === 'object' && Object.keys(config).length ? config : {};
+export const mergeConfig = (config: ConfigType | undefined = undefined): ConfigType => {
+  if (!Object.keys(config || []).length) {
+    return configDefaults;
+  }
 
-  return mergeDeep({}, configDefaults, configGiven);
+  return mergeDeep({}, configDefaults, config);
 };
 
 export const mergeContent = () => {

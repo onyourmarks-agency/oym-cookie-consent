@@ -2,8 +2,9 @@ import type { DomSelectorsContentType } from '../_types/dom';
 import { getCurrentConfig } from './ConfigService';
 import { domQuerySelectorsConsent } from './DOMService';
 import { getCurrentPermissions } from './PermissionService';
-import {TDECC_CLASSNAME} from '../config/defaults';
-import Consent from '../templates/Consent.svelte';
+import { TDECC_CLASSNAME } from '../config/defaults';
+import templateConsent from '../templates/overlay';
+// import Consent from '../templates/Consent.svelte';
 
 const overlayStyle = (): string => {
   switch (getCurrentConfig().style) {
@@ -39,12 +40,13 @@ export const overlayShow = (canBeClosed: boolean | undefined = undefined): void 
 export const renderConsent = (): void => {
   const popup: HTMLDivElement = document.createElement('div');
   popup.className = TDECC_CLASSNAME;
+  popup.innerHTML = templateConsent();
 
   document.body.appendChild(popup);
 
-  new Consent({
-    target: document.body.querySelector(`.${TDECC_CLASSNAME}`) as Element,
-  });
+  // new Consent({
+  //   target: document.body.querySelector(`.${TDECC_CLASSNAME}`) as Element,
+  // });
 };
 
 export const renderGivenPermissions = (): void => {

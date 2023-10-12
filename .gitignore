@@ -2,3 +2,6 @@
 .DS_Store
 /node_modules
 svelte-
+.pnpm-debug.log
+.stylelintcache
+.eslintcache

@@ -1,5 +1,5 @@
-import {CookieAcceptedType} from './cookie';
-import {ContentType} from './content';
+import type {CookieAcceptedType} from './cookie';
+import type {ContentType} from './content';
 
 export type ConfigConsentOptionsType = {
   key: string;

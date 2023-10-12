@@ -56,30 +56,24 @@ export default {
     const content: ContentType = mergeContent();
     const cookies: string | false = getCookie(config.cookieName) || false;
 
-    // Make them widely available
     globalThis.tdecc.config = config;
     globalThis.tdecc.content = content[config.language];
-
     globalThis.tdecc.config.consentOptions.unshift({
       key: 'essential',
       title: globalThis.tdecc.content.permissions.essential.title,
       desc: globalThis.tdecc.content.permissions.essential.description,
       notCustomizable: true,
     });
-
-    // Make functions available
     globalThis.tdecc.getAllPermissions = this.getAllPermissions;
     globalThis.tdecc.checkPermission = this.checkPermission;
     globalThis.tdecc.show = this.show;
     globalThis.tdecc.hide = this.hide;
     globalThis.tdecc.update = this.update;
 
-    // Add eventlistener for changed cookieprefs
     document.addEventListener('tdecc-changed', (): void => {
       renderSiteContent();
     });
 
-    // Render
     renderConsent();
 
     if (cookies) {
@@ -97,7 +91,6 @@ export default {
     handleClickListenersPopup();
     handleClickListenersContent();
 
-    // Don't run these twice
     globalThis.tdecc.initialized = true;
   },
 };

@@ -2,7 +2,7 @@ import type { ConfigType } from '../_types/config';
 import { TDECC_CONFIG as configDefaults } from '../config/defaults';
 import contentDefaults from '../translations/index';
 
-function mergeDeep(target: any, ...sources: any[]): any {
+const mergeDeep = (target: any, ...sources: any[]): any => {
   if (target === null) {
     throw new TypeError('Cannot convert undefined or null to object');
   }
@@ -43,9 +43,12 @@ export const mergeConfig = (config: ConfigType | undefined = undefined): ConfigT
 
 export const mergeContent = () => {
   const content = globalThis.tdeCookieConsentContent;
-  const contentGiven = typeof content === 'object' && Object.keys(content).length ? content : {};
 
-  return mergeDeep({}, contentDefaults, contentGiven);
+  if (!content || !Object.keys(content || []).length) {
+    return contentDefaults;
+  }
+
+  return mergeDeep({}, contentDefaults, content);
 };
 
 export const getCurrentConfig = (): ConfigType => {

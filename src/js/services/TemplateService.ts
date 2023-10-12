@@ -4,7 +4,8 @@ import { domQuerySelectorsConsent } from './DOMService';
 import { getCurrentPermissions } from './PermissionService';
 import { TDECC_CLASSNAME } from '../config/defaults';
 import templateConsent from '../templates/overlay';
-// import Consent from '../templates/Consent.svelte';
+import Consent from '../templates/Consent.svelte';
+import {element} from 'svelte/internal';
 
 const overlayStyle = (): string => {
   switch (getCurrentConfig().style) {
@@ -38,15 +39,20 @@ export const overlayShow = (canBeClosed: boolean | undefined = undefined): void 
 };
 
 export const renderConsent = (): void => {
-  const popup: HTMLDivElement = document.createElement('div');
-  popup.className = TDECC_CLASSNAME;
-  popup.innerHTML = templateConsent();
+  const divConsent: HTMLDivElement = document.createElement('div');
+  divConsent.className = TDECC_CLASSNAME;
 
-  document.body.appendChild(popup);
+  document.body.appendChild(divConsent);
 
-  // new Consent({
-  //   target: document.body.querySelector(`.${TDECC_CLASSNAME}`) as Element,
-  // });
+  const elementConsent: Element | null = document.body.querySelector(`.${TDECC_CLASSNAME}`);
+
+  if (!elementConsent) {
+    return;
+  }
+
+  new Consent({
+    target: elementConsent,
+  });
 };
 
 export const renderGivenPermissions = (): void => {

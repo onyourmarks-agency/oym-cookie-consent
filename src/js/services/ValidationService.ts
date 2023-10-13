@@ -1,3 +1,4 @@
+import type { ConfigType } from '../_types/config';
 import type { CookieType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { removeCookie } from './CookieService';
@@ -14,7 +15,7 @@ export const validate = (): void => {
     return;
   }
 
-  const config = getCurrentConfig();
+  const config: ConfigType = getCurrentConfig();
   let validated: boolean = true;
 
   if (!cookie.info || !cookie.info.v || cookie.info.v !== config.version) {

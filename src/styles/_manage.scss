@@ -1,5 +1,4 @@
 .tdecc__manage {
-  display: none;
   width: 100%;
   max-width: var(--tdecc-content-maxwidth);
   margin: auto;
@@ -16,7 +15,6 @@
 }
 
 .tdecc__manage__error {
-  display: none;
   margin: 12px 0;
   padding: 16px;
   border: var(--tdecc-manage-error-border);

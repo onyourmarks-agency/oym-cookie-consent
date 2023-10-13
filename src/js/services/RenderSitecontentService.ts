@@ -1,9 +1,9 @@
 // import postscribe from 'postscribe';
+import type { ConfigType } from '../_types/config';
+import {domElementsSite} from '../config/dom-elements';
 import { renderTemplateNotification } from '../templates/notification';
 import { getCurrentConfig } from './ConfigService';
-import { domQuerySelectorsWebsite } from './DOMService';
 import { checkPermission } from './PermissionService';
-import type { ConfigType } from '../_types/config';
 
 const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
@@ -36,7 +36,7 @@ const removeNotification = (item: HTMLElement): void => {
   }
 
   const notification: HTMLElement | null = document.querySelector(
-    `.tdecc-notification[data-tdecc-identifier="${tdeccIdentifier}"]`
+    `.tdecc-notification[data-tdecc-identifier="${tdeccIdentifier}"]`,
   );
 
   if (!notification) {
@@ -49,7 +49,7 @@ const removeNotification = (item: HTMLElement): void => {
 export const renderSiteContent = (): void => {
   const config: ConfigType = getCurrentConfig();
 
-  domQuerySelectorsWebsite(config).elements.forEach((item: HTMLElement): void => {
+  domElementsSite(config).forEach((item: HTMLElement): void => {
     let { tdeccPermissions } = item.dataset;
     if (!tdeccPermissions) {
       return;

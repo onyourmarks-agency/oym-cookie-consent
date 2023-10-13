@@ -1,9 +1,26 @@
 <script lang="ts">
-  import ConsentWrapper from './components/ConsentWrapper.svelte';
+  import {TDECC_SECTION_INDEX, TDECC_SECTION_MANAGE} from '../config/sections';
+  import {activeSection} from '../store/active-section';
+  import {SectionType} from '../_types/section';
+  import SectionIndex from './sections/SectionIndex.svelte';
+  import SectionManage from './sections/SectionManage.svelte';
+  import Wrapper from './wrappers/Wrapper.svelte';
 
-  export let tdecc;
+  let currentSection = $activeSection;
+
+  activeSection.subscribe((section: SectionType | null) => {
+    if (!section) {
+      return;
+	}
+
+    currentSection = section;
+  });
 </script>
 
-<ConsentWrapper {tdecc}>
-	Hoi
-</ConsentWrapper>
+<Wrapper>
+	{#if currentSection === TDECC_SECTION_INDEX}
+		<SectionIndex />
+	{:else if currentSection === TDECC_SECTION_MANAGE}
+		<SectionManage />
+	{/if}
+</Wrapper>

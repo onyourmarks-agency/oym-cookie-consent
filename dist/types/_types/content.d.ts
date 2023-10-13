@@ -1,6 +1,6 @@
 export type ContentManageType = {
     title: string;
-    desc: string;
+    description: string;
     switches: {
         on: string;
         off: string;
@@ -14,12 +14,12 @@ export type ContentManageType = {
 };
 export type ContentNotificationType = {
     title: string;
-    desc: string;
+    description: string;
     button: string;
 };
 export type ContentSplashType = {
     title: string;
-    desc: string;
+    description: string;
     buttons: {
         manage: string;
         accept: string;
@@ -30,7 +30,7 @@ export type ContentPermissionsType = {
     description: string;
 };
 export type ContentType = {
-    splash: ContentSplashType;
+    index: ContentSplashType;
     manage: ContentManageType;
     permissions: {
         essential: ContentPermissionsType;

@@ -1,10 +1,15 @@
+import {domElementsSiteManageCookies} from '../config/dom-elements';
+import {activeSection} from '../store/active-section';
+import {TDECC_SECTION_MANAGE} from '../config/sections';
+import {overlayShow} from './TemplateService';
+
 export type SameSiteType = 'Lax' | 'Strict' | 'None' | null;
 
 export const getCookie = (name: string): string | null => {
   const escapedCookieName: string = name.replace(/([.*+?^$(){}|[\]/\\])/g, '\\$1');
 
   const matchedCookie: RegExpMatchArray | null = document.cookie.match(
-    RegExp(`(?:^|;\\s*)${escapedCookieName}=([^;]*)`)
+    RegExp(`(?:^|;\\s*)${escapedCookieName}=([^;]*)`),
   );
 
   return matchedCookie && matchedCookie[1] ? matchedCookie[1] : null;
@@ -16,7 +21,7 @@ export const setCookie = (
   maxAge?: number,
   domain?: string,
   path?: string,
-  sameSite?: SameSiteType
+  sameSite?: SameSiteType,
 ): void => {
   const cookieProperties = {
     [name]: value,

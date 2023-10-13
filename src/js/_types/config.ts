@@ -1,10 +1,10 @@
-import type {CookieAcceptedType} from './cookie';
-import type {ContentType} from './content';
+import type { CookieAcceptedType } from './cookie';
+import type { ContentType } from './content';
 
 export type ConfigConsentOptionsType = {
   key: string;
   title: string;
-  desc: string;
+  description: string;
   notCustomizable?: boolean | undefined;
 };
 
@@ -28,10 +28,10 @@ export type ConfigType = {
 };
 
 export type InfoType = {
-  v: string,
+  v: string;
   accepted: string;
   updated: string;
-}
+};
 
 export type TdeccType = {
   accepted: [];

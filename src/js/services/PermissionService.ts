@@ -1,6 +1,13 @@
+import { get } from 'svelte/store';
+import { acceptedPermissions } from '../store/accepted-permissions';
+import { chosenPermissions } from '../store/chosen-permissions';
+import { config } from '../store/config';
+import type { ConfigConsentOptionsType } from '../_types/config';
+import { CookieInfoType } from '../_types/cookie';
 import type { CookieAcceptedType, CookieType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { getCookie } from './CookieService';
+import { dispatchChanged, dispatchCloseOverlay, storeCookie } from './EventService';
 
 export const getCurrentCookie = (): CookieType | null => {
   const cookie: string | false = getCookie(getCurrentConfig().cookieName) || false;
@@ -10,6 +17,33 @@ export const getCurrentCookie = (): CookieType | null => {
 export const getCurrentPermissions = () => {
   const cookie: CookieType | null = getCurrentCookie();
   return cookie?.accepted || [];
+};
+
+export const setPermissions = (): void => {
+  const currentPermissions: CookieAcceptedType = getCurrentPermissions();
+  if (currentPermissions.length) {
+    acceptedPermissions.set(currentPermissions);
+    chosenPermissions.set(getCurrentConfig().consentOptions.map((option) => option.key));
+    return;
+  }
+
+  acceptedPermissions.set(['essential']);
+  chosenPermissions.set(['essential']);
+};
+
+export const savePermissions = (permissions): void => {
+  storeCookie(permissions, {
+    v: getCurrentConfig().version,
+    accepted: getCurrentCookie()?.info?.accepted || new Date().toISOString(),
+    updated: new Date().toISOString(),
+  } as CookieInfoType);
+  dispatchChanged();
+  dispatchCloseOverlay();
+};
+
+export const saveAllPermissions = (): void => {
+  const options: ConfigConsentOptionsType[] = get(config)?.consentOptions || [];
+  savePermissions(options.map((consentOption) => consentOption.key));
 };
 
 export const checkPermission = (arr: string[] | string): boolean => {
@@ -30,7 +64,7 @@ export const checkPermission = (arr: string[] | string): boolean => {
       items[i] = `cookie-accept-${items[i]}`;
     }
 
-    if (!prefs.find((pref => pref === items[i]))) {
+    if (!prefs.find((pref: string): boolean => pref === items[i])) {
       return false;
     }
   }

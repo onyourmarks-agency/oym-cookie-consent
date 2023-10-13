@@ -1,7 +1,7 @@
 .show-tdecc-overlay {
   min-height: 100vh;
 
-  @supports (background: -webkit-named-image(i)) {
+  @supports (background: - webkit-named-image(i)) {
     min-height: -webkit-fill-available;
   }
 }

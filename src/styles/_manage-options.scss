@@ -45,6 +45,13 @@
   }
 }
 
+.tdecc__manage__option__radios--disabled {
+  label {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
 .tdecc__manage__option__radios__labels {
   display: flex;
 
@@ -70,11 +77,6 @@
     margin-left: -1px;
     border-radius: 0 4px 4px 0;
   }
-}
-
-.tdecc__manage__option__radios--disabled label {
-  cursor: not-allowed;
-  opacity: 0.5;
 }
 
 .cookie-prefs__options {

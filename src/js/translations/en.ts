@@ -1,9 +1,9 @@
 import type { ContentType } from '../_types/content';
 
 export default {
-  splash: {
+  index: {
     title: 'May we have your attention?',
-    desc: 'We place cookies to provide a personalized experience and improve our website.',
+    description: 'We place cookies to provide a personalized experience and improve our website.',
     buttons: {
       manage: 'Manage cookies',
       accept: 'I accept cookies',
@@ -11,7 +11,7 @@ export default {
   },
   manage: {
     title: 'Cookie settings',
-    desc: `We are happy to show you a good website, tailored to your preferences.
+    description: `We are happy to show you a good website, tailored to your preferences.
          Do you want this too? Then set the items below to 'On'.
          By doing this, you give us permission to provide you with a personalized experience through the use of cookies and other techniques.`,
     switches: {
@@ -34,7 +34,7 @@ export default {
   },
   notification: {
     title: 'Accept (more) cookies to view this content',
-    desc: `This content is not visible because an external data is loaded with which cookies can be placed.
+    description: `This content is not visible because an external data is loaded with which cookies can be placed.
           You have not yet given us permission to place these cookies.`,
     button: 'Change cookie preferences',
   },

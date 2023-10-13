@@ -1,5 +1,4 @@
 # Ignore artifacts:
-webpack
 *.json
 *.lock
 *.yaml

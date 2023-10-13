@@ -3,7 +3,7 @@ import type { ContentType } from './content';
 export type ConfigConsentOptionsType = {
     key: string;
     title: string;
-    desc: string;
+    description: string;
     notCustomizable?: boolean | undefined;
 };
 export type ConfigExplanationAnchorType = {

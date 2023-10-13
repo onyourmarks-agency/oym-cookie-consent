@@ -38,8 +38,8 @@ $tdecc-breakpoint-md: 640px;
   --tdecc-explanation-color: inherit;
   --tdecc-explanation-item-margin: 0 0 8px 0;
   --tdecc-explanation-text-decoration: none;
-  --tdecc-explanation-arrow-margin: 8px 8px 0 0;
-  --tdecc-explanation-arrow-minwidth: 20px;
+  --tdecc-explanation-arrow-margin: 0 4px 0 0;
+  --tdecc-explanation-arrow-minwidth: 16px;
 
   /* Content */
   --tdecc-content-background: var(--tdecc-base-background);
@@ -74,7 +74,6 @@ $tdecc-breakpoint-md: 640px;
   }
 }
 
-// Overlay
 @import 'body';
 @import 'wrapper';
 @import 'content';
@@ -83,6 +82,4 @@ $tdecc-breakpoint-md: 640px;
 @import 'manage';
 @import 'manage-options';
 @import 'explanation';
-
-// Notification
 @import 'notification';

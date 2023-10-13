@@ -10,11 +10,11 @@ module.exports = {
   plugins: ['@typescript-eslint', 'svelte3'],
   root: true,
   rules: {
-    "@typescript-eslint/no-explicit-any": ["off"],
+    '@typescript-eslint/no-explicit-any': ['off'],
   },
   settings: {
     'svelte3/typescript': () => require('typescript'),
     'svelte3/ignore-styles': () => true,
     polyfills: ['fetch', 'Promise', 'Object.values'],
   },
-}
+};

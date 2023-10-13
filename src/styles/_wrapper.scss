@@ -24,7 +24,7 @@
   max-height: 100vh;
   background: transparent;
 
-  @supports (background: -webkit-named-image(i)) {
+  @supports (background: - webkit-named-image(i)) {
     max-height: -webkit-fill-available;
   }
 }

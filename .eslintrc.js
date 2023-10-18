@@ -6,6 +6,10 @@ module.exports = {
       processor: 'svelte3/svelte3',
     },
   ],
+  env: {
+    browser: true,
+    es6: true,
+  },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'svelte3'],
   root: true,

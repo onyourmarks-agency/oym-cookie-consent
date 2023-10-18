@@ -11,7 +11,7 @@ export const removeConsent = (): void => {
   elementConsent.remove();
 };
 
-export const initConsent = (): void => {
+export const renderConsent = (): void => {
   const divConsent: HTMLDivElement = document.createElement('div');
   divConsent.className = TDECC_CLASSNAME;
 

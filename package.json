@@ -21,7 +21,7 @@
 		"format": "prettier --write .",
 		"stylelint": "stylelint -f verbose --cache 'src/**/*.{css,scss,svelte}'",
 		"start": "rollup -c rollup.config.mjs -w",
-		"build": "rollup -c rollup.config.mjs"
+		"build": "pnpm run frontend-cs && rollup -c rollup.config.mjs"
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^15.2.3",
@@ -57,7 +57,6 @@
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
-		"postscribe": "^2.0.8",
 		"svelte": "^3.59.2"
 	}
 }

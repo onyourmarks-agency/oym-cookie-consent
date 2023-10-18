@@ -6,7 +6,6 @@ import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import scss from 'rollup-plugin-scss';
 import terser from '@rollup/plugin-terser';
-import { eslint } from 'rollup-plugin-eslint';
 import sveltePreprocess from 'svelte-preprocess';
 
 const options = {
@@ -35,9 +34,6 @@ const options = {
     },
     babel({
       exclude: 'node_modules/**',
-    }),
-    eslint({
-      exclude: ['node_modules/**', './src/**/*.css', './src/**/*.scss'],
     }),
     resolve({
       browser: true,

@@ -1,5 +1,5 @@
 import { getCurrentConfig } from './ConfigService';
-import { initConsent, removeConsent } from './ConsentService';
+import { renderConsent, removeConsent } from './ConsentService';
 import { setPermissions } from './PermissionService';
 
 const overlayStyle = (): string => {
@@ -39,5 +39,5 @@ export const overlayShow = (canBeClosed: boolean | undefined = undefined): void 
   }
 
   setPermissions();
-  initConsent();
+  renderConsent();
 };

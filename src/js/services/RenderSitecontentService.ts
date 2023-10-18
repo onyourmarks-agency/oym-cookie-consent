@@ -1,7 +1,7 @@
-// import postscribe from 'postscribe';
-import {domElementsSite} from '../config/dom-elements';
+import { domElementsSite } from '../config/dom-elements';
 import { checkPermission } from './PermissionService';
 import Notification from '../templates/Notification.svelte';
+import SiteContent from '../templates/SiteContent.svelte';
 
 const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
@@ -19,7 +19,9 @@ const appendNotification = (item: HTMLElement): void => {
   item.after(output);
   item.dataset.tdeccIdentifier = uniqueID;
 
-  const elementNotification: HTMLElement | null = document.querySelector(`.tdecc-notification[data-tdecc-identifier="${uniqueID}"]`);
+  const elementNotification: HTMLElement | null = document.querySelector(
+    `.tdecc-notification[data-tdecc-identifier="${uniqueID}"]`,
+  );
 
   if (!elementNotification) {
     return;
@@ -72,7 +74,12 @@ export const renderSiteContent = (): void => {
     const textarea: HTMLTextAreaElement = document.createElement('textarea');
     textarea.innerHTML = item.innerHTML;
 
-    // postscribe(item.parentElement, textarea.value);
+    new SiteContent({
+      target: item.parentElement as Element,
+      props: {
+        content: textarea.value,
+      },
+    });
 
     item.dataset.tdeccRendered = '1';
   });

@@ -1,8 +1,3 @@
-import {domElementsSiteManageCookies} from '../config/dom-elements';
-import {activeSection} from '../store/active-section';
-import {TDECC_SECTION_MANAGE} from '../config/sections';
-import {overlayShow} from './TemplateService';
-
 export type SameSiteType = 'Lax' | 'Strict' | 'None' | null;
 
 export const getCookie = (name: string): string | null => {

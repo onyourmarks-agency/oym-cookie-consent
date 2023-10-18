@@ -1,10 +1,9 @@
 import { get } from 'svelte/store';
+import type { ConfigConsentOptionsType } from '../_types/config';
+import type { CookieAcceptedType, CookieInfoType, CookieType } from '../_types/cookie';
 import { acceptedPermissions } from '../store/accepted-permissions';
 import { chosenPermissions } from '../store/chosen-permissions';
 import { config } from '../store/config';
-import type { ConfigConsentOptionsType } from '../_types/config';
-import { CookieInfoType } from '../_types/cookie';
-import type { CookieAcceptedType, CookieType } from '../_types/cookie';
 import { getCurrentConfig } from './ConfigService';
 import { getCookie } from './CookieService';
 import { dispatchChanged, dispatchCloseOverlay, storeCookie } from './EventService';

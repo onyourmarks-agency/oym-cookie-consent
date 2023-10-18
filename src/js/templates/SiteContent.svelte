@@ -18,7 +18,7 @@
 
     const async = childElement.getAttribute('async');
     const src = childElement.getAttribute('src');
-    
+
     const scriptTag: HTMLScriptElement = document.createElement('script');
     scriptTag.async = async ? async === 'true' : true;
     scriptTag.src = src ? src : '';

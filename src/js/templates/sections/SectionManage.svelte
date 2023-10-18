@@ -20,7 +20,7 @@
   };
 </script>
 
-<div class="tdecc__manage" data-tdeccoverlay-section-manage>
+<div class="tdecc__manage">
 	<h2 class="tdecc__manage__title">{$content?.manage.title}</h2>
 	<p class="tdecc__manage__desc">{$content?.manage.description}</p>
 

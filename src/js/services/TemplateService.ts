@@ -21,6 +21,10 @@ export const overlayHide = (): void => {
 };
 
 export const overlayShow = (canBeClosed: boolean | undefined = undefined): void => {
+  if (document.body.classList.contains('show-tdecc-overlay')) {
+    return;
+  }
+
   if (
     canBeClosed ||
     !getCurrentConfig().exceptionUrls.find(

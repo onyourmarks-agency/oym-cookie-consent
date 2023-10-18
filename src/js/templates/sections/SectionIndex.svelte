@@ -6,7 +6,7 @@
   import {updateSection} from '../../services/SectionService';
 </script>
 
-<div class="tdecc__start" data-tdeccoverlay-section-start>
+<div class="tdecc__start">
 	<h2 class="tdecc__start__title">{$content?.index.title}</h2>
 	<p class="tdecc__start__desc">{$content?.index.description}</p>
 

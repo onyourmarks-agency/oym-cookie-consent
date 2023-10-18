@@ -3,16 +3,19 @@ import '../styles/index.scss';
 import type { ConfigType } from './_types/config';
 import type { ContentType } from './_types/content';
 import type { CookieAcceptedType } from './_types/cookie';
+import { TDECC_SECTION_MANAGE } from './config/sections';
+import { config as configStore } from './store/config';
+import { activeSection } from './store/active-section';
+import { content as contentStore } from './store/content';
 import { mergeConfig, mergeContent } from './services/ConfigService';
-import {getCookie} from './services/CookieService';
+import { getCookie } from './services/CookieService';
+import { throwError } from './services/ErrorService';
 import { dispatchChanged } from './services/EventService';
 import { checkPermission, getCurrentPermissions } from './services/PermissionService';
 import { renderSiteContent } from './services/RenderSitecontentService';
-import {handleManageCookieElements} from './services/SiteService';
+import { handleManageCookieElements } from './services/SiteService';
 import { overlayShow, overlayHide } from './services/TemplateService';
 import { reset, validate } from './services/ValidationService';
-import { activeSection } from './store/active-section';
-import { TDECC_SECTION_MANAGE } from './config/sections';
 
 globalThis.tdecc = globalThis.tdecc || {};
 globalThis.tdecc.initialized = false;
@@ -66,6 +69,19 @@ export default {
     globalThis.tdecc.hide = this.hide;
     globalThis.tdecc.update = this.update;
 
+    if (!globalThis.tdecc.content || !globalThis.tdecc.config) {
+      throwError('TDECC content or config not found');
+      return;
+    }
+
+    if (!globalThis.tdecc.config.consentOptions.length) {
+      throwError('TDECC has no consent options');
+      return;
+    }
+
+    configStore.set(globalThis.tdecc.config);
+    contentStore.set(globalThis.tdecc.content);
+
     document.addEventListener('tdecc-changed', (): void => {
       renderSiteContent();
     });
@@ -73,6 +89,8 @@ export default {
     document.addEventListener('tdecc-close-overlay', (): void => {
       overlayHide();
     });
+
+    renderSiteContent();
 
     if (cookies) {
       try {

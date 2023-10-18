@@ -1,9 +1,7 @@
 // import postscribe from 'postscribe';
-import type { ConfigType } from '../_types/config';
 import {domElementsSite} from '../config/dom-elements';
-import { renderTemplateNotification } from '../templates/notification';
-import { getCurrentConfig } from './ConfigService';
 import { checkPermission } from './PermissionService';
+import Notification from '../templates/Notification.svelte';
 
 const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
@@ -13,19 +11,23 @@ const appendNotification = (item: HTMLElement): void => {
   }
 
   const uniqueID: string = renderUniqueID();
-  const template: string | void = renderTemplateNotification();
-
-  if (!template) {
-    return;
-  }
 
   const output: HTMLDivElement = document.createElement('div');
   output.dataset.tdeccIdentifier = uniqueID;
   output.className = 'tdecc-notification';
-  output.innerHTML = template;
 
   item.after(output);
   item.dataset.tdeccIdentifier = uniqueID;
+
+  const elementNotification: HTMLElement | null = document.querySelector(`.tdecc-notification[data-tdecc-identifier="${uniqueID}"]`);
+
+  if (!elementNotification) {
+    return;
+  }
+
+  new Notification({
+    target: elementNotification,
+  });
 };
 
 const removeNotification = (item: HTMLElement): void => {
@@ -47,10 +49,9 @@ const removeNotification = (item: HTMLElement): void => {
 };
 
 export const renderSiteContent = (): void => {
-  const config: ConfigType = getCurrentConfig();
-
-  domElementsSite(config).forEach((item: HTMLElement): void => {
+  domElementsSite(globalThis.tdecc.config).forEach((item: HTMLElement): void => {
     let { tdeccPermissions } = item.dataset;
+
     if (!tdeccPermissions) {
       return;
     }

@@ -60,10 +60,6 @@ export const checkPermission = (arr: string[] | string): boolean => {
   const items: string[] = typeof arr === 'string' ? arr.split('') : arr;
 
   for (let i: number = 0; i < items.length; i += 1) {
-    if (items[i].indexOf('cookie-accept-') === -1) {
-      items[i] = `cookie-accept-${items[i]}`;
-    }
-
     if (!prefs.find((pref: string): boolean => pref === items[i])) {
       return false;
     }

@@ -3,74 +3,129 @@ $tdecc-breakpoint-md: 640px;
 
 :root {
   /* Base */
-  --tdecc-base-background: #fff;
-  --tdecc-base-fontsize: 16px;
+  --tdecc-base-color-background: #fff;
   --tdecc-base-color-primary: #82b0a2;
-  --tdecc-base-text-color: #333;
+  --tdecc-base-color-text: #333;
+  --tdecc-base-font-size: 16px;
 
   /* Backdrop */
+  --tdecc-backdrop-box-shadow: none;
   --tdecc-backdrop-color: rgba(0, 0, 0, 0.5);
   --tdecc-backdrop-filter: blur(8px);
-  --tdecc-backdrop-boxshadow: none;
 
   /* Headings */
   --tdecc-heading-color: var(--tdecc-base-color-primary);
-  --tdecc-heading-fontsize: 1.5em;
+  --tdecc-heading-font-size: 1.5em;
+  --tdecc-heading-margin-bottom: 8px;
 
   /* All buttons */
-  --tdecc-button-padding: 12px;
-  --tdecc-button-lineheight: 1;
-  --tdecc-button-fontsize: 1em;
   --tdecc-button-background: var(--tdecc-base-color-primary);
   --tdecc-button-border: 2px solid transparent;
+  --tdecc-button-border-radius: 0;
   --tdecc-button-color: #fff;
-  --tdecc-button-hover-opacity: 0.8;
+  --tdecc-button-height: auto;
+  --tdecc-button-font-family: inherit;
+  --tdecc-button-font-size: 1em;
+  --tdecc-button-font-weight: 400;
+  --tdecc-button-line-height: 1;
+  --tdecc-button-padding: 12px;
+  --tdecc-button-svg-spacing: 8px;
+
   --tdecc-button-hover-background: var(--tdecc-base-color-primary);
   --tdecc-button-hover-color: var(--tdecc-button-color);
-  --tdecc-button-ghost-border: 2px solid var(--tdecc-base-color-primary);
+  --tdecc-button-hover-opacity: 0.8;
+
   --tdecc-button-ghost-background: transparent;
+  --tdecc-button-ghost-border: 2px solid var(--tdecc-base-color-primary);
   --tdecc-button-ghost-color: var(--tdecc-base-color-primary);
-  --tdecc-button-ghost-hover-border: var(--tdecc-button-ghost-border);
+  --tdecc-button-ghost-font-size: 1em;
+  --tdecc-button-ghost-font-weight: 400;
+
   --tdecc-button-ghost-hover-background: var(--tdecc-button-ghost-background);
+  --tdecc-button-ghost-hover-border: var(--tdecc-button-ghost-border);
   --tdecc-button-ghost-hover-color: var(--tdecc-button-ghost-color);
 
+  --tdecc-button-notification-background: var(--tdecc-base-color-primary);
+  --tdecc-button-notification-border: 2px solid transparent;
+  --tdecc-button-notification-color: #fff;
+  --tdecc-button-notification-font-size: 1em;
+  --tdecc-button-notification-font-weight: 400;
+
+  --tdecc-button-notification-hover-background: var(--tdecc-button-notification-background);
+  --tdecc-button-notification-hover-border: var(--tdecc-button-notification-border);
+  --tdecc-button-notification-hover-color: var(--tdecc-button-notification-color);
+
   /* Explantion > Arrows in footer */
-  --tdecc-explanation-color: inherit;
-  --tdecc-explanation-item-margin: 0 0 8px 0;
-  --tdecc-explanation-text-decoration: none;
   --tdecc-explanation-arrow-margin: 0 4px 0 0;
   --tdecc-explanation-arrow-minwidth: 16px;
+  --tdecc-explanation-color: inherit;
+  --tdecc-explanation-listitem-margin: 0 0 8px 0;
+  --tdecc-explanation-text-decoration: none;
 
   /* Content */
-  --tdecc-content-background: var(--tdecc-base-background);
-  --tdecc-content-maxwidth: 1100px;
-  --tdecc-content-width: 95%;
-  --tdecc-content-border: var(--tdecc-base-color-primary);
-  --tdecc-content-padding: 24px;
   --tdecc-content-anchor-color: var(--tdecc-base-color-primary);
-  --tdecc-content-anchor-textdecoration: underline;
-  --tdecc-content-borderradius: 4px;
+  --tdecc-content-anchor-text-decoration: underline;
+  --tdecc-content-background: var(--tdecc-base-color-background);
+  --tdecc-content-border: none;
+  --tdecc-content-border-radius: 4px;
+  --tdecc-content-max-width: 1100px;
+  --tdecc-content-padding: 24px;
+  --tdecc-content-width: 95%;
+
+  /* Start */
+  --tdecc-start-choices-button-spacing: 8px;
+  --tdecc-start-choices-margin-bottom: 24px;
+  --tdecc-start-desc-margin-bottom: 16px;
 
   /* Manage */
-  --tdecc-manage-option-title-color: var(--tdecc-base-text-color);
-  --tdecc-manage-option-title-fontsize: 1.25em;
-  --tdecc-manage-desc-title-fontsize: 0.875em;
-  --tdecc-manage-button-inactive-border: 1px solid var(--tdecc-base-color-primary);
-  --tdecc-manage-button-inactive-color: var(--tdecc-base-text-color);
-  --tdecc-manage-button-inactive-background: var(--tdecc-base-background);
-  --tdecc-manage-button-active-border: 1px solid var(--tdecc-base-color-primary);
-  --tdecc-manage-button-active-color: var(--tdecc-base-background);
   --tdecc-manage-button-active-background: var(--tdecc-base-color-primary);
+  --tdecc-manage-button-active-border: 1px solid var(--tdecc-base-color-primary);
+  --tdecc-manage-button-active-color: var(--tdecc-base-color-background);
+  --tdecc-manage-button-inactive-background: var(--tdecc-base-color-background);
+  --tdecc-manage-button-inactive-border: 1px solid var(--tdecc-base-color-primary);
+  --tdecc-manage-button-inactive-color: var(--tdecc-base-color-text);
+  --tdecc-manage-button-margin-bottom: 8px;
+  --tdecc-manage-desc-margin-bottom: 24px;
+  --tdecc-manage-desc-font-size: 0.875em;
   --tdecc-manage-error-border: 2px solid #fff;
+  --tdecc-manage-error-margin: 12px 0;
+  --tdecc-manage-error-padding: 16px;
+  --tdecc-manage-footer-font-size: 0.875em;
+  --tdecc-manage-footer-margin: 8px 0 24px 0;
+
+  /* Manage option */
+  --tdecc-manage-option-button-font-size: 16px;
+  --tdecc-manage-option-button-padding: 6px 16px;
+  --tdecc-manage-option-content-padding-right: 0;
+  --tdecc-manage-option-margin-bottom: 24px;
+  --tdecc-manage-option-title-color: var(--tdecc-base-color-text);
+  --tdecc-manage-option-title-font-size: 1.25em;
+  --tdecc-manage-option-title-margin: 0 0 4px 0;
 
   /* Pop-up */
-  --tdecc-popup-maxwidth: 640px;
-  --tdecc-popup-close-size: 24px;
+  --tdecc-popup-close-color: inherit;
+  --tdecc-popup-close-margin-left: 8px;
   --tdecc-popup-close-padding: 8px 16px;
+  --tdecc-popup-close-size: 24px;
+  --tdecc-popup-max-width: 640px;
+
+  /* Notification */
+  --tdecc-notification-background: #f9f9f9;
+  --tdecc-notification-border: none;
+  --tdecc-notification-border-radius: 0;
+  --tdecc-notification-heading-font-size: var(--tdecc-heading-font-size);
+  --tdecc-notification-font-size: var(--tdecc-base-font-size);
+  --tdecc-notification-padding: 48px 0;
 
   /* Overrides */
+  @media screen and (min-width: $tdecc-breakpoint-sm) {
+    --tdecc-manage-option-content-padding-right: 16px;
+    --tdecc-manage-option-margin-bottom: 16px;
+  }
+
   @media screen and (min-width: $tdecc-breakpoint-md) {
-    --tdecc-heading-fontsize: 2em;
+    --tdecc-heading-font-size: 2em;
+    --tdecc-manage-option-content-padding-right: 32px;
   }
 }
 

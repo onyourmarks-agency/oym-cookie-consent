@@ -7,18 +7,18 @@
 </script>
 
 <div class="tdecc__start">
-	<h2 class="tdecc__start__title">{$content?.index.title}</h2>
-	<p class="tdecc__start__desc">{$content?.index.description}</p>
+	<h2 class="tdecc__start__title">{$content?.start.title}</h2>
+	<p class="tdecc__start__desc">{$content?.start.description}</p>
 
 	<div class="tdecc__start__choices">
 		{#if $config?.manageable}
 			<button type="button" class="tdecc__button tdecc__button--ghost" on:click={() => updateSection(TDECC_SECTION_MANAGE)}>
-				<span>{$content?.index.buttons.manage}</span>
+				<span>{$content?.start.buttons.manage}</span>
 			</button>
 		{/if}
 
 		<button type="button" class="tdecc__button" on:click={() => saveAllPermissions()}>
-			<span>{$content?.index.buttons.accept}</span>
+			<span>{$content?.start.buttons.accept}</span>
 		</button>
 	</div>
 </div>

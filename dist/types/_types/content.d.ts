@@ -17,7 +17,7 @@ export type ContentNotificationType = {
     description: string;
     button: string;
 };
-export type ContentSplashType = {
+export type ContentStartType = {
     title: string;
     description: string;
     buttons: {
@@ -30,7 +30,7 @@ export type ContentPermissionsType = {
     description: string;
 };
 export type ContentType = {
-    index: ContentSplashType;
+    start: ContentStartType;
     manage: ContentManageType;
     permissions: {
         essential: ContentPermissionsType;

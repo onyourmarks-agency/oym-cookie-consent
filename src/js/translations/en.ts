@@ -1,7 +1,7 @@
 import type { ContentType } from '../_types/content';
 
 export default {
-  index: {
+  start: {
     title: 'May we have your attention?',
     description: 'We place cookies to provide a personalized experience and improve our website.',
     buttons: {

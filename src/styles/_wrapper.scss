@@ -12,7 +12,7 @@
   overflow: auto;
   backdrop-filter: var(--tdecc-backdrop-filter);
   background-color: var(--tdecc-backdrop-color);
-  box-shadow: var(--tdecc-backdrop-boxshadow);
+  box-shadow: var(--tdecc-backdrop-box-shadow);
 
   .show-tdecc-overlay & {
     display: flex;

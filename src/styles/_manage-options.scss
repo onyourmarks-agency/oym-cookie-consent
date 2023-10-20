@@ -2,38 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: var(--tdecc-manage-option-margin-bottom);
 
   @media screen and (min-width: $tdecc-breakpoint-sm) {
     flex-direction: row;
-    margin-bottom: 16px;
-
-    button {
-      margin-right: 10px;
-    }
   }
 }
 
 .tdecc__manage__option__content {
   flex: 1;
-
-  @media screen and (min-width: $tdecc-breakpoint-sm) {
-    padding-right: 16px;
-  }
-
-  @media screen and (min-width: $tdecc-breakpoint-md) {
-    padding-right: 32px;
-  }
+  padding-right: var(--tdecc-manage-option-content-padding-right);
 }
 
 .tdecc__manage__option__content__title {
-  margin: 0 0 4px 0;
+  margin: var(--tdecc-manage-option-title-margin);
   color: var(--tdecc-manage-option-title-color);
-  font-size: var(--tdecc-manage-option-title-fontsize);
+  font-size: var(--tdecc-manage-option-title-font-size);
 }
 
 .tdecc__manage__option__content__desc {
-  font-size: var(--tdecc-manage-desc-title-fontsize);
+  font-size: var(--tdecc-manage-desc-font-size);
 }
 
 .tdecc__manage__option__radios {
@@ -45,13 +33,6 @@
   }
 }
 
-.tdecc__manage__option__radios--disabled {
-  label {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-}
-
 .tdecc__manage__option__radios__labels {
   display: flex;
 
@@ -59,12 +40,12 @@
     position: relative;
     min-width: 56px;
     margin: 0;
-    padding: 6px 16px;
+    padding: var(--tdecc-manage-option-button-padding);
     border: var(--tdecc-manage-button-inactive-border);
     background-color: var(--tdecc-manage-button-inactive-background);
     color: var(--tdecc-manage-button-inactive-color);
     font-weight: normal;
-    font-size: 16px;
+    font-size: var(--tdecc-manage-option-button-font-size);
     text-align: center;
     cursor: pointer;
   }
@@ -79,8 +60,11 @@
   }
 }
 
-.cookie-prefs__options {
-  margin: 24px 0;
+.tdecc__manage__option__radios--disabled .tdecc__manage__option__radios__labels {
+  label {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 
 // prettier-ignore

@@ -1,14 +1,13 @@
 .tdecc__links {
   width: 100%;
-  max-width: var(--tdecc-content-maxwidth);
+  max-width: var(--tdecc-content-max-width);
   margin: 0 auto;
   padding: 0;
-  color: var(--tdecc-explanation-color);
   list-style: none;
 }
 
 .tdecc__links li {
-  margin: var(--tdecc-explanation-item-margin);
+  margin: var(--tdecc-explanation-listitem-margin);
 }
 
 .tdecc__links a {

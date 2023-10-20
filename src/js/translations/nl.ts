@@ -1,7 +1,7 @@
 import type { ContentType } from '../_types/content';
 
 export default {
-  index: {
+  start: {
     title: 'Mogen we even je aandacht?',
     description:
       'Om een persoonlijke ervaring te bieden en onze website te verbeteren, plaatsen wij cookies.',

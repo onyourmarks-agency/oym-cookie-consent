@@ -14,7 +14,7 @@
     if ($chosenPermissions.length !== $config?.consentOptions.length) {
       error = true;
       return;
-	}
+    }
 
     savePermissions($acceptedPermissions);
   };
@@ -24,7 +24,7 @@
 	<h2 class="tdecc__manage__title">{$content?.manage.title}</h2>
 	<p class="tdecc__manage__desc">{$content?.manage.description}</p>
 
-	<ManageOptions />
+	<ManageOptions/>
 	{#if error}
 		<div class="tdecc__manage__error">{$content?.manage.error}</div>
 	{/if}

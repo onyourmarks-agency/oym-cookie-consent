@@ -5,15 +5,20 @@
   appearance: none;
   align-items: center;
   justify-content: center;
+  height: var(--tdecc-button-height);
   padding: var(--tdecc-button-padding);
   border: var(--tdecc-button-border);
+  border-radius: var(--tdecc-button-border-radius);
   background: var(--tdecc-button-background);
   color: var(--tdecc-button-color);
-  font-size: var(--tdecc-button-fontsize);
-  line-height: var(--tdecc-button-lineheight);
+  font-family: var(--tdecc-button-font-family);
+  font-size: var(--tdecc-button-font-size);
+  font-weight: var(--tdecc-button-font-weight);
+  line-height: var(--tdecc-button-line-height);
   text-align: center;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 250ms ease;
+  text-decoration: none;
   user-select: none;
 
   &:hover,
@@ -27,11 +32,11 @@
     fill: var(--tdecc-button-color);
 
     &:first-child {
-      margin-right: 8px;
+      margin-right: var(--tdecc-button-svg-spacing);
     }
 
     &:last-child {
-      margin-left: 8px;
+      margin-left: var(--tdecc-button-svg-spacing);
     }
 
     &:first-child:last-child {
@@ -44,6 +49,8 @@
   border: var(--tdecc-button-ghost-border);
   background: var(--tdecc-button-ghost-background);
   color: var(--tdecc-button-ghost-color);
+  font-size: var(--tdecc-button-ghost-font-size);
+  font-weight: var(--tdecc-button-ghost-font-weight);
 
   &:hover {
     border: var(--tdecc-button-ghost-hover-border);

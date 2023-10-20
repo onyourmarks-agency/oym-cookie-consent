@@ -1,28 +1,28 @@
 .tdecc__manage {
   width: 100%;
-  max-width: var(--tdecc-content-maxwidth);
+  max-width: var(--tdecc-content-max-width);
   margin: auto;
 }
 
 .tdecc__manage__title {
-  margin-bottom: 8px;
+  margin-bottom: var(--tdecc-heading-margin-bottom);
   color: var(--tdecc-heading-color);
-  font-size: var(--tdecc-heading-fontsize);
+  font-size: var(--tdecc-heading-font-size);
 }
 
 .tdecc__manage__desc {
-  margin-bottom: 24px;
+  margin-bottom: var(--tdecc-manage-desc-margin-bottom);
 }
 
 .tdecc__manage__error {
-  margin: 12px 0;
-  padding: 16px;
+  margin: var(--tdecc-manage-error-margin);
+  padding: var(--tdecc-manage-error-padding);
   border: var(--tdecc-manage-error-border);
 }
 
 .tdecc__manage__footer {
-  margin: 8px 0 24px;
-  font-size: 0.875em;
+  margin: var(--tdecc-manage-footer-margin);
+  font-size: var(--tdecc-manage-footer-font-size);
 }
 
 .tdecc__manage__buttons {
@@ -31,7 +31,7 @@
   width: 100%;
 
   button {
-    margin-bottom: 8px;
+    margin-bottom: var(--tdecc-manage-button-margin-bottom);
   }
 
   @media screen and (min-width: $tdecc-breakpoint-md) {

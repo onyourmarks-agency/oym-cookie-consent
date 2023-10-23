@@ -1,5 +1,4 @@
-$tdecc-breakpoint-sm: 480px;
-$tdecc-breakpoint-md: 640px;
+@use 'sass-variables' as *;
 
 :root {
   /* Base */
@@ -115,7 +114,7 @@ $tdecc-breakpoint-md: 640px;
   --tdecc-notification-border-radius: 0;
   --tdecc-notification-heading-font-size: var(--tdecc-heading-font-size);
   --tdecc-notification-font-size: var(--tdecc-base-font-size);
-  --tdecc-notification-padding: 48px 0;
+  --tdecc-notification-padding: 48px 16px;
 
   /* Overrides */
   @media screen and (min-width: $tdecc-breakpoint-sm) {
@@ -128,13 +127,3 @@ $tdecc-breakpoint-md: 640px;
     --tdecc-manage-option-content-padding-right: 32px;
   }
 }
-
-@import 'body';
-@import 'wrapper';
-@import 'content';
-@import 'buttons';
-@import 'start';
-@import 'manage';
-@import 'manage-options';
-@import 'explanation';
-@import 'notification';

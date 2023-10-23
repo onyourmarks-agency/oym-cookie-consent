@@ -1,4 +1,4 @@
-import '../styles/index.scss';
+import '../styles/_index.scss';
 
 import type { ConfigType } from './_types/config';
 import type { ContentType } from './_types/content';

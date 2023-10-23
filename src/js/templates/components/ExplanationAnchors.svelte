@@ -18,3 +18,35 @@
 		{/each}
 	</ul>
 {/if}
+
+<style lang="scss">
+  .tdecc__links {
+    width: 100%;
+    max-width: var(--tdecc-content-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tdecc__links li {
+    margin: var(--tdecc-explanation-listitem-margin);
+  }
+
+  .tdecc__links a {
+    display: flex;
+    align-items: center;
+    color: var(--tdecc-explanation-color);
+    text-decoration: var(--tdecc-explanation-text-decoration);
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  :global(.tdecc__links svg) {
+    min-width: var(--tdecc-explanation-arrow-minwidth);
+    margin: var(--tdecc-explanation-arrow-margin);
+  }
+
+</style>

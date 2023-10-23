@@ -1,9 +1,9 @@
 <script lang="ts">
   import {onMount} from 'svelte';
-  import {addedScriptTags} from '../store/added-script-tags';
 
   export let content: string;
 
+  let acceptedTags: string[] = [];
   let scriptTags: RegExpMatchArray | null = null;
 
   const loadScriptTag = (scriptTagString): void => {
@@ -34,12 +34,12 @@
       content = content.replace(regExScript, '');
 
       scriptTags.forEach((scriptTag): void => {
-        if ($addedScriptTags.find(addedScriptTag => addedScriptTag === scriptTag)) {
+        if (acceptedTags.find(addedScriptTag => addedScriptTag === scriptTag)) {
           return;
 		}
 
         loadScriptTag(scriptTag);
-        $addedScriptTags.push(scriptTag);
+        acceptedTags.push(scriptTag);
       });
     }
   })

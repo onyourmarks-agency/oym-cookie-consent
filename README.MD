@@ -12,10 +12,16 @@ The `#2.0.0` is the release you select.
 
 # Import
 
-You can import the TDE Cookie Consent script as a module in your code.
+You can import the TDE Cookie Consent script as a module in your code. Also include the CSS file for the basic styling.
 
 ```es6
 import tdeCookieConsent from 'tde-cookie-consent';
+import 'tde-cookie-consent/dist/index.css';
+```
+
+If you're using Typescript you can also import ConfigType and use this on the options you provide. See the [options](#options) section for more information.
+```es6
+import type {ConfigType} from 'tde-cookie-consent/dist/types/_types/config';
 ```
 
 # Call
@@ -34,7 +40,7 @@ const options = {
         {
             key: 'personalisation',
             title: 'Personalisatie',
-            description: 'Etiam porta sem malesuada magna mollis euismod.,
+            description: 'Etiam porta sem malesuada magna mollis euismod.',
         },
         {
             key: 'social',
@@ -64,6 +70,13 @@ const options = {
     language: 'nl',
     version: '1.0',
 };
+```
+
+If you're using Typescript you can (optional) add the ConfigType to the options variable:
+```es6
+const options: ConfigType = {
+    ...
+}
 ```
 
 All possible options:

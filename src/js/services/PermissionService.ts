@@ -56,7 +56,7 @@ export const checkPermission = (arr: string[] | string): boolean => {
     return false;
   }
 
-  const items: string[] = typeof arr === 'string' ? arr.split('') : arr;
+  const items: string[] = typeof arr === 'string' ? [arr] : arr;
 
   for (let i: number = 0; i < items.length; i += 1) {
     if (!prefs.find((pref: string): boolean => pref === items[i])) {

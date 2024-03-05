@@ -2,8 +2,6 @@
 
 # Install
 
-You can install this module from the private GitHub repo. Add to your package.json the folling line:
-
 ```bash
 npm install @onyourmarks/cookie-consent --save
 

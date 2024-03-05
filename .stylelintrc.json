@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "stylelint-config-html/svelte"
+  ],
+  "rules": {
+    "selector-pseudo-element-colon-notation": "single",
+    "declaration-colon-newline-after": null,
+    "declaration-no-important": null,
+    "indentation": null,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "first-nested",
+          "after-single-line-comment"
+        ]
+      }
+    ],
+    "no-descending-specificity": [
+      true,
+      {
+        "ignore": ["selectors-within-list"]
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "ignoreValues": ["fill-available"]
+      }
+    ]
+  }
+}

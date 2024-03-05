@@ -1,27 +1,24 @@
 module.exports = {
-  extends: 'airbnb-base',
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-  },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  overrides: [
+    {
+      files: ['**/*.svelte'],
+      processor: 'svelte3/svelte3',
+    },
+  ],
   env: {
     browser: true,
-    es6: true
+    es6: true,
   },
-  plugins: [
-    'compat'
-  ],
-  settings: {
-    polyfills: [
-      'Promise',
-      'Object.assign',
-      'Object.values',
-      'fetch'
-    ]
-  },
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'svelte3'],
+  root: true,
   rules: {
-    'linebreak-style': 0,
-    'compat/compat': 2,
-    'max-len': ['error', { 'code': 160}],
-  }
-}
+    '@typescript-eslint/no-explicit-any': ['off'],
+  },
+  settings: {
+    'svelte3/typescript': () => require('typescript'),
+    'svelte3/ignore-styles': () => true,
+    polyfills: ['fetch', 'Promise', 'Object.values'],
+  },
+};

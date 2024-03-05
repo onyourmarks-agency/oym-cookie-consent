@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"checkJs": true,
+		"declaration": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": [
+			"ES6",
+			"DOM"
+		],
+		"module": "esnext",
+		"noImplicitAny": false,
+		"outDir": "./dist",
+		"target": "es2016",
+		"typeRoots": [
+			"./node_modules/@types",
+			"./src/@types"
+		],
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"verbatimModuleSyntax": false,
+		"ignoreDeprecations": "5.0",
+	},
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"include": [
+		"./src",
+		"rollup.config.mjs",
+	],
+	"exclude": [
+		"node_modules",
+	],
+}

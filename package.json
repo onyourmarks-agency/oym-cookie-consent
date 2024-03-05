@@ -1,34 +1,61 @@
 {
-  "name": "tde-cookie-consent",
-  "version": "1.0.1",
-  "description": "",
-  "scripts": {
-    "build": "webpack --config webpack.config.js --mode production",
-    "eslint": "eslint src --ext .js --ignore-path .gitignore; exit 0",
-    "eslint-fix": "eslint src --fix --ext .js --ignore-path .gitignore; exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": {
-    "name": "John van Hulsen",
-    "email": "john@tde.nl",
-    "url": "https://www.tde.nl/"
-  },
-  "license": "MIT",
-  "main": "lib/index.js",
-  "style": "style.scss",
-  "dependencies": {
-    "postscribe": "2.0.6"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/eslint-parser": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "babel-loader": "^8.2.4",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-compat": "^3.13.0",
-    "eslint-plugin-import": "^2.25.4",
-    "webpack": "^5.71.0",
-    "webpack-cli": "^4.9.2"
-  }
+	"name": "tde-cookie-consent",
+	"description": "Cookie consent manager",
+	"files": [
+		"dist/*"
+	],
+	"main": "dist/index.js",
+	"module": "dist/index.es.js",
+	"types": "dist/types/index.d.ts",
+	"version": "2.0.0",
+	"license": "MIT",
+	"repository": "tdeNL/tde-cookie-consent",
+	"author": {
+		"name": "TDE",
+		"email": "info@tde.nl",
+		"url": "https://www.tde.nl/"
+	},
+	"scripts": {
+		"frontend-cs": "pnpm format && pnpm eslint && pnpm stylelint && pnpm svelte-check",
+		"eslint": "eslint src --cache --ext .js,.svelte,.ts",
+		"format": "prettier --write .",
+		"stylelint": "stylelint -f verbose --cache 'src/**/*.{css,scss,svelte}'",
+		"start": "rollup -c rollup.config.mjs -w",
+		"build": "pnpm run frontend-cs && rollup -c rollup.config.mjs"
+	},
+	"devDependencies": {
+		"@rollup/plugin-babel": "^6.0.4",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^11.1.5",
+		"@tsconfig/svelte": "^5.0.2",
+		"@types/node": "^20.8.7",
+		"@typescript-eslint/eslint-plugin": "^6.8.0",
+		"@typescript-eslint/parser": "^6.8.0",
+		"autoprefixer": "^10.4.16",
+		"babel-plugin-external-helpers": "^6.22.0",
+		"babel-preset-env": "^1.7.0",
+		"eslint": "^8.52.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"eslint-plugin-svelte": "^2.34.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"prettier": "^3.0.3",
+		"prettier-plugin-css-order": "^2.0.1",
+		"prettier-plugin-svelte": "^3.0.3",
+		"rollup": "^4.0.2",
+		"rollup-plugin-eslint": "^7.0.0",
+		"rollup-plugin-scss": "^4.0.0",
+		"rollup-plugin-svelte": "^7.1.6",
+		"stylelint": "^15.11.0",
+		"stylelint-config-html": "^1.1.0",
+		"svelte": "^4.2.2",
+		"svelte-check": "^3.5.2",
+		"svelte-check-plugin": "^1.0.4",
+		"svelte-loader": "^3.1.9",
+		"svelte-preprocess": "^5.0.4",
+		"svelte-preprocess-sass": "^2.0.1",
+		"tslib": "^2.6.2",
+		"typescript": "^5.2.2"
+	}
 }

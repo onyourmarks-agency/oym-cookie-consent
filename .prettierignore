@@ -1,0 +1,8 @@
+# Ignore artifacts:
+*.json
+*.lock
+*.yaml
+*.yml
+*.md
+dist/*
+esbuild/*

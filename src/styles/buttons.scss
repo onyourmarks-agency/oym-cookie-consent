@@ -1,20 +1,20 @@
-.tdecc__button {
+.oymcc__button {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   display: inline-flex;
   appearance: none;
   align-items: center;
   justify-content: center;
-  height: var(--tdecc-button-height);
-  padding: var(--tdecc-button-padding);
-  border: var(--tdecc-button-border);
-  border-radius: var(--tdecc-button-border-radius);
-  background: var(--tdecc-button-background);
-  color: var(--tdecc-button-color);
-  font-family: var(--tdecc-button-font-family);
-  font-size: var(--tdecc-button-font-size);
-  font-weight: var(--tdecc-button-font-weight);
-  line-height: var(--tdecc-button-line-height);
+  height: var(--oymcc-button-height);
+  padding: var(--oymcc-button-padding);
+  border: var(--oymcc-button-border);
+  border-radius: var(--oymcc-button-border-radius);
+  background: var(--oymcc-button-background);
+  color: var(--oymcc-button-color);
+  font-family: var(--oymcc-button-font-family);
+  font-size: var(--oymcc-button-font-size);
+  font-weight: var(--oymcc-button-font-weight);
+  line-height: var(--oymcc-button-line-height);
   text-align: center;
   cursor: pointer;
   transition: all 250ms ease;
@@ -23,20 +23,20 @@
 
   &:hover,
   &:focus {
-    background: var(--tdecc-button-hover-background);
-    color: var(--tdecc-button-hover-color);
-    opacity: var(--tdecc-button-hover-opacity);
+    background: var(--oymcc-button-hover-background);
+    color: var(--oymcc-button-hover-color);
+    opacity: var(--oymcc-button-hover-opacity);
   }
 
   svg {
-    fill: var(--tdecc-button-color);
+    fill: var(--oymcc-button-color);
 
     &:first-child {
-      margin-right: var(--tdecc-button-svg-spacing);
+      margin-right: var(--oymcc-button-svg-spacing);
     }
 
     &:last-child {
-      margin-left: var(--tdecc-button-svg-spacing);
+      margin-left: var(--oymcc-button-svg-spacing);
     }
 
     &:first-child:last-child {
@@ -45,16 +45,16 @@
   }
 }
 
-.tdecc__button--ghost {
-  border: var(--tdecc-button-ghost-border);
-  background: var(--tdecc-button-ghost-background);
-  color: var(--tdecc-button-ghost-color);
-  font-size: var(--tdecc-button-ghost-font-size);
-  font-weight: var(--tdecc-button-ghost-font-weight);
+.oymcc__button--ghost {
+  border: var(--oymcc-button-ghost-border);
+  background: var(--oymcc-button-ghost-background);
+  color: var(--oymcc-button-ghost-color);
+  font-size: var(--oymcc-button-ghost-font-size);
+  font-weight: var(--oymcc-button-ghost-font-weight);
 
   &:hover {
-    border: var(--tdecc-button-ghost-hover-border);
-    background: var(--tdecc-button-ghost-hover-background);
-    color: var(--tdecc-button-ghost-hover-color);
+    border: var(--oymcc-button-ghost-hover-border);
+    background: var(--oymcc-button-ghost-hover-background);
+    color: var(--oymcc-button-ghost-hover-color);
   }
 }

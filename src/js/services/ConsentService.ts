@@ -1,8 +1,8 @@
-import { TDECC_CLASSNAME } from '../config/defaults';
+import { OYMCC_CLASSNAME } from '../config/defaults';
 import Consent from '../templates/Consent.svelte';
 
 export const removeConsent = (): void => {
-  const elementConsent: Element | null = document.body.querySelector(`.${TDECC_CLASSNAME}`);
+  const elementConsent: Element | null = document.body.querySelector(`.${OYMCC_CLASSNAME}`);
 
   if (!elementConsent) {
     return;
@@ -13,11 +13,11 @@ export const removeConsent = (): void => {
 
 export const renderConsent = (): void => {
   const divConsent: HTMLDivElement = document.createElement('div');
-  divConsent.className = TDECC_CLASSNAME;
+  divConsent.className = OYMCC_CLASSNAME;
 
   document.body.appendChild(divConsent);
 
-  const elementConsent: Element | null = document.body.querySelector(`.${TDECC_CLASSNAME}`);
+  const elementConsent: Element | null = document.body.querySelector(`.${OYMCC_CLASSNAME}`);
 
   if (!elementConsent) {
     return;

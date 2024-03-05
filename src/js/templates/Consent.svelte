@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TDECC_SECTION_MANAGE, TDECC_SECTION_START } from '../config/sections';
+  import { OYMCC_SECTION_MANAGE, OYMCC_SECTION_START } from '../config/sections';
   import { activeSection } from '../store/active-section';
   import type { SectionType } from '../_types/section';
   import SectionManage from './sections/SectionManage.svelte';
@@ -18,9 +18,9 @@
 </script>
 
 <Wrapper>
-	{#if currentSection === TDECC_SECTION_START}
+	{#if currentSection === OYMCC_SECTION_START}
 		<SectionStart />
-	{:else if currentSection === TDECC_SECTION_MANAGE}
+	{:else if currentSection === OYMCC_SECTION_MANAGE}
 		<SectionManage />
 	{/if}
 </Wrapper>

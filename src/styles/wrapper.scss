@@ -1,4 +1,4 @@
-.tdecc {
+.oymcc {
   -webkit-overflow-scrolling: touch;
   display: none;
   z-index: 1000;
@@ -10,16 +10,16 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
-  backdrop-filter: var(--tdecc-backdrop-filter);
-  background-color: var(--tdecc-backdrop-color);
-  box-shadow: var(--tdecc-backdrop-box-shadow);
+  backdrop-filter: var(--oymcc-backdrop-filter);
+  background-color: var(--oymcc-backdrop-color);
+  box-shadow: var(--oymcc-backdrop-box-shadow);
 
-  .show-tdecc-overlay & {
+  .show-oymcc-overlay & {
     display: flex;
   }
 }
 
-.show-tdecc-overlay--bar .tdecc {
+.show-oymcc-overlay--bar .oymcc {
   top: auto;
   max-height: 100vh;
   background: transparent;

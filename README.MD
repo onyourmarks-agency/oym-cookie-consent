@@ -4,24 +4,26 @@
 
 You can install this module from the private GitHub repo. Add to your package.json the folling line:
 
-```html
-"tde-cookie-consent": "git+ssh://git@github.com/tdeNL/tde-cookie-consent.git#2.0.0",
-```
+```bash
+npm install @onyourmarks/cookie-consent --save
 
-The `#2.0.0` is the release you select.
+# or
+
+pnpm install @onyourmarks/cookie-consent --save
+```
 
 # Import
 
-You can import the TDE Cookie Consent script as a module in your code. Also include the CSS file for the basic styling.
+You can import the On Your Marks Cookie Consent script as a module in your code. Also include the CSS file for the basic styling.
 
 ```es6
-import tdeCookieConsent from 'tde-cookie-consent';
-import 'tde-cookie-consent/dist/index.css';
+import oymCookieConsent from '@onyourmarks/cookie-consent';
+import '@onyourmarks/cookie-consent/dist/index.css';
 ```
 
 If you're using Typescript you can also import ConfigType and use this on the options you provide. See the [options](#options) section for more information.
 ```es6
-import type {ConfigType} from 'tde-cookie-consent/dist/types/_types/config';
+import type {ConfigType} from '@onyourmarks/cookie-consent/dist/types/_types/config';
 ```
 
 # Call
@@ -29,7 +31,7 @@ import type {ConfigType} from 'tde-cookie-consent/dist/types/_types/config';
 Start with init:
 
 ```es6
-tdeCookieConsent.init(options);
+oymCookieConsent.init(options);
 ```
 
 # Options
@@ -48,7 +50,7 @@ const options = {
             description: 'Maecenas faucibus mollis interdum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.',
         },
     ],
-    cookieName: 'tdecc',
+    cookieName: 'oymcc',
     exceptionUrls: [
         '/disclaimer/',
         '/privacy-policy/',
@@ -65,7 +67,7 @@ const options = {
       },
     ],
     manageable: true,
-    renderSelector: '[data-tdecc-render]',
+    renderSelector: '[data-oymcc-render]',
     style: 'bar',
     language: 'nl',
     version: '1.0',
@@ -120,7 +122,7 @@ Each option can be accept or declined by the visitor
 
 *Optional*
 
-The name of the cookie we set with preferences. By default: `'tdecc'`.
+The name of the cookie we set with preferences. By default: `'oymcc'`.
 
 ### exceptionUrls
 
@@ -194,7 +196,7 @@ We listen to this tag on your code.
 
 ```es6
 const options = {
-    renderSelector: '[data-tdecc-render]'
+    renderSelector: '[data-oymcc-render]'
 };
 ```
 
@@ -232,18 +234,18 @@ You need to set the string in HTML escaped content.
 
 The script setup is like this:
 
-* `data-tdecc-render` = given in config above;
-* `data-tdecc-permissions` = the key of the permission you need at least;
+* `data-oymcc-render` = given in config above;
+* `data-oymcc-permissions` = the key of the permission you need at least;
 
 ```html
 
-<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-oymcc-render data-oymcc-permissions="personalisation">
 ```
 
 When you use Twig; you can set this:
 
 ```twig
-<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-oymcc-render data-oymcc-permissions="personalisation">
 	{{ '<script>alert("OK");</script>'|escape('html') }}
 </script>
 ````
@@ -261,7 +263,7 @@ htmlEntities('<script>alert("OK");</script>');
 Results:
 
 ```
-<script type="text/template" data-tdecc-render data-tdecc-permissions="personalisation">
+<script type="text/template" data-oymcc-render data-oymcc-permissions="personalisation">
 	&lt;script&gt;alert(&quot;OK&quot;);&lt;/script&gt;
 </script>
 ````
@@ -273,12 +275,12 @@ More examples: [#examples](#examples)
 Sometimes you will show a warning to the visitors when not all consent that is needed are given.
 You can do this by adding the follow attribute:
 
-* `data-tdecc-show-notification`
+* `data-oymcc-show-notification`
 
 Like this:
 
 ```
-<script type="template" data-tdecc-render data-tdecc-permissions="social" data-tdecc-show-notification>
+<script type="template" data-oymcc-render data-oymcc-permissions="social" data-oymcc-show-notification>
 ```
 
 # Translations
@@ -286,7 +288,7 @@ Like this:
 By default, NL and EN are included. You can overwrite or add new languages with a window object:
 
 ```es6
-window.tdeCookieConsentContent = {};
+window.oymCookieConsentContent = {};
 ```
 
 You can check out the default translation folder in `src/translations/`. To add new languages, use all keys inside nl.js and modify the content.
@@ -299,121 +301,121 @@ In most cases; the base-variants are enough. Create a seperate CSS - file and ad
 ```scss
 :root {
   /* Base */
-  --tdecc-base-color-background: #fff;
-  --tdecc-base-color-primary: #82b0a2;
-  --tdecc-base-color-text: #333;
-  --tdecc-base-font-size: 16px;
+  --oymcc-base-color-background: #fff;
+  --oymcc-base-color-primary: #82b0a2;
+  --oymcc-base-color-text: #333;
+  --oymcc-base-font-size: 16px;
 
   /* Backdrop */
-  --tdecc-backdrop-box-shadow: none;
-  --tdecc-backdrop-color: rgba(0, 0, 0, 0.5);
-  --tdecc-backdrop-filter: blur(8px);
+  --oymcc-backdrop-box-shadow: none;
+  --oymcc-backdrop-color: rgba(0, 0, 0, 0.5);
+  --oymcc-backdrop-filter: blur(8px);
 
   /* Headings */
-  --tdecc-heading-color: var(--tdecc-base-color-primary);
-  --tdecc-heading-font-size: 1.5em;
-  --tdecc-heading-margin-bottom: 8px;
+  --oymcc-heading-color: var(--oymcc-base-color-primary);
+  --oymcc-heading-font-size: 1.5em;
+  --oymcc-heading-margin-bottom: 8px;
 
   /* All buttons */
-  --tdecc-button-background: var(--tdecc-base-color-primary);
-  --tdecc-button-border: 2px solid transparent;
-  --tdecc-button-border-radius: 0;
-  --tdecc-button-color: #fff;
-  --tdecc-button-height: auto;
-  --tdecc-button-font-family: inherit;
-  --tdecc-button-font-size: 1em;
-  --tdecc-button-font-weight: 400;
-  --tdecc-button-line-height: 1;
-  --tdecc-button-padding: 12px;
-  --tdecc-button-svg-spacing: 8px;
+  --oymcc-button-background: var(--oymcc-base-color-primary);
+  --oymcc-button-border: 2px solid transparent;
+  --oymcc-button-border-radius: 0;
+  --oymcc-button-color: #fff;
+  --oymcc-button-height: auto;
+  --oymcc-button-font-family: inherit;
+  --oymcc-button-font-size: 1em;
+  --oymcc-button-font-weight: 400;
+  --oymcc-button-line-height: 1;
+  --oymcc-button-padding: 12px;
+  --oymcc-button-svg-spacing: 8px;
 
-  --tdecc-button-hover-background: var(--tdecc-base-color-primary);
-  --tdecc-button-hover-color: var(--tdecc-button-color);
-  --tdecc-button-hover-opacity: 0.8;
+  --oymcc-button-hover-background: var(--oymcc-base-color-primary);
+  --oymcc-button-hover-color: var(--oymcc-button-color);
+  --oymcc-button-hover-opacity: 0.8;
 
-  --tdecc-button-ghost-background: transparent;
-  --tdecc-button-ghost-border: 2px solid var(--tdecc-base-color-primary);
-  --tdecc-button-ghost-color: var(--tdecc-base-color-primary);
-  --tdecc-button-ghost-font-size: 1em;
-  --tdecc-button-ghost-font-weight: 400;
+  --oymcc-button-ghost-background: transparent;
+  --oymcc-button-ghost-border: 2px solid var(--oymcc-base-color-primary);
+  --oymcc-button-ghost-color: var(--oymcc-base-color-primary);
+  --oymcc-button-ghost-font-size: 1em;
+  --oymcc-button-ghost-font-weight: 400;
 
-  --tdecc-button-ghost-hover-background: var(--tdecc-button-ghost-background);
-  --tdecc-button-ghost-hover-border: var(--tdecc-button-ghost-border);
-  --tdecc-button-ghost-hover-color: var(--tdecc-button-ghost-color);
+  --oymcc-button-ghost-hover-background: var(--oymcc-button-ghost-background);
+  --oymcc-button-ghost-hover-border: var(--oymcc-button-ghost-border);
+  --oymcc-button-ghost-hover-color: var(--oymcc-button-ghost-color);
 
-  --tdecc-button-notification-background: var(--tdecc-base-color-primary);
-  --tdecc-button-notification-border: 2px solid transparent;
-  --tdecc-button-notification-color: #fff;
-  --tdecc-button-notification-font-size: 1em;
-  --tdecc-button-notification-font-weight: 400;
+  --oymcc-button-notification-background: var(--oymcc-base-color-primary);
+  --oymcc-button-notification-border: 2px solid transparent;
+  --oymcc-button-notification-color: #fff;
+  --oymcc-button-notification-font-size: 1em;
+  --oymcc-button-notification-font-weight: 400;
 
-  --tdecc-button-notification-hover-background: var(--tdecc-button-notification-background);
-  --tdecc-button-notification-hover-border: var(--tdecc-button-notification-border);
-  --tdecc-button-notification-hover-color: var(--tdecc-button-notification-color);
+  --oymcc-button-notification-hover-background: var(--oymcc-button-notification-background);
+  --oymcc-button-notification-hover-border: var(--oymcc-button-notification-border);
+  --oymcc-button-notification-hover-color: var(--oymcc-button-notification-color);
 
   /* Explantion > Arrows in footer */
-  --tdecc-explanation-arrow-margin: 0 4px 0 0;
-  --tdecc-explanation-arrow-minwidth: 16px;
-  --tdecc-explanation-color: inherit;
-  --tdecc-explanation-listitem-margin: 0 0 8px 0;
-  --tdecc-explanation-text-decoration: none;
+  --oymcc-explanation-arrow-margin: 0 4px 0 0;
+  --oymcc-explanation-arrow-minwidth: 16px;
+  --oymcc-explanation-color: inherit;
+  --oymcc-explanation-listitem-margin: 0 0 8px 0;
+  --oymcc-explanation-text-decoration: none;
 
   /* Content */
-  --tdecc-content-anchor-color: var(--tdecc-base-color-primary);
-  --tdecc-content-anchor-text-decoration: underline;
-  --tdecc-content-background: var(--tdecc-base-color-background);
-  --tdecc-content-border: none;
-  --tdecc-content-border-radius: 4px;
-  --tdecc-content-max-width: 1100px;
-  --tdecc-content-padding: 24px;
-  --tdecc-content-width: 95%;
+  --oymcc-content-anchor-color: var(--oymcc-base-color-primary);
+  --oymcc-content-anchor-text-decoration: underline;
+  --oymcc-content-background: var(--oymcc-base-color-background);
+  --oymcc-content-border: none;
+  --oymcc-content-border-radius: 4px;
+  --oymcc-content-max-width: 1100px;
+  --oymcc-content-padding: 24px;
+  --oymcc-content-width: 95%;
 
   /* Start */
-  --tdecc-start-choices-button-spacing: 8px;
-  --tdecc-start-choices-margin-bottom: 24px;
-  --tdecc-start-desc-margin-bottom: 16px;
+  --oymcc-start-choices-button-spacing: 8px;
+  --oymcc-start-choices-margin-bottom: 24px;
+  --oymcc-start-desc-margin-bottom: 16px;
 
   /* Manage */
-  --tdecc-manage-button-active-background: var(--tdecc-base-color-primary);
-  --tdecc-manage-button-active-border: 1px solid var(--tdecc-base-color-primary);
-  --tdecc-manage-button-active-color: var(--tdecc-base-color-background);
-  --tdecc-manage-button-inactive-background: var(--tdecc-base-color-background);
-  --tdecc-manage-button-inactive-border: 1px solid var(--tdecc-base-color-primary);
-  --tdecc-manage-button-inactive-color: var(--tdecc-base-color-text);
-  --tdecc-manage-button-margin-bottom: 8px;
-  --tdecc-manage-desc-margin-bottom: 24px;
-  --tdecc-manage-desc-font-size: 0.875em;
-  --tdecc-manage-error-border: 2px solid #fff;
-  --tdecc-manage-error-margin: 12px 0;
-  --tdecc-manage-error-padding: 16px;
-  --tdecc-manage-footer-font-size: 0.875em;
-  --tdecc-manage-footer-margin: 8px 0 24px 0;
+  --oymcc-manage-button-active-background: var(--oymcc-base-color-primary);
+  --oymcc-manage-button-active-border: 1px solid var(--oymcc-base-color-primary);
+  --oymcc-manage-button-active-color: var(--oymcc-base-color-background);
+  --oymcc-manage-button-inactive-background: var(--oymcc-base-color-background);
+  --oymcc-manage-button-inactive-border: 1px solid var(--oymcc-base-color-primary);
+  --oymcc-manage-button-inactive-color: var(--oymcc-base-color-text);
+  --oymcc-manage-button-margin-bottom: 8px;
+  --oymcc-manage-desc-margin-bottom: 24px;
+  --oymcc-manage-desc-font-size: 0.875em;
+  --oymcc-manage-error-border: 2px solid #fff;
+  --oymcc-manage-error-margin: 12px 0;
+  --oymcc-manage-error-padding: 16px;
+  --oymcc-manage-footer-font-size: 0.875em;
+  --oymcc-manage-footer-margin: 8px 0 24px 0;
 
   /* Manage option */
-  --tdecc-manage-option-button-font-size: 16px;
-  --tdecc-manage-option-button-padding: 6px 16px;
-  --tdecc-manage-option-content-padding-right: 0;
-  --tdecc-manage-option-margin-bottom: 24px;
-  --tdecc-manage-option-title-color: var(--tdecc-base-color-text);
-  --tdecc-manage-option-title-font-size: 1.25em;
-  --tdecc-manage-option-title-margin: 0 0 4px 0;
+  --oymcc-manage-option-button-font-size: 16px;
+  --oymcc-manage-option-button-padding: 6px 16px;
+  --oymcc-manage-option-content-padding-right: 0;
+  --oymcc-manage-option-margin-bottom: 24px;
+  --oymcc-manage-option-title-color: var(--oymcc-base-color-text);
+  --oymcc-manage-option-title-font-size: 1.25em;
+  --oymcc-manage-option-title-margin: 0 0 4px 0;
 
   /* Pop-up */
-  --tdecc-popup-close-color: inherit;
-  --tdecc-popup-close-margin-left: 8px;
-  --tdecc-popup-close-padding: 8px 16px;
-  --tdecc-popup-close-size: 24px;
-  --tdecc-popup-max-width: 640px;
+  --oymcc-popup-close-color: inherit;
+  --oymcc-popup-close-margin-left: 8px;
+  --oymcc-popup-close-padding: 8px 16px;
+  --oymcc-popup-close-size: 24px;
+  --oymcc-popup-max-width: 640px;
 
   /* Notification */
-  --tdecc-notification-background: #f9f9f9;
-  --tdecc-notification-border: none;
-  --tdecc-notification-border-radius: 0;
-  --tdecc-notification-padding: 48px;
+  --oymcc-notification-background: #f9f9f9;
+  --oymcc-notification-border: none;
+  --oymcc-notification-border-radius: 0;
+  --oymcc-notification-padding: 48px;
 
   /* Overrides */
-  @media screen and (min-width: $tdecc-breakpoint-md) {
-    --tdecc-heading-font-size: 2em;
+  @media screen and (min-width: $oymcc-breakpoint-md) {
+    --oymcc-heading-font-size: 2em;
   }
 }
 ```
@@ -423,8 +425,8 @@ When there are more styling changes needed. Please check the classname and overw
 # API
 
 There are some methods you can use in your own project.
-These methods are functions after you can use on tdeCookieConsent after `import tdeCookieConsent from 'tde-cookie-consent';`
-or you can use them from `window.tdecc`.
+These methods are functions after you can use on oymCookieConsent after `import oymCookieConsent from '@onyourmarks/cookie-consent';`
+or you can use them from `window.oymcc`.
 
 * [checkPermission](#checkPermission)
 * [getAllPermissions](#getAllPermissions)
@@ -434,7 +436,7 @@ or you can use them from `window.tdecc`.
 
 ### checkPermission
 
-`tdeCookieConsent.checkPermission();` or `window.tdecc.checkPermission()`
+`oymCookieConsent.checkPermission();` or `window.oymcc.checkPermission()`
 
 When you needs to check if a permission is given. Use this method.
 
@@ -452,34 +454,34 @@ Returns: boolean
 
 ### getAllPermissions
 
-`tdeCookieConsent.getAllPermissions();` or `window.tdecc.getAllPermissions();`
+`oymCookieConsent.getAllPermissions();` or `window.oymcc.getAllPermissions();`
 
 Gives all given permissions as an array of strings.
 
 ### hide
 
-`tdeCookieConsent.hide();` or `window.tdecc.hide();`
+`oymCookieConsent.hide();` or `window.oymcc.hide();`
 
 Hide the overlay.
 
 ### show
 
-`tdeCookieConsent.show();` or `window.tdecc.show();`
+`oymCookieConsent.show();` or `window.oymcc.show();`
 
 Shows the overlay.
 
 ### update
 
-`tdeCookieConsent.update();` or `window.tdecc.update()`
+`oymCookieConsent.update();` or `window.oymcc.update()`
 
 When add dynamic new content after initialize the consentscript. Run update to match all new content.
 
 # Events
 
-There is one main event that will be fired after each change; `tdecc-changed`. You can use this in your code like:
+There is one main event that will be fired after each change; `oymcc-changed`. You can use this in your code like:
 
 ```javascript
-document.addEventListener('tdecc-changed', () => {
+document.addEventListener('oymcc-changed', () => {
   // Logic or check here
 });
 ```
@@ -499,7 +501,7 @@ document.addEventListener('tdecc-changed', () => {
 	</script>
 {% endset %}
 
-<script type="text/template" data-tdecc-render data-tdecc-permissions="essential">
+<script type="text/template" data-oymcc-render data-oymcc-permissions="essential">
 	{{ GAEmbed|escape('html') }}
 </script>
 ```
@@ -516,7 +518,7 @@ document.addEventListener('tdecc-changed', () => {
         })(window,document,'script','dataLayer','G-254245304');
 	</script>
 {% endset %}
-<script type="text/template" data-tdecc-render data-tdecc-permissions="essential">
+<script type="text/template" data-oymcc-render data-oymcc-permissions="essential">
 	{{ GAEmbed|escape('html') }}
 </script>
 ```

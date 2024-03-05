@@ -1,5 +1,5 @@
 {
-	"name": "tde-cookie-consent",
+	"name": "@onyourmarks/cookie-consent",
 	"description": "Cookie consent manager",
 	"files": [
 		"dist/*"
@@ -7,14 +7,14 @@
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
 	"types": "dist/types/index.d.ts",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"license": "MIT",
-	"repository": "tdeNL/tde-cookie-consent",
-	"author": {
-		"name": "TDE",
-		"email": "info@tde.nl",
-		"url": "https://www.tde.nl/"
-	},
+  "repository": "onyourmarks-agency/oym-cookie-consent",
+  "author": {
+    "name": "On Your Marks",
+    "email": "hosting@onyourmarks.agency",
+    "url": "https://www.onyourmarks.agency/"
+  },
 	"scripts": {
 		"frontend-cs": "pnpm format && pnpm eslint && pnpm stylelint && pnpm svelte-check",
 		"eslint": "eslint src --cache --ext .js,.svelte,.ts",

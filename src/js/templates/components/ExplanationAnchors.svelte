@@ -4,7 +4,7 @@
 </script>
 
 {#if $config?.explanationAnchors.length}
-	<ul class="tdecc__links">
+	<ul class="oymcc__links">
 		{#each $config?.explanationAnchors as anchor}
 			<li>
 				<a href="{anchor.href}">
@@ -20,23 +20,23 @@
 {/if}
 
 <style lang="scss">
-  .tdecc__links {
+  .oymcc__links {
     width: 100%;
-    max-width: var(--tdecc-content-max-width);
+    max-width: var(--oymcc-content-max-width);
     margin: 0 auto;
     padding: 0;
     list-style: none;
   }
 
-  .tdecc__links li {
-    margin: var(--tdecc-explanation-listitem-margin);
+  .oymcc__links li {
+    margin: var(--oymcc-explanation-listitem-margin);
   }
 
-  .tdecc__links a {
+  .oymcc__links a {
     display: flex;
     align-items: center;
-    color: var(--tdecc-explanation-color);
-    text-decoration: var(--tdecc-explanation-text-decoration);
+    color: var(--oymcc-explanation-color);
+    text-decoration: var(--oymcc-explanation-text-decoration);
 
     &:hover,
     &:focus {
@@ -44,9 +44,9 @@
     }
   }
 
-  :global(.tdecc__links svg) {
-    min-width: var(--tdecc-explanation-arrow-minwidth);
-    margin: var(--tdecc-explanation-arrow-margin);
+  :global(.oymcc__links svg) {
+    min-width: var(--oymcc-explanation-arrow-minwidth);
+    margin: var(--oymcc-explanation-arrow-margin);
   }
 
 </style>

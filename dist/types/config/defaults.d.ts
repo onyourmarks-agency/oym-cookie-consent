@@ -1,3 +1,3 @@
 import type { ConfigType } from '../_types/config';
-export declare const TDECC_CLASSNAME: string;
-export declare const TDECC_CONFIG: ConfigType;
+export declare const OYMCC_CLASSNAME: string;
+export declare const OYMCC_CONFIG: ConfigType;

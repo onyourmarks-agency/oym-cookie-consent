@@ -20,67 +20,67 @@
   };
 </script>
 
-<div class="tdecc__manage">
-	<h2 class="tdecc__manage__title">{$content?.manage.title}</h2>
-	<p class="tdecc__manage__desc">{$content?.manage.description}</p>
+<div class="oymcc__manage">
+	<h2 class="oymcc__manage__title">{$content?.manage.title}</h2>
+	<p class="oymcc__manage__desc">{$content?.manage.description}</p>
 
 	<ManageOptions/>
 	{#if error}
-		<div class="tdecc__manage__error">{$content?.manage.error}</div>
+		<div class="oymcc__manage__error">{$content?.manage.error}</div>
 	{/if}
 
-	<div class="tdecc__manage__buttons">
-		<button type="button" class="tdecc__button" on:click={() => saveAllPermissions()}>
+	<div class="oymcc__manage__buttons">
+		<button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
 			<span>{$content?.manage.buttons.all}</span>
 		</button>
-		<button type="button" class="tdecc__button tdecc__button--ghost" on:click={() => processPermissions()}>
+		<button type="button" class="oymcc__button oymcc__button--ghost" on:click={() => processPermissions()}>
 			<span>{$content?.manage.buttons.save}</span>
 		</button>
 	</div>
 
-	<div class="tdecc__manage__footer">{$content?.manage.footer}</div>
+	<div class="oymcc__manage__footer">{$content?.manage.footer}</div>
 </div>
 
 <style lang="scss">
   @use '../../../styles/sass-variables' as *;
 
-  .tdecc__manage {
+  .oymcc__manage {
     width: 100%;
-    max-width: var(--tdecc-content-max-width);
+    max-width: var(--oymcc-content-max-width);
     margin: auto;
   }
 
-  .tdecc__manage__title {
-    margin-bottom: var(--tdecc-heading-margin-bottom);
-    color: var(--tdecc-heading-color);
-    font-size: var(--tdecc-heading-font-size);
+  .oymcc__manage__title {
+    margin-bottom: var(--oymcc-heading-margin-bottom);
+    color: var(--oymcc-heading-color);
+    font-size: var(--oymcc-heading-font-size);
   }
 
-  .tdecc__manage__desc {
-    margin-bottom: var(--tdecc-manage-desc-margin-bottom);
+  .oymcc__manage__desc {
+    margin-bottom: var(--oymcc-manage-desc-margin-bottom);
   }
 
-  .tdecc__manage__error {
-    margin: var(--tdecc-manage-error-margin);
-    padding: var(--tdecc-manage-error-padding);
-    border: var(--tdecc-manage-error-border);
+  .oymcc__manage__error {
+    margin: var(--oymcc-manage-error-margin);
+    padding: var(--oymcc-manage-error-padding);
+    border: var(--oymcc-manage-error-border);
   }
 
-  .tdecc__manage__footer {
-    margin: var(--tdecc-manage-footer-margin);
-    font-size: var(--tdecc-manage-footer-font-size);
+  .oymcc__manage__footer {
+    margin: var(--oymcc-manage-footer-margin);
+    font-size: var(--oymcc-manage-footer-font-size);
   }
 
-  .tdecc__manage__buttons {
+  .oymcc__manage__buttons {
     display: flex;
     flex-direction: column;
     width: 100%;
 
     button {
-      margin-bottom: var(--tdecc-manage-button-margin-bottom);
+      margin-bottom: var(--oymcc-manage-button-margin-bottom);
     }
 
-    @media screen and (min-width: $tdecc-breakpoint-md) {
+    @media screen and (min-width: $oymcc-breakpoint-md) {
       flex-direction: row;
       justify-content: space-between;
     }

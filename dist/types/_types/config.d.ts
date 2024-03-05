@@ -27,7 +27,7 @@ export type InfoType = {
     accepted: string;
     updated: string;
 };
-export type TdeccType = {
+export type OymccType = {
     accepted: [];
     checkPermission: (match: string[] | string) => boolean;
     config?: ConfigType | undefined;

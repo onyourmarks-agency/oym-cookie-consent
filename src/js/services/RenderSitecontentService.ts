@@ -6,21 +6,21 @@ import SiteContent from '../templates/SiteContent.svelte';
 const renderUniqueID = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 const appendNotification = (item: HTMLElement): void => {
-  if (item.dataset.tdeccIdentifier) {
+  if (item.dataset.oymccIdentifier) {
     return;
   }
 
   const uniqueID: string = renderUniqueID();
 
   const output: HTMLDivElement = document.createElement('div');
-  output.dataset.tdeccIdentifier = uniqueID;
-  output.className = 'tdecc-notification';
+  output.dataset.oymccIdentifier = uniqueID;
+  output.className = 'oymcc-notification';
 
   item.after(output);
-  item.dataset.tdeccIdentifier = uniqueID;
+  item.dataset.oymccIdentifier = uniqueID;
 
   const elementNotification: HTMLElement | null = document.querySelector(
-    `.tdecc-notification[data-tdecc-identifier="${uniqueID}"]`,
+    `.oymcc-notification[data-oymcc-identifier="${uniqueID}"]`,
   );
 
   if (!elementNotification) {
@@ -33,14 +33,14 @@ const appendNotification = (item: HTMLElement): void => {
 };
 
 const removeNotification = (item: HTMLElement): void => {
-  const { tdeccIdentifier } = item.dataset;
+  const { oymccIdentifier } = item.dataset;
 
-  if (!tdeccIdentifier) {
+  if (!oymccIdentifier) {
     return;
   }
 
   const notification: HTMLElement | null = document.querySelector(
-    `.tdecc-notification[data-tdecc-identifier="${tdeccIdentifier}"]`,
+    `.oymcc-notification[data-oymcc-identifier="${oymccIdentifier}"]`,
   );
 
   if (!notification) {
@@ -51,19 +51,19 @@ const removeNotification = (item: HTMLElement): void => {
 };
 
 export const renderSiteContent = (): void => {
-  domElementsSite(globalThis.tdecc.config).forEach((item: HTMLElement): void => {
-    let { tdeccPermissions } = item.dataset;
+  domElementsSite(globalThis.oymcc.config).forEach((item: HTMLElement): void => {
+    let { oymccPermissions } = item.dataset;
 
-    if (!tdeccPermissions) {
+    if (!oymccPermissions) {
       return;
     }
 
-    tdeccPermissions = tdeccPermissions.replace(/\s+/g, '');
+    oymccPermissions = oymccPermissions.replace(/\s+/g, '');
 
-    if (!checkPermission(tdeccPermissions.split(','))) {
-      if (item.hasAttribute('data-tdecc-show-notification')) {
+    if (!checkPermission(oymccPermissions.split(','))) {
+      if (item.hasAttribute('data-oymcc-show-notification')) {
         appendNotification(item);
-        delete item.dataset.tdeccShowNotification;
+        delete item.dataset.oymccShowNotification;
       }
 
       return;
@@ -81,7 +81,7 @@ export const renderSiteContent = (): void => {
       },
     });
 
-    item.dataset.tdeccRendered = '1';
+    item.dataset.oymccRendered = '1';
   });
 };
 

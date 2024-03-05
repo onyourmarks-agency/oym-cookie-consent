@@ -1,56 +1,56 @@
 <script lang="ts">
-  import {TDECC_SECTION_MANAGE} from '../../config/sections';
+  import {OYMCC_SECTION_MANAGE} from '../../config/sections';
   import {content} from '../../store/content';
   import {config} from '../../store/config';
   import {saveAllPermissions} from '../../services/PermissionService';
   import {updateSection} from '../../services/SectionService';
 </script>
 
-<div class="tdecc__start">
-	<h2 class="tdecc__start__title">{$content?.start.title}</h2>
-	<p class="tdecc__start__desc">{$content?.start.description}</p>
+<div class="oymcc__start">
+	<h2 class="oymcc__start__title">{$content?.start.title}</h2>
+	<p class="oymcc__start__desc">{$content?.start.description}</p>
 
-	<div class="tdecc__start__choices">
+	<div class="oymcc__start__choices">
 		{#if $config?.manageable}
-			<button type="button" class="tdecc__button tdecc__button--ghost" on:click={() => updateSection(TDECC_SECTION_MANAGE)}>
+			<button type="button" class="oymcc__button oymcc__button--ghost" on:click={() => updateSection(OYMCC_SECTION_MANAGE)}>
 				<span>{$content?.start.buttons.manage}</span>
 			</button>
 		{/if}
 
-		<button type="button" class="tdecc__button" on:click={() => saveAllPermissions()}>
+		<button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
 			<span>{$content?.start.buttons.accept}</span>
 		</button>
 	</div>
 </div>
 
 <style lang="scss">
-  .tdecc__start {
+  .oymcc__start {
     width: 100%;
-    max-width: var(--tdecc-content-max-width);
+    max-width: var(--oymcc-content-max-width);
     margin: auto;
   }
 
-  .tdecc__start__title {
-    margin-bottom: var(--tdecc-heading-margin-bottom);
-    color: var(--tdecc-heading-color);
-    font-size: var(--tdecc-heading-font-size);
+  .oymcc__start__title {
+    margin-bottom: var(--oymcc-heading-margin-bottom);
+    color: var(--oymcc-heading-color);
+    font-size: var(--oymcc-heading-font-size);
   }
 
-  .tdecc__start__desc {
-    margin-bottom: var(--tdecc-start-desc-margin-bottom);
+  .oymcc__start__desc {
+    margin-bottom: var(--oymcc-start-desc-margin-bottom);
   }
 
-  :global(.tdecc__start__desc a) {
-    color: var(--tdecc-content-anchor-color);
-    text-decoration: var(--tdecc-content-anchor-text-decoration);
+  :global(.oymcc__start__desc a) {
+    color: var(--oymcc-content-anchor-color);
+    text-decoration: var(--oymcc-content-anchor-text-decoration);
   }
 
-  .tdecc__start__choices {
-    margin-bottom: var(--tdecc-start-choices-margin-bottom);
+  .oymcc__start__choices {
+    margin-bottom: var(--oymcc-start-choices-margin-bottom);
 
     button {
-      margin-right: var(--tdecc-start-choices-button-spacing);
-      margin-bottom: var(--tdecc-start-choices-button-spacing);
+      margin-right: var(--oymcc-start-choices-button-spacing);
+      margin-bottom: var(--oymcc-start-choices-button-spacing);
     }
   }
 </style>

@@ -31,16 +31,16 @@
     const isAcceptedPermission = (permission: string): boolean => !!$acceptedPermissions.find((item) => item === permission)
 </script>
 
-<div class="tdecc__manage__options">
+<div class="oymcc__manage__options">
 	{#each $config?.consentOptions || [] as option, index}
-		<div class="tdecc__manage__option">
-			<div class="tdecc__manage__option__content">
-				<h4 class="tdecc__manage__option__content__title">{option.title}</h4>
-				<p class="tdecc__manage__option__content__desc">{option.description}</p>
+		<div class="oymcc__manage__option">
+			<div class="oymcc__manage__option__content">
+				<h4 class="oymcc__manage__option__content__title">{option.title}</h4>
+				<p class="oymcc__manage__option__content__desc">{option.description}</p>
 			</div>
-			<div class="tdecc__manage__option__radios" class:tdecc__manage__option__radios--disabled={option?.notCustomizable}>
+			<div class="oymcc__manage__option__radios" class:oymcc__manage__option__radios--disabled={option?.notCustomizable}>
 				<input
-					id="tdecc-option-{index}-on"
+					id="oymcc-option-{index}-on"
 					type="radio"
 					name="cookie-accept-{option.key}"
 					value="1"
@@ -49,7 +49,7 @@
 					on:change={() => addAcceptedPermission(option.key)}
 				>
 				<input
-					id="tdecc-option-{index}-off"
+					id="oymcc-option-{index}-off"
 					type="radio"
 					name="cookie-accept-{option.key}"
 					value="0"
@@ -58,9 +58,9 @@
 					on:change={() => removeAcceptedPermission(option.key)}
 				>
 
-				<div class="tdecc__manage__option__radios__labels">
-					<label for="tdecc-option-{index}-on">{$content?.manage.switches.on}</label>
-					<label for="tdecc-option-{index}-off">{$content?.manage.switches.off}</label>
+				<div class="oymcc__manage__option__radios__labels">
+					<label for="oymcc-option-{index}-on">{$content?.manage.switches.on}</label>
+					<label for="oymcc-option-{index}-off">{$content?.manage.switches.off}</label>
 				</div>
 			</div>
 		</div>
@@ -70,33 +70,33 @@
 <style lang="scss">
   @use '../../../styles/sass-variables' as *;
 
-  .tdecc__manage__option {
+  .oymcc__manage__option {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: var(--tdecc-manage-option-margin-bottom);
+    margin-bottom: var(--oymcc-manage-option-margin-bottom);
 
-    @media screen and (min-width: $tdecc-breakpoint-sm) {
+    @media screen and (min-width: $oymcc-breakpoint-sm) {
       flex-direction: row;
     }
   }
 
-  .tdecc__manage__option__content {
+  .oymcc__manage__option__content {
     flex: 1;
-    padding-right: var(--tdecc-manage-option-content-padding-right);
+    padding-right: var(--oymcc-manage-option-content-padding-right);
   }
 
-  .tdecc__manage__option__content__title {
-    margin: var(--tdecc-manage-option-title-margin);
-    color: var(--tdecc-manage-option-title-color);
-    font-size: var(--tdecc-manage-option-title-font-size);
+  .oymcc__manage__option__content__title {
+    margin: var(--oymcc-manage-option-title-margin);
+    color: var(--oymcc-manage-option-title-color);
+    font-size: var(--oymcc-manage-option-title-font-size);
   }
 
-  .tdecc__manage__option__content__desc {
-    font-size: var(--tdecc-manage-desc-font-size);
+  .oymcc__manage__option__content__desc {
+    font-size: var(--oymcc-manage-desc-font-size);
   }
 
-  .tdecc__manage__option__radios {
+  .oymcc__manage__option__radios {
     position: relative;
 
     input {
@@ -105,19 +105,19 @@
     }
   }
 
-  .tdecc__manage__option__radios__labels {
+  .oymcc__manage__option__radios__labels {
     display: flex;
 
     label {
       position: relative;
       min-width: 56px;
       margin: 0;
-      padding: var(--tdecc-manage-option-button-padding);
-      border: var(--tdecc-manage-button-inactive-border);
-      background-color: var(--tdecc-manage-button-inactive-background);
-      color: var(--tdecc-manage-button-inactive-color);
+      padding: var(--oymcc-manage-option-button-padding);
+      border: var(--oymcc-manage-button-inactive-border);
+      background-color: var(--oymcc-manage-button-inactive-background);
+      color: var(--oymcc-manage-button-inactive-color);
       font-weight: normal;
-      font-size: var(--tdecc-manage-option-button-font-size);
+      font-size: var(--oymcc-manage-option-button-font-size);
       text-align: center;
       cursor: pointer;
     }
@@ -132,7 +132,7 @@
     }
   }
 
-  .tdecc__manage__option__radios--disabled .tdecc__manage__option__radios__labels {
+  .oymcc__manage__option__radios--disabled .oymcc__manage__option__radios__labels {
     label {
       cursor: not-allowed;
       opacity: 0.5;
@@ -140,11 +140,11 @@
   }
 
   // prettier-ignore
-  .tdecc__manage__option__radios input:nth-child(1):checked ~ .tdecc__manage__option__radios__labels label:nth-child(1),
-  .tdecc__manage__option__radios input:nth-child(2):checked ~ .tdecc__manage__option__radios__labels label:nth-child(2) {
+  .oymcc__manage__option__radios input:nth-child(1):checked ~ .oymcc__manage__option__radios__labels label:nth-child(1),
+  .oymcc__manage__option__radios input:nth-child(2):checked ~ .oymcc__manage__option__radios__labels label:nth-child(2) {
     z-index: 1;
-    border: var(--tdecc-manage-button-active-border);
-    background: var(--tdecc-manage-button-active-background);
-    color: var(--tdecc-manage-button-active-color);
+    border: var(--oymcc-manage-button-active-border);
+    background: var(--oymcc-manage-button-active-background);
+    color: var(--oymcc-manage-button-active-color);
   }
 </style>

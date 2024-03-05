@@ -1,5 +1,5 @@
 import { domElementsSiteManageCookies } from '../config/dom-elements';
-import { TDECC_SECTION_MANAGE } from '../config/sections';
+import { OYMCC_SECTION_MANAGE } from '../config/sections';
 import { activeSection } from '../store/active-section';
 import { overlayShow } from './TemplateService';
 
@@ -14,7 +14,7 @@ export const handleManageCookieElements = (): void => {
     linkElement.addEventListener('click', (e: MouseEvent) => {
       e.preventDefault();
 
-      activeSection.set(TDECC_SECTION_MANAGE);
+      activeSection.set(OYMCC_SECTION_MANAGE);
       overlayShow(true);
     });
   });

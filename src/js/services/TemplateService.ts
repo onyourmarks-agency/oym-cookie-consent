@@ -13,7 +13,7 @@ const overlayStyle = (): string => {
 
 export const overlayHide = (): void => {
   document.body.className = document.body.className.replace(
-    /\bshow-tdecc-overlay--popup|show-tdecc-overlay--bar|show-tdecc-overlay--closeable|show-tdecc-overlay\b/g,
+    /\bshow-oymcc-overlay--popup|show-oymcc-overlay--bar|show-oymcc-overlay--closeable|show-oymcc-overlay\b/g,
     '',
   );
 
@@ -21,7 +21,7 @@ export const overlayHide = (): void => {
 };
 
 export const overlayShow = (canBeClosed: boolean | undefined = undefined): void => {
-  if (document.body.classList.contains('show-tdecc-overlay')) {
+  if (document.body.classList.contains('show-oymcc-overlay')) {
     return;
   }
 
@@ -31,11 +31,11 @@ export const overlayShow = (canBeClosed: boolean | undefined = undefined): void 
       (item: string): boolean => item === window.location.pathname,
     )
   ) {
-    document.body.className += ` show-tdecc-overlay show-tdecc-overlay--${overlayStyle()}`;
+    document.body.className += ` show-oymcc-overlay show-oymcc-overlay--${overlayStyle()}`;
   }
 
   if (canBeClosed) {
-    document.body.className += ' show-tdecc-overlay--closeable';
+    document.body.className += ' show-oymcc-overlay--closeable';
   }
 
   setPermissions();

@@ -3,11 +3,11 @@ import { getCurrentConfig } from './ConfigService';
 import { setCookie } from './CookieService';
 
 export const dispatchChanged = (): void => {
-  document.dispatchEvent(new Event('tdecc-changed'));
+  document.dispatchEvent(new Event('oymcc-changed'));
 };
 
 export const dispatchCloseOverlay = (): void => {
-  document.dispatchEvent(new Event('tdecc-close-overlay'));
+  document.dispatchEvent(new Event('oymcc-close-overlay'));
 };
 
 export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType): void => {
@@ -24,7 +24,7 @@ export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType):
     365,
   );
 
-  globalThis.tdecc.cookies = {
+  globalThis.oymcc.cookies = {
     accepted,
     info,
   };

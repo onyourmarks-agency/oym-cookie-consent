@@ -1,7 +1,7 @@
-import type { TdeccType } from '../_types/config';
+import type { OymccType } from '../_types/config';
 
 export declare const window: Window &
   typeof globalThis & {
-    tdecc: TdeccType | any;
-    tdeCookieConsentContent: any;
+    oymcc: OymccType | any;
+    oymCookieConsentContent: any;
   };

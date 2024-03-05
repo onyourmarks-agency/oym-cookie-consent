@@ -1,15 +1,15 @@
 import type { ConfigType } from '../_types/config';
 
-export const TDECC_CLASSNAME: string = 'tdecc';
+export const OYMCC_CLASSNAME: string = 'oymcc';
 
-export const TDECC_CONFIG: ConfigType = {
+export const OYMCC_CONFIG: ConfigType = {
   consentOptions: [],
-  cookieName: 'tdecc',
+  cookieName: 'oymcc',
   exceptionUrls: [],
   explanationAnchors: [],
   language: 'nl',
   manageable: true,
   style: 'bar',
-  renderSelector: '[data-tdecc-render]',
+  renderSelector: '[data-oymcc-render]',
   version: '1.0',
 };

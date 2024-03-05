@@ -1,5 +1,5 @@
 import type { ConfigType } from '../_types/config';
-import { TDECC_CONFIG as configDefaults } from '../config/defaults';
+import { OYMCC_CONFIG as configDefaults } from '../config/defaults';
 import contentDefaults from '../translations/index';
 
 const mergeDeep = (target: any, ...sources: any[]): any => {
@@ -42,7 +42,7 @@ export const mergeConfig = (config: ConfigType | undefined = undefined): ConfigT
 };
 
 export const mergeContent = () => {
-  const content = globalThis.tdeCookieConsentContent;
+  const content = globalThis.oymCookieConsentContent;
 
   if (!content || !Object.keys(content || []).length) {
     return contentDefaults;
@@ -53,8 +53,8 @@ export const mergeContent = () => {
 
 export const getCurrentConfig = (): ConfigType => {
   try {
-    JSON.parse(JSON.stringify(globalThis.tdecc.config));
-    return globalThis.tdecc.config;
+    JSON.parse(JSON.stringify(globalThis.oymcc.config));
+    return globalThis.oymcc.config;
   } catch (e) {
     return configDefaults;
   }

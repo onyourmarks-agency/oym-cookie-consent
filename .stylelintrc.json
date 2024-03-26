@@ -4,9 +4,7 @@
   ],
   "rules": {
     "selector-pseudo-element-colon-notation": "single",
-    "declaration-colon-newline-after": null,
     "declaration-no-important": null,
-    "indentation": null,
     "rule-empty-line-before": [
       "always",
       {

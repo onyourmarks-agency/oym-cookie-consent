@@ -223,6 +223,9 @@ const options = {
 }
 ```
 
+# Trigger consent modal
+On some pages you would like to give the visitor the possibility to change the consent. You can do this with the event [show](#show) or by adding a link with `href="#manage-cookies"`.
+
 # Load scripts
 
 The scripts that are needs to be loaded on consent needs to be setted in the DOM inside a script tag.
@@ -303,6 +306,10 @@ In most cases; the base-variants are enough. Create a seperate CSS - file and ad
   --oymcc-base-color-primary: #82b0a2;
   --oymcc-base-color-text: #333;
   --oymcc-base-font-size: 16px;
+
+  /* A11y */
+  --oymcc-a11y-outline-color: var(--oymcc-base-color-primary);
+  --oymcc-a11y-outline-offset: 2px;
 
   /* Backdrop */
   --oymcc-backdrop-box-shadow: none;
@@ -390,7 +397,7 @@ In most cases; the base-variants are enough. Create a seperate CSS - file and ad
   --oymcc-manage-footer-margin: 8px 0 24px 0;
 
   /* Manage option */
-  --oymcc-manage-option-button-font-size: 16px;
+  --oymcc-manage-option-button-font-size: 14px;
   --oymcc-manage-option-button-padding: 6px 16px;
   --oymcc-manage-option-content-padding-right: 0;
   --oymcc-manage-option-margin-bottom: 24px;
@@ -409,11 +416,19 @@ In most cases; the base-variants are enough. Create a seperate CSS - file and ad
   --oymcc-notification-background: #f9f9f9;
   --oymcc-notification-border: none;
   --oymcc-notification-border-radius: 0;
-  --oymcc-notification-padding: 48px;
+  --oymcc-notification-heading-font-size: var(--oymcc-heading-font-size);
+  --oymcc-notification-font-size: var(--oymcc-base-font-size);
+  --oymcc-notification-padding: 48px 16px;
 
   /* Overrides */
+  @media screen and (min-width: $oymcc-breakpoint-sm) {
+    --oymcc-manage-option-content-padding-right: 16px;
+    --oymcc-manage-option-margin-bottom: 16px;
+  }
+
   @media screen and (min-width: $oymcc-breakpoint-md) {
     --oymcc-heading-font-size: 2em;
+    --oymcc-manage-option-content-padding-right: 32px;
   }
 }
 ```

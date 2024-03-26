@@ -1,17 +1,34 @@
 <script lang="ts">
   import IconClose from '../components/icons/IconClose.svelte';
   import ExplanationAnchors from '../components/ExplanationAnchors.svelte';
-  import {dispatchCloseOverlay} from '../../services/EventService';
+  import { dispatchCloseOverlay } from '../../services/EventService';
+  import { content } from '../../store/content';
+  import { onMount } from 'svelte';
+
+  let contentElement: HTMLElement | null;
+
+  onMount(() => {
+    console.log(contentElement);
+
+    if (contentElement) {
+      contentElement.setAttribute('tabindex', '0');
+      contentElement.focus();
+    }
+  });
 </script>
 
-<div class="oymcc-content">
-	<a href="#close" class="oymcc-content__close" on:click={() => dispatchCloseOverlay()}>
-		<IconClose />
-	</a>
+<div class="oymcc-content" bind:this={contentElement} role="dialog">
+  <a
+    href="#close"
+    class="oymcc-content__close"
+    aria-label={$content?.a11y.close}
+    on:click={() => dispatchCloseOverlay()}>
+    <IconClose />
+  </a>
 
-	<slot />
+  <slot />
 
-	<ExplanationAnchors />
+  <ExplanationAnchors />
 </div>
 
 <style lang="scss">
@@ -28,7 +45,6 @@
   }
 
   .oymcc-content__close {
-    color: var(--oymcc-popup-close-color);
     display: none;
     z-index: 10;
     position: relative;
@@ -37,6 +53,7 @@
     margin-left: var(--oymcc-popup-close-margin-left);
     padding: var(--oymcc-popup-close-padding);
     float: right;
+    color: var(--oymcc-popup-close-color);
   }
 
   :global(.show-oymcc-overlay--popup) .oymcc-content {

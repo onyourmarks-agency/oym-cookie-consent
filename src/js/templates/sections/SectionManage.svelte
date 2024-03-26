@@ -1,10 +1,10 @@
 <script lang="ts">
-  import {acceptedPermissions} from '../../store/accepted-permissions';
-  import {chosenPermissions} from '../../store/chosen-permissions';
-  import {content} from '../../store/content';
+  import { acceptedPermissions } from '../../store/accepted-permissions';
+  import { chosenPermissions } from '../../store/chosen-permissions';
+  import { content } from '../../store/content';
   import ManageOptions from '../components/ManageOptions.svelte';
-  import {saveAllPermissions, savePermissions} from '../../services/PermissionService';
-  import {config} from '../../store/config';
+  import { saveAllPermissions, savePermissions } from '../../services/PermissionService';
+  import { config } from '../../store/config';
 
   let error = false;
 
@@ -21,24 +21,27 @@
 </script>
 
 <div class="oymcc__manage">
-	<h2 class="oymcc__manage__title">{$content?.manage.title}</h2>
-	<p class="oymcc__manage__desc">{$content?.manage.description}</p>
+  <h2 class="oymcc__manage__title">{$content?.manage.title}</h2>
+  <p class="oymcc__manage__desc">{$content?.manage.description}</p>
 
-	<ManageOptions/>
-	{#if error}
-		<div class="oymcc__manage__error">{$content?.manage.error}</div>
-	{/if}
+  <ManageOptions />
+  {#if error}
+    <div class="oymcc__manage__error">{$content?.manage.error}</div>
+  {/if}
 
-	<div class="oymcc__manage__buttons">
-		<button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
-			<span>{$content?.manage.buttons.all}</span>
-		</button>
-		<button type="button" class="oymcc__button oymcc__button--ghost" on:click={() => processPermissions()}>
-			<span>{$content?.manage.buttons.save}</span>
-		</button>
-	</div>
+  <div class="oymcc__manage__buttons">
+    <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
+      <span>{$content?.manage.buttons.all}</span>
+    </button>
+    <button
+      type="button"
+      class="oymcc__button oymcc__button--ghost"
+      on:click={() => processPermissions()}>
+      <span>{$content?.manage.buttons.save}</span>
+    </button>
+  </div>
 
-	<div class="oymcc__manage__footer">{$content?.manage.footer}</div>
+  <div class="oymcc__manage__footer">{$content?.manage.footer}</div>
 </div>
 
 <style lang="scss">

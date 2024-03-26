@@ -1,26 +1,29 @@
 <script lang="ts">
-  import {OYMCC_SECTION_MANAGE} from '../../config/sections';
-  import {content} from '../../store/content';
-  import {config} from '../../store/config';
-  import {saveAllPermissions} from '../../services/PermissionService';
-  import {updateSection} from '../../services/SectionService';
+  import { OYMCC_SECTION_MANAGE } from '../../config/sections';
+  import { content } from '../../store/content';
+  import { config } from '../../store/config';
+  import { saveAllPermissions } from '../../services/PermissionService';
+  import { updateSection } from '../../services/SectionService';
 </script>
 
 <div class="oymcc__start">
-	<h2 class="oymcc__start__title">{$content?.start.title}</h2>
-	<p class="oymcc__start__desc">{$content?.start.description}</p>
+  <h2 class="oymcc__start__title">{$content?.start.title}</h2>
+  <p class="oymcc__start__desc">{$content?.start.description}</p>
 
-	<div class="oymcc__start__choices">
-		{#if $config?.manageable}
-			<button type="button" class="oymcc__button oymcc__button--ghost" on:click={() => updateSection(OYMCC_SECTION_MANAGE)}>
-				<span>{$content?.start.buttons.manage}</span>
-			</button>
-		{/if}
+  <div class="oymcc__start__choices">
+    {#if $config?.manageable}
+      <button
+        type="button"
+        class="oymcc__button oymcc__button--ghost"
+        on:click={() => updateSection(OYMCC_SECTION_MANAGE)}>
+        <span>{$content?.start.buttons.manage}</span>
+      </button>
+    {/if}
 
-		<button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
-			<span>{$content?.start.buttons.accept}</span>
-		</button>
-	</div>
+    <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
+      <span>{$content?.start.buttons.accept}</span>
+    </button>
+  </div>
 </div>
 
 <style lang="scss">
@@ -46,11 +49,10 @@
   }
 
   .oymcc__start__choices {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-bottom: var(--oymcc-start-choices-margin-bottom);
-
-    button {
-      margin-right: var(--oymcc-start-choices-button-spacing);
-      margin-bottom: var(--oymcc-start-choices-button-spacing);
-    }
+    gap: var(--oymcc-start-choices-button-spacing);
   }
 </style>

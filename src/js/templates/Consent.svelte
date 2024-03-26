@@ -11,16 +11,16 @@
   activeSection.subscribe((section: SectionType | null) => {
     if (!section) {
       return;
-	}
+    }
 
     currentSection = section;
   });
 </script>
 
 <Wrapper>
-	{#if currentSection === OYMCC_SECTION_START}
-		<SectionStart />
-	{:else if currentSection === OYMCC_SECTION_MANAGE}
-		<SectionManage />
-	{/if}
+  {#if currentSection === OYMCC_SECTION_START}
+    <SectionStart />
+  {:else if currentSection === OYMCC_SECTION_MANAGE}
+    <SectionManage />
+  {/if}
 </Wrapper>

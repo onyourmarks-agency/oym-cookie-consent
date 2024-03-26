@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {onMount} from 'svelte';
+  import { onMount } from 'svelte';
 
   export let content: string;
 
@@ -34,15 +34,15 @@
       content = content.replace(regExScript, '');
 
       scriptTags.forEach((scriptTag): void => {
-        if (acceptedTags.find(addedScriptTag => addedScriptTag === scriptTag)) {
+        if (acceptedTags.find((addedScriptTag) => addedScriptTag === scriptTag)) {
           return;
-		}
+        }
 
         loadScriptTag(scriptTag);
         acceptedTags.push(scriptTag);
       });
     }
-  })
+  });
 </script>
 
 {@html content}

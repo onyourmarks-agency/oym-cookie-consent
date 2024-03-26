@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -60,8 +60,8 @@ devDependencies:
     specifier: ^2.0.1
     version: 2.0.1(postcss@8.4.31)(prettier@3.0.3)
   prettier-plugin-svelte:
-    specifier: ^3.0.3
-    version: 3.0.3(prettier@3.0.3)(svelte@4.2.2)
+    specifier: ^3.2.2
+    version: 3.2.2(prettier@3.0.3)(svelte@4.2.2)
   rollup:
     specifier: ^4.0.2
     version: 4.0.2
@@ -3268,11 +3268,11 @@ packages:
       - postcss
     dev: true
 
-  /prettier-plugin-svelte@3.0.3(prettier@3.0.3)(svelte@4.2.2):
-    resolution: {integrity: sha512-dLhieh4obJEK1hnZ6koxF+tMUrZbV5YGvRpf2+OADyanjya5j0z1Llo8iGwiHmFWZVG/hLEw/AJD5chXd9r3XA==}
+  /prettier-plugin-svelte@3.2.2(prettier@3.0.3)(svelte@4.2.2):
+    resolution: {integrity: sha512-ZzzE/wMuf48/1+Lf2Ffko0uDa6pyCfgHV6+uAhtg2U0AAXGrhCSW88vEJNAkAxW5qyrFY1y1zZ4J8TgHrjW++Q==}
     peerDependencies:
       prettier: ^3.0.0
-      svelte: ^3.2.0 || ^4.0.0-next.0
+      svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
     dependencies:
       prettier: 3.0.3
       svelte: 4.2.2

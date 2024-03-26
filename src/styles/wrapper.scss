@@ -17,6 +17,11 @@
   .show-oymcc-overlay & {
     display: flex;
   }
+
+  *:focus-visible {
+    outline: 2px solid var(--oymcc-a11y-outline-color);
+    outline-offset: var(--oymcc-a11y-outline-offset);
+  }
 }
 
 .show-oymcc-overlay--bar .oymcc {

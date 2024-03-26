@@ -1,70 +1,99 @@
 <script lang="ts">
-	import {config} from '../../store/config';
-    import {content} from '../../store/content';
-    import {acceptedPermissions} from '../../store/accepted-permissions';
-    import {getCurrentPermissions} from '../../services/PermissionService';
-    import {chosenPermissions} from '../../store/chosen-permissions';
+  import { onMount } from 'svelte';
+  import { config } from '../../store/config';
+  import { content } from '../../store/content';
+  import { acceptedPermissions } from '../../store/accepted-permissions';
+  import { chosenPermissions } from '../../store/chosen-permissions';
 
-    const addChosenPermission = (permission: string): void => {
-      if ($chosenPermissions.find((chosenPermission) => chosenPermission === permission)) {
+  let activeStates: any = {};
+
+  const isAcceptedPermission = (permission: string): boolean =>
+    !!$acceptedPermissions.find((item) => item === permission);
+
+  /**
+   * Check all options and his permissions
+   * null = no option selected by user
+   * true = option is accepted
+   * false = option is not accepted
+   */
+  const manageButtonStates = () => {
+    activeStates = {};
+
+    $config?.consentOptions.forEach((option) => {
+      activeStates[option.key] = null;
+
+      if (!$chosenPermissions.includes(option.key)) {
         return;
       }
 
-      $chosenPermissions.push(permission);
-	};
+      activeStates[option.key] = isAcceptedPermission(option.key);
+    });
+  };
 
-    const addAcceptedPermission = (permission: string): void => {
-      addChosenPermission(permission);
+  const addChosenPermission = (permission: string): void => {
+    if ($chosenPermissions.find((chosenPermission) => chosenPermission === permission)) {
+      return;
+    }
 
-      if ($acceptedPermissions.find((acceptedPermission) => acceptedPermission === permission)) {
-        return;
-	  }
+    $chosenPermissions.push(permission);
+  };
 
-      $acceptedPermissions.push(permission);
-	};
+  const addAcceptedPermission = (permission: string): void => {
+    addChosenPermission(permission);
 
-    const removeAcceptedPermission = (permission: string): void => {
-      addChosenPermission(permission);
-      acceptedPermissions.set($acceptedPermissions.filter((acceptedPermission) => acceptedPermission !== permission));
-    };
+    if ($acceptedPermissions.find((acceptedPermission) => acceptedPermission === permission)) {
+      return;
+    }
 
-    const isAcceptedPermission = (permission: string): boolean => !!$acceptedPermissions.find((item) => item === permission)
+    $acceptedPermissions.push(permission);
+    manageButtonStates();
+  };
+
+  const removeAcceptedPermission = (permission: string): void => {
+    addChosenPermission(permission);
+
+    acceptedPermissions.set(
+      $acceptedPermissions.filter((acceptedPermission) => acceptedPermission !== permission),
+    );
+    manageButtonStates();
+  };
+
+  onMount(() => {
+    manageButtonStates();
+  });
 </script>
 
 <div class="oymcc__manage__options">
-	{#each $config?.consentOptions || [] as option, index}
-		<div class="oymcc__manage__option">
-			<div class="oymcc__manage__option__content">
-				<h4 class="oymcc__manage__option__content__title">{option.title}</h4>
-				<p class="oymcc__manage__option__content__desc">{option.description}</p>
-			</div>
-			<div class="oymcc__manage__option__radios" class:oymcc__manage__option__radios--disabled={option?.notCustomizable}>
-				<input
-					id="oymcc-option-{index}-on"
-					type="radio"
-					name="cookie-accept-{option.key}"
-					value="1"
-					disabled={option?.notCustomizable}
-					checked={option?.notCustomizable || (!!getCurrentPermissions().length && isAcceptedPermission(option.key))}
-					on:change={() => addAcceptedPermission(option.key)}
-				>
-				<input
-					id="oymcc-option-{index}-off"
-					type="radio"
-					name="cookie-accept-{option.key}"
-					value="0"
-					disabled={option?.notCustomizable}
-					checked={!!getCurrentPermissions().length && !isAcceptedPermission(option.key)}
-					on:change={() => removeAcceptedPermission(option.key)}
-				>
-
-				<div class="oymcc__manage__option__radios__labels">
-					<label for="oymcc-option-{index}-on">{$content?.manage.switches.on}</label>
-					<label for="oymcc-option-{index}-off">{$content?.manage.switches.off}</label>
-				</div>
-			</div>
-		</div>
-	{/each}
+  {#each $config?.consentOptions || [] as option, index}
+    <div class="oymcc__manage__option">
+      <div class="oymcc__manage__option__content">
+        <h4 class="oymcc__manage__option__content__title">{option.title}</h4>
+        <p class="oymcc__manage__option__content__desc">{option.description}</p>
+      </div>
+      <div
+        class="oymcc__manage__options"
+        class:oymcc__manage__options--disabled={option?.notCustomizable}>
+        <div class="oymcc__manage__options__buttons">
+          <button
+            type="button"
+            disabled={option?.notCustomizable}
+            class="oymcc__manage__options__button"
+            on:click={() => addAcceptedPermission(option.key)}
+            class:active={activeStates[option.key]}>
+            {$content?.manage.switches.on}
+          </button>
+          <button
+            type="button"
+            disabled={option?.notCustomizable}
+            class="oymcc__manage__options__button"
+            on:click={() => removeAcceptedPermission(option.key)}
+            class:active={activeStates[option.key] === false}>
+            {$content?.manage.switches.off}
+          </button>
+        </div>
+      </div>
+    </div>
+  {/each}
 </div>
 
 <style lang="scss">
@@ -96,52 +125,47 @@
     font-size: var(--oymcc-manage-desc-font-size);
   }
 
-  .oymcc__manage__option__radios {
+  .oymcc__manage__options {
     position: relative;
-
-    input {
-      position: absolute;
-      left: -9999px;
-    }
   }
 
-  .oymcc__manage__option__radios__labels {
+  .oymcc__manage__options__buttons {
     display: flex;
+  }
 
-    label {
-      position: relative;
-      min-width: 56px;
-      margin: 0;
-      padding: var(--oymcc-manage-option-button-padding);
-      border: var(--oymcc-manage-button-inactive-border);
-      background-color: var(--oymcc-manage-button-inactive-background);
-      color: var(--oymcc-manage-button-inactive-color);
-      font-weight: normal;
-      font-size: var(--oymcc-manage-option-button-font-size);
-      text-align: center;
-      cursor: pointer;
-    }
+  .oymcc__manage__options__button {
+    position: relative;
+    min-width: 56px;
+    min-height: 32px;
+    margin: 0;
+    padding: var(--oymcc-manage-option-button-padding);
+    border: var(--oymcc-manage-button-inactive-border);
+    background-color: var(--oymcc-manage-button-inactive-background);
+    color: var(--oymcc-manage-button-inactive-color);
+    font-weight: normal;
+    font-size: var(--oymcc-manage-option-button-font-size);
+    font-family: inherit;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: none;
+    cursor: pointer;
 
-    label:first-child {
+    &:first-child {
       border-radius: 4px 0 0 4px;
     }
 
-    label:last-child {
+    &:last-child {
       margin-left: -1px;
       border-radius: 0 4px 4px 0;
     }
   }
 
-  .oymcc__manage__option__radios--disabled .oymcc__manage__option__radios__labels {
-    label {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
+  .oymcc__manage__options__button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
-  // prettier-ignore
-  .oymcc__manage__option__radios input:nth-child(1):checked ~ .oymcc__manage__option__radios__labels label:nth-child(1),
-  .oymcc__manage__option__radios input:nth-child(2):checked ~ .oymcc__manage__option__radios__labels label:nth-child(2) {
+  .oymcc__manage__options__button.active {
     z-index: 1;
     border: var(--oymcc-manage-button-active-border);
     background: var(--oymcc-manage-button-active-background);

@@ -38,4 +38,7 @@ export default {
           You have not yet given us permission to place these cookies.`,
     button: 'Change cookie preferences',
   },
+  a11y: {
+    close: 'Close consentmanager',
+  },
 } as ContentType;

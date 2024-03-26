@@ -7,6 +7,10 @@
   --oymcc-base-color-text: #333;
   --oymcc-base-font-size: 16px;
 
+  /* A11y */
+  --oymcc-a11y-outline-color: var(--oymcc-base-color-primary);
+  --oymcc-a11y-outline-offset: 2px;
+
   /* Backdrop */
   --oymcc-backdrop-box-shadow: none;
   --oymcc-backdrop-color: rgba(0, 0, 0, 0.5);
@@ -93,7 +97,7 @@
   --oymcc-manage-footer-margin: 8px 0 24px 0;
 
   /* Manage option */
-  --oymcc-manage-option-button-font-size: 16px;
+  --oymcc-manage-option-button-font-size: 14px;
   --oymcc-manage-option-button-padding: 6px 16px;
   --oymcc-manage-option-content-padding-right: 0;
   --oymcc-manage-option-margin-bottom: 24px;

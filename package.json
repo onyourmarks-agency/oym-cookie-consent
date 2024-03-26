@@ -18,7 +18,7 @@
 	"scripts": {
 		"frontend-cs": "pnpm format && pnpm eslint && pnpm stylelint && pnpm svelte-check",
 		"eslint": "eslint src --cache --ext .js,.svelte,.ts",
-		"format": "prettier --write .",
+		"format": "prettier --write '**/*.{js,mjs,ts,svelte,scss,css}'",
 		"stylelint": "stylelint -f verbose --cache 'src/**/*.{css,scss,svelte}'",
 		"start": "rollup -c rollup.config.mjs -w",
 		"build": "pnpm run frontend-cs && rollup -c rollup.config.mjs"
@@ -42,7 +42,7 @@
 		"eslint-plugin-svelte3": "^4.0.0",
 		"prettier": "^3.0.3",
 		"prettier-plugin-css-order": "^2.0.1",
-		"prettier-plugin-svelte": "^3.0.3",
+		"prettier-plugin-svelte": "^3.2.2",
 		"rollup": "^4.0.2",
 		"rollup-plugin-eslint": "^7.0.0",
 		"rollup-plugin-scss": "^4.0.0",

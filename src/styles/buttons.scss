@@ -11,14 +11,14 @@
   border-radius: var(--oymcc-button-border-radius);
   background: var(--oymcc-button-background);
   color: var(--oymcc-button-color);
-  font-family: var(--oymcc-button-font-family);
-  font-size: var(--oymcc-button-font-size);
   font-weight: var(--oymcc-button-font-weight);
+  font-size: var(--oymcc-button-font-size);
   line-height: var(--oymcc-button-line-height);
+  font-family: var(--oymcc-button-font-family);
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: all 250ms ease;
-  text-decoration: none;
   user-select: none;
 
   &:hover,
@@ -49,8 +49,8 @@
   border: var(--oymcc-button-ghost-border);
   background: var(--oymcc-button-ghost-background);
   color: var(--oymcc-button-ghost-color);
-  font-size: var(--oymcc-button-ghost-font-size);
   font-weight: var(--oymcc-button-ghost-font-weight);
+  font-size: var(--oymcc-button-ghost-font-size);
 
   &:hover {
     border: var(--oymcc-button-ghost-hover-border);

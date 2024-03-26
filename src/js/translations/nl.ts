@@ -39,4 +39,7 @@ export default {
         Je hebt ons nog geen toestemming gegeven om deze cookies te mogen plaatsen.`,
     button: 'Wijzig cookievoorkeuren',
   },
+  a11y: {
+    close: 'Sluit consentmanager',
+  },
 } as ContentType;

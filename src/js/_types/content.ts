@@ -33,6 +33,10 @@ export type ContentPermissionsType = {
   description: string;
 };
 
+export type ContentA11yType = {
+  close: string;
+};
+
 export type ContentType = {
   start: ContentStartType;
   manage: ContentManageType;
@@ -40,4 +44,5 @@ export type ContentType = {
     essential: ContentPermissionsType;
   };
   notification: ContentNotificationType;
+  a11y: ContentA11yType;
 };

@@ -1,22 +1,23 @@
 <script lang="ts">
-  import {config} from '../../store/config';
+  import { config } from '../../store/config';
   import IconArrow from './icons/IconArrow.svelte';
 </script>
 
 {#if $config?.explanationAnchors.length}
-	<ul class="oymcc__links">
-		{#each $config?.explanationAnchors as anchor}
-			<li>
-				<a href="{anchor.href}">
-					<IconArrow settings={{
-						width: 16,
-						height: 16,
-					}}/>
-					<span>{anchor.title}</span>
-				</a>
-			</li>
-		{/each}
-	</ul>
+  <ul class="oymcc__links">
+    {#each $config?.explanationAnchors as anchor}
+      <li>
+        <a href={anchor.href}>
+          <IconArrow
+            settings={{
+              width: 16,
+              height: 16,
+            }} />
+          <span>{anchor.title}</span>
+        </a>
+      </li>
+    {/each}
+  </ul>
 {/if}
 
 <style lang="scss">
@@ -48,5 +49,4 @@
     min-width: var(--oymcc-explanation-arrow-minwidth);
     margin: var(--oymcc-explanation-arrow-margin);
   }
-
 </style>

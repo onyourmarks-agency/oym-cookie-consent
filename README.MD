@@ -1,4 +1,4 @@
-*Current version: 2.1.0*
+*Current version: 3.1.0*
 
 # Install
 

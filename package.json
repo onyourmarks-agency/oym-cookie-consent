@@ -7,7 +7,7 @@
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
 	"types": "dist/types/index.d.ts",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"license": "MIT",
 	"repository": "onyourmarks-agency/oym-cookie-consent",
 	"author": {

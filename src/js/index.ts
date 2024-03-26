@@ -16,6 +16,7 @@ import { renderSiteContent } from './services/RenderSitecontentService';
 import { handleManageCookieElements } from './services/SiteService';
 import { overlayShow, overlayHide } from './services/TemplateService';
 import { reset, validate } from './services/ValidationService';
+import { setConsentModeValues } from './services/ConsentModeService';
 
 globalThis.oymcc = globalThis.oymcc || {};
 globalThis.oymcc.initialized = false;
@@ -79,11 +80,14 @@ export default {
       return;
     }
 
+    setConsentModeValues(config.consentMode, 'default', 500);
+
     configStore.set(globalThis.oymcc.config);
     contentStore.set(globalThis.oymcc.content);
 
     document.addEventListener('oymcc-changed', (): void => {
       renderSiteContent();
+      setConsentModeValues(config.consentMode, 'update');
     });
 
     document.addEventListener('oymcc-close-overlay', (): void => {
@@ -104,7 +108,6 @@ export default {
     }
 
     handleManageCookieElements();
-
     globalThis.oymcc.initialized = true;
   },
 };

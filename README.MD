@@ -48,6 +48,12 @@ const options = {
             description: 'Maecenas faucibus mollis interdum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.',
         },
     ],
+    consentMode: {
+        ad_personalization: 'personalisation',
+        ad_storage: 'social',
+        ad_user_data: '...',
+        analytics_storage: '...',
+    },
     cookieName: 'oymcc',
     exceptionUrls: [
         '/disclaimer/',
@@ -82,6 +88,7 @@ const options: ConfigType = {
 All possible options:
 
 * [consentOptions](#consentOptions)
+* [consentMode](#consentMode)
 * [cookieName](#cookieName)
 * [exceptionUrls](#exceptionUrls)
 * [language](#language)
@@ -115,6 +122,29 @@ const options = {
 ```
 
 Each option can be accept or declined by the visitor
+
+### consentMode
+*Optional*
+
+You can implement Google's consentMode v2 out of the box. This is an object with the key from the consentMode and the key of the consentOption.
+
+```es6
+consentMode: {
+    ad_personalization: 'personalisation',
+    ad_storage: 'social',
+    ad_user_data: '...',
+    analytics_storage: '...',
+},
+```
+
+Other often ussed keys are:
+- `functionality_storage`
+- `personalization_storage`
+- `security_storage`
+
+And you can append your own if needed.
+
+The value of each key is the key of the consentOption above. When the consent is given or not, all items are setted in the DataLayer as granted or denied. Updates are also automaticly send to the DataLayer.
 
 ### cookieName
 

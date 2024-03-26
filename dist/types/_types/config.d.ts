@@ -10,6 +10,16 @@ export type ConfigExplanationAnchorType = {
     title: string;
     href: string;
 };
+export type ConfigConsentModeType = {
+    ad_personalization?: string;
+    ad_storage?: string;
+    ad_user_data?: string;
+    analytics_storage?: string;
+    functionality_storage?: string;
+    personalization_storage?: string;
+    security_storage?: string;
+    [key: string]: string | undefined;
+};
 export type ConfigStyleType = 'bar' | 'popup';
 export type ConfigType = {
     consentOptions: ConfigConsentOptionsType[] | [];
@@ -21,6 +31,7 @@ export type ConfigType = {
     renderSelector: string;
     style: ConfigStyleType;
     version: string;
+    consentMode?: ConfigConsentModeType;
 };
 export type InfoType = {
     v: string;

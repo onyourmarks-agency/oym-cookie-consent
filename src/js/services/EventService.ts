@@ -21,7 +21,7 @@ export const storeCookie = (accepted: CookieAcceptedType, info: CookieInfoType):
       accepted,
       info,
     }),
-    365,
+    365 * 24 * 60 * 60,
   );
 
   globalThis.oymcc.cookies = {

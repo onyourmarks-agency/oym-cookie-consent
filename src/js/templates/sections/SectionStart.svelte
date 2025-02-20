@@ -2,7 +2,7 @@
   import { OYMCC_SECTION_MANAGE } from '../../config/sections';
   import { content } from '../../store/content';
   import { config } from '../../store/config';
-  import { saveAllPermissions } from '../../services/PermissionService';
+  import { saveAllPermissions, saveNoPermissions } from '../../services/PermissionService';
   import { updateSection } from '../../services/SectionService';
 </script>
 
@@ -11,6 +11,14 @@
   <p class="oymcc__start__desc">{$content?.start.description}</p>
 
   <div class="oymcc__start__choices">
+    <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
+      <span>{$content?.start.buttons.accept}</span>
+    </button>
+    {#if $config?.denyable}
+      <button type="button" class="oymcc__button" on:click={() => saveNoPermissions()}>
+        <span>{$content?.start.buttons.deny}</span>
+      </button>
+    {/if}
     {#if $config?.manageable}
       <button
         type="button"
@@ -19,14 +27,12 @@
         <span>{$content?.start.buttons.manage}</span>
       </button>
     {/if}
-
-    <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
-      <span>{$content?.start.buttons.accept}</span>
-    </button>
   </div>
 </div>
 
 <style lang="scss">
+  @use '../../../styles/sass-variables' as *;
+
   .oymcc__start {
     width: 100%;
     max-width: var(--oymcc-content-max-width);
@@ -54,5 +60,13 @@
     flex-wrap: wrap;
     margin-bottom: var(--oymcc-start-choices-margin-bottom);
     gap: var(--oymcc-start-choices-button-spacing);
+
+    button {
+      width: 100%;
+
+      @media screen and (min-width: $oymcc-breakpoint-md) {
+        width: auto;
+      }
+    }
   }
 </style>

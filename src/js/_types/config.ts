@@ -33,6 +33,7 @@ export type ConfigType = {
   explanationAnchors: ConfigExplanationAnchorType[] | [];
   language: string;
   manageable: boolean;
+  denyable: boolean;
   renderSelector: string;
   style: ConfigStyleType;
   version: string;

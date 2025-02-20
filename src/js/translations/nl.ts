@@ -8,6 +8,7 @@ export default {
     buttons: {
       manage: 'Beheer cookies',
       accept: 'Ik accepteer cookies',
+      deny: 'Ik weiger cookies',
     },
   },
   manage: {
@@ -21,6 +22,7 @@ export default {
     },
     buttons: {
       all: 'Overal toestemming voor geven',
+      none: 'Optionele cookies weigeren',
       save: 'Keuze opslaan',
     },
     error: 'Je hebt nog niet op alle vragen antwoord gegeven. Geef hierboven jouw voorkeur aan.',

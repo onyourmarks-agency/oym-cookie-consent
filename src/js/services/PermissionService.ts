@@ -45,6 +45,10 @@ export const saveAllPermissions = (): void => {
   savePermissions(options.map((consentOption) => consentOption.key));
 };
 
+export const saveNoPermissions = (): void => {
+  savePermissions(['essential']);
+};
+
 export const checkPermission = (arr: string[] | string): boolean => {
   if (!arr || !arr.length) {
     return false;

@@ -9,6 +9,7 @@ export const OYMCC_CONFIG: ConfigType = {
   explanationAnchors: [],
   language: 'nl',
   manageable: true,
+  denyable: false,
   style: 'bar',
   renderSelector: '[data-oymcc-render]',
   version: '1.0',

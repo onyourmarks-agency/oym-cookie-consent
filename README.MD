@@ -1,4 +1,4 @@
-*Current version: 3.1.0*
+*Current version: 3.2.0*
 
 # Install
 
@@ -71,6 +71,7 @@ const options = {
       },
     ],
     manageable: true,
+    denyable: true,
     renderSelector: '[data-oymcc-render]',
     style: 'bar',
     language: 'nl',
@@ -93,6 +94,7 @@ All possible options:
 * [exceptionUrls](#exceptionUrls)
 * [language](#language)
 * [manageable](#manageable)
+* [denyable](#denyable)
 * [renderSelector](#renderSelector)
 * [style](#style)
 * [version](#version)
@@ -212,8 +214,20 @@ const options = {
 };
 ```
 
-When you didn't have consentOptions. You can use this package to tell yourvisiters that cookies are being used.
+When you didn't have consentOptions. You can use this package to tell your visiters that cookies are being used.
 The manage button are not rendered. No chooses can be made expect 'accept'.
+
+### denyable
+
+*Optional*
+
+```es6
+const options = {
+    denyable: true // Default: false
+};
+```
+
+When denyable is set to true, a button will be shown to deny all cookies except the essential ones.
 
 ### renderSelector
 

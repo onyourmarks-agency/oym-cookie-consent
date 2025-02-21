@@ -3,7 +3,11 @@
   import { chosenPermissions } from '../../store/chosen-permissions';
   import { content } from '../../store/content';
   import ManageOptions from '../components/ManageOptions.svelte';
-  import { saveAllPermissions, savePermissions } from '../../services/PermissionService';
+  import {
+    saveAllPermissions,
+    saveNoPermissions,
+    savePermissions,
+  } from '../../services/PermissionService';
   import { config } from '../../store/config';
 
   let error = false;
@@ -30,9 +34,16 @@
   {/if}
 
   <div class="oymcc__manage__buttons">
-    <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
-      <span>{$content?.manage.buttons.all}</span>
-    </button>
+    <div class="oymcc__manage-bulk-save">
+      <button type="button" class="oymcc__button" on:click={() => saveAllPermissions()}>
+        <span>{$content?.manage.buttons.all}</span>
+      </button>
+      {#if $config?.denyable}
+        <button type="button" class="oymcc__button--ghost" on:click={() => saveNoPermissions()}>
+          <span>{$content?.manage.buttons.none}</span>
+        </button>
+      {/if}
+    </div>
     <button
       type="button"
       class="oymcc__button oymcc__button--ghost"
@@ -51,6 +62,22 @@
     width: 100%;
     max-width: var(--oymcc-content-max-width);
     margin: auto;
+  }
+
+  .oymcc__manage-bulk-save {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    button {
+      width: 100%;
+
+      @media screen and (min-width: $oymcc-breakpoint-md) {
+        width: auto;
+        margin-right: var(--oymcc-manage-button-margin-bottom);
+      }
+    }
   }
 
   .oymcc__manage__title {
@@ -80,7 +107,9 @@
     width: 100%;
 
     button {
+      height: min-content;
       margin-bottom: var(--oymcc-manage-button-margin-bottom);
+      white-space: nowrap;
     }
 
     @media screen and (min-width: $oymcc-breakpoint-md) {

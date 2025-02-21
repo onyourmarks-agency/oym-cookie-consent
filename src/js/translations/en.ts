@@ -7,6 +7,7 @@ export default {
     buttons: {
       manage: 'Manage cookies',
       accept: 'I accept cookies',
+      deny: 'I refuse cookies',
     },
   },
   manage: {
@@ -20,6 +21,7 @@ export default {
     },
     buttons: {
       all: 'Accept all',
+      none: 'Refuse optional cookies',
       save: 'Save choice',
     },
     error: 'You have not answered all questions yet. Please indicate your preference above.',

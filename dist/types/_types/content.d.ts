@@ -7,6 +7,7 @@ export type ContentManageType = {
     };
     buttons: {
         all: string;
+        none: string;
         save: string;
     };
     error: string;
@@ -23,6 +24,7 @@ export type ContentStartType = {
     buttons: {
         manage: string;
         accept: string;
+        deny: string;
     };
 };
 export type ContentPermissionsType = {

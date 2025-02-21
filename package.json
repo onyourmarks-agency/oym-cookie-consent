@@ -9,7 +9,10 @@
 	"types": "dist/types/index.d.ts",
 	"version": "3.1.1",
 	"license": "MIT",
-	"repository": "onyourmarks-agency/oym-cookie-consent",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/onyourmarks-agency/oym-cookie-consent.git"
+	},
 	"author": {
 		"name": "On Your Marks",
 		"email": "hosting@onyourmarks.agency",

@@ -4,6 +4,7 @@ import { getCurrentConfig } from './ConfigService';
 import { removeCookie } from './CookieService';
 import { dispatchChanged, storeCookie } from './EventService';
 import { getCurrentCookie } from './PermissionService';
+import { overlayShow } from './TemplateService';
 
 export const reset = (): void => {
   removeCookie(getCurrentConfig().cookieName);
@@ -38,4 +39,5 @@ export const validate = (): void => {
   }
 
   reset();
+  overlayShow();
 };

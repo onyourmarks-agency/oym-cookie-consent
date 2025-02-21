@@ -1,14 +1,8 @@
-export type SameSiteType = 'Lax' | 'Strict' | 'None' | null;
+type SameSiteType = 'Strict' | 'Lax' | 'None';
 
-export const getCookie = (name: string): string | null => {
-  const escapedCookieName: string = name.replace(/([.*+?^$(){}|[\]/\\])/g, '\\$1');
-
-  const matchedCookie: RegExpMatchArray | null = document.cookie.match(
-    RegExp(`(?:^|;\\s*)${escapedCookieName}=([^;]*)`),
-  );
-
-  return matchedCookie && matchedCookie[1] ? matchedCookie[1] : null;
-};
+interface CookieProperties {
+  [key: string]: string | number | null;
+}
 
 export const setCookie = (
   name: string,
@@ -18,7 +12,7 @@ export const setCookie = (
   path?: string,
   sameSite?: SameSiteType,
 ): void => {
-  const cookieProperties = {
+  const cookieProperties: CookieProperties = {
     [name]: value,
     'Max-Age': maxAge || null,
     Path: path || '/',
@@ -27,21 +21,39 @@ export const setCookie = (
     SameSite: sameSite || 'Lax',
   };
 
-  document.cookie = Object.keys(cookieProperties)
-    .map((key: string): string => {
-      const cookiePropertValue: string | number | null = cookieProperties[key] || null;
-      if (cookiePropertValue === null) {
-        return '';
-      }
-
-      return `${key}${cookiePropertValue ? `=${cookiePropertValue}` : ''}`;
+  document.cookie = Object.entries(cookieProperties)
+    .map(([key, value]) => {
+      if (value === null) return '';
+      if (key === 'Secure') return 'Secure';
+      return `${key}=${value}`;
     })
-    .filter((filterValue: string): boolean => filterValue !== '')
+    .filter(Boolean)
     .join('; ');
 };
 
 export const removeCookie = (name: string, path?: string, domain?: string): void => {
-  document.cookie = `${name}=${path ? `;path=${path}` : ''}${
-    domain ? `;domain=${domain}` : ''
-  };expires=${new Date(0).toUTCString()}`;
+  const cookieProperties: CookieProperties = {
+    [name]: '',
+    Path: path || '/',
+    Domain: domain || null,
+    expires: new Date(0).toUTCString(),
+    SameSite: 'Lax',
+  };
+
+  document.cookie = Object.entries(cookieProperties)
+    .map(([key, value]) => {
+      if (value === null) return '';
+      return `${key}=${value}`;
+    })
+    .filter(Boolean)
+    .join('; ');
+};
+
+export const getCookie = (name: string): string | null => {
+  const escapedCookieName: string = name.replace(/([.*+?^$(){}|[\]/\\])/g, '\\$1');
+  const matchedCookie: RegExpMatchArray | null = document.cookie.match(
+    RegExp(`(?:^|;\\s*)${escapedCookieName}=([^;]*)`),
+  );
+
+  return matchedCookie && matchedCookie[1] ? matchedCookie[1] : null;
 };

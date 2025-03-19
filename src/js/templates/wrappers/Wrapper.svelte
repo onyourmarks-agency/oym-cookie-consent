@@ -8,12 +8,12 @@
   let contentElement: HTMLElement | null;
 
   onMount(() => {
-    console.log(contentElement);
-
-    if (contentElement) {
-      contentElement.setAttribute('tabindex', '0');
-      contentElement.focus();
-    }
+    setTimeout(() => {
+      if (contentElement) {
+        contentElement.setAttribute('tabindex', '0');
+        contentElement.focus();
+      }
+    }, 500);
   });
 </script>
 

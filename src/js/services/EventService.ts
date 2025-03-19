@@ -4,6 +4,11 @@ import { setCookie } from './CookieService';
 
 export const dispatchChanged = (): void => {
   document.dispatchEvent(new Event('oymcc-changed'));
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'oymcc-changed',
+  });
 };
 
 export const dispatchCloseOverlay = (): void => {

@@ -36,8 +36,8 @@ export const savePermissions = (permissions): void => {
     accepted: getCurrentCookie()?.info?.accepted || new Date().toISOString(),
     updated: new Date().toISOString(),
   } as CookieInfoType);
-  dispatchChanged();
   dispatchCloseOverlay();
+  dispatchChanged();
 };
 
 export const saveAllPermissions = (): void => {

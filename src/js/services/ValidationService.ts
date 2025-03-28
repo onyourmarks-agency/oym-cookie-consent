@@ -33,8 +33,8 @@ export const validate = (): void => {
 
   if (validated) {
     globalThis.oymcc.cookies = cookie;
-    dispatchChanged();
     storeCookie(cookie.accepted, cookie.info);
+    dispatchChanged();
     return;
   }
 

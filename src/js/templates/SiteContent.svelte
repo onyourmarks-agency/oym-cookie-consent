@@ -6,22 +6,25 @@
   let acceptedTags: string[] = [];
   let scriptTags: RegExpMatchArray | null = null;
 
-  const loadScriptTag = (scriptTagString): void => {
+  const loadScriptTag = (scriptTagString: string): void => {
     const dummyElement: HTMLElement = document.createElement('div');
     dummyElement.innerHTML = scriptTagString;
 
-    const childElement = dummyElement?.firstElementChild;
+    const childElement = dummyElement?.firstElementChild as HTMLScriptElement;
 
     if (!childElement) {
       return;
     }
 
-    const async = childElement.getAttribute('async');
-    const src = childElement.getAttribute('src');
-
     const scriptTag: HTMLScriptElement = document.createElement('script');
-    scriptTag.async = async ? async === 'true' : true;
-    scriptTag.src = src ? src : '';
+
+    Array.from(childElement.attributes).forEach((attr) => {
+      scriptTag.setAttribute(attr.name, attr.value);
+    });
+
+    if (childElement.innerHTML && !childElement.src) {
+      scriptTag.innerHTML = childElement.innerHTML;
+    }
 
     document.head.appendChild(scriptTag);
   };

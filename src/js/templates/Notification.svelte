@@ -19,6 +19,7 @@
     border: var(--oymcc-notification-border);
     border-radius: var(--oymcc-notification-border-radius);
     background: var(--oymcc-notification-background);
+    color: var(--oymcc-notification-color-text);
     text-align: center;
   }
 

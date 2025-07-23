@@ -39,7 +39,10 @@
         <span>{$content?.manage.buttons.all}</span>
       </button>
       {#if $config?.denyable}
-        <button type="button" class="oymcc__button--ghost" on:click={() => saveNoPermissions()}>
+        <button
+          type="button"
+          class="oymcc__button oymcc__button--ghost"
+          on:click={() => saveNoPermissions()}>
           <span>{$content?.manage.buttons.none}</span>
         </button>
       {/if}

@@ -23,6 +23,7 @@ export type ConfigConsentModeType = {
 export type ConfigStyleType = 'bar' | 'popup';
 export type ConfigType = {
     consentOptions: ConfigConsentOptionsType[] | [];
+    consentModeSetDefault?: boolean;
     cookieName: string;
     exceptionUrls: string[] | [];
     explanationAnchors: ConfigExplanationAnchorType[] | [];

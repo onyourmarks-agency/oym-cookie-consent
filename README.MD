@@ -1,4 +1,6 @@
-*Current version: 3.4.3*
+*Current version: 3.5.0*
+
+[Changelog](./CHANGELOG.md)
 
 # Install
 
@@ -54,6 +56,7 @@ const options = {
         ad_user_data: '...',
         analytics_storage: '...',
     },
+    consentModeSetDefault: true,
     cookieName: 'oymcc',
     exceptionUrls: [
         '/disclaimer/',
@@ -90,6 +93,7 @@ All possible options:
 
 * [consentOptions](#consentOptions)
 * [consentMode](#consentMode)
+* [consentModeSetDefault](#consentModeSetDefault)
 * [cookieName](#cookieName)
 * [exceptionUrls](#exceptionUrls)
 * [language](#language)
@@ -147,6 +151,18 @@ Other often ussed keys are:
 And you can append your own if needed.
 
 The value of each key is the key of the consentOption above. When the consent is given or not, all items are setted in the DataLayer as granted or denied. Updates are also automaticly send to the DataLayer.
+
+### consentModeSetDefault
+*Optional*
+
+By default, this package sends `gtag('consent', 'default', ...)` on init when `consentMode` is configured.
+Set this option to `false` if you already set the consent default before loading this script and only want update calls from this package.
+
+```es6
+const options = {
+    consentModeSetDefault: false, // Default: true
+};
+```
 
 ### cookieName
 

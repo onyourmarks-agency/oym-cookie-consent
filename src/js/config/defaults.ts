@@ -4,6 +4,7 @@ export const OYMCC_CLASSNAME: string = 'oymcc';
 
 export const OYMCC_CONFIG: ConfigType = {
   consentOptions: [],
+  consentModeSetDefault: true,
   cookieName: 'oymcc',
   exceptionUrls: [],
   explanationAnchors: [],

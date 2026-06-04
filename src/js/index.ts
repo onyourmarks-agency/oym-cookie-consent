@@ -80,7 +80,9 @@ export default {
       return;
     }
 
-    setConsentModeValues(config.consentMode, 'default', 500);
+    if (config.consentModeSetDefault) {
+      setConsentModeValues(config.consentMode, 'default', 500);
+    }
 
     configStore.set(globalThis.oymcc.config);
     contentStore.set(globalThis.oymcc.content);

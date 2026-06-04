@@ -1,4 +1,4 @@
-*Current version: 3.5.0*
+*Current version: 3.5.0.1*
 
 [Changelog](./CHANGELOG.md)
 

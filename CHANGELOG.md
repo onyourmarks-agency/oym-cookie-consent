@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [3.5.0.1] - 2026-06-04
+## [3.5.1] - 2026-06-04
 
 ### Added
 - Added `consentModeSetDefault` config option to control sending `gtag('consent', 'default', ...)` during init.

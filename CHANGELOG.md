@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.5.2] - 2026-10-14
+
+### Added
+- Added `target` property to `ConfigExplanationAnchorType` to allow opening links in new tabs.
+
 ## [3.5.1] - 2026-06-04
 
 ### Added

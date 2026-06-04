@@ -9,6 +9,7 @@ export type ConfigConsentOptionsType = {
 export type ConfigExplanationAnchorType = {
     title: string;
     href: string;
+    target?: '_self' | '_blank' | '_parent' | '_top';
 };
 export type ConfigConsentModeType = {
     ad_personalization?: string;

@@ -7,7 +7,7 @@
   <ul class="oymcc__links">
     {#each $config?.explanationAnchors as anchor}
       <li>
-        <a href={anchor.href}>
+        <a href={anchor.href} target={anchor.target || '_self'}>
           <IconArrow
             settings={{
               width: 16,
